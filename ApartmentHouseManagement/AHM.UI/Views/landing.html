@@ -1,0 +1,54 @@
+﻿<div data-ng-controller="indexController">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="#">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="" data-ng-click="logOut()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="page-header text-center">
+                <h1>{{ authentication.buildingName }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div id="userMenu" class="navbar-left col-md-3" data-ng-hide="!authentication.isAuthenticated" data-ng-controller="indexController">
+            <div class="list-group">
+                <a href="#communal" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Utilities</a>
+                <div class="collapse submenu" id="communal">
+                    <a data-ui-sref=".billsBoard" class="list-group-item" data-parent="#communal">Board</a>
+                    <a data-ui-sref=".editBill" class="list-group-item" data-parent="#communal">Create</a>
+                    <a data-ui-sref=".utilitiesClauses" class="list-group-item" data-parent="#communal">Clauses</a>
+                </div>
+                <a href="#post" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Post</a>
+                <div class="collapse submenu" id="post">
+                    <a data-ui-sref=".packagesBoard" class="list-group-item" data-parent="#post">Packages board</a>
+                    <a data-ui-sref=".createPackage" class="list-group-item" data-parent="#post">Create Package</a>
+                </div>
+                <!--<a data-ui-sref=".instructions" class="list-group-item list-group-item-success" data-parent="#userMenu">Instructions</a>
+                <a data-ui-sref=".journal" class="list-group-item list-group-item-success" data-parent="#userMenu">Journal</a>-->
+                <a href="#building" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Building</a>
+                <div class="collapse submenu" id="building">
+                    <a data-ui-sref=".apartments" class="list-group-item" data-parent="#building">Apartments</a>
+                    <a data-ui-sref=".occupants" class="list-group-item" data-parent="#building">Occupant</a>
+                    <a data-ui-sref=".locations" class="list-group-item" data-parent="#building">Locations</a>
+                    <a data-ui-sref=".packageTypes" class="list-group-item" data-parent="#building">Package Types</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-8" data-ui-view=""></div>
+    </div>
+</div>

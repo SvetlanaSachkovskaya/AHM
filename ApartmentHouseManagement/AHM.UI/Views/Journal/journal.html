@@ -1,0 +1,20 @@
+﻿<div>
+    <div class="btn-group">
+        <label class="btn btn-primary" ng-model="timeInterval" ng-click="refreshJournal()" btn-radio="1">Day</label>
+        <label class="btn btn-primary" ng-model="timeInterval" ng-click="refreshJournal()" btn-radio="2">Week</label>
+        <label class="btn btn-primary" ng-model="timeInterval" ng-click="refreshJournal()" btn-radio="3">Month</label>
+        <label class="btn btn-primary" ng-model="timeInterval" ng-click="refreshJournal()" btn-radio="4">Year</label>
+        <label class="btn btn-primary" ng-model="timeInterval" ng-click="refreshJournal()" btn-radio="5">All</label>
+    </div>
+
+    <div data-ng-repeat="ev in events">
+        <div class="row">
+            <div class="col-md-2">
+                {{ev.date}}
+            </div>
+            <div class="col-md-9">
+                {{ ev.content}}
+            </div>
+        </div>
+    </div>
+</div>

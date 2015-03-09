@@ -1,0 +1,18 @@
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.pdb
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.pdb
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.csprojResolveAssemblyReference.cache
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.dll.config
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.pdb
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.pdb
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.csprojResolveAssemblyReference.cache
+D:\Мои документы\Учеба\Диплом\work\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.dll.config
+D:\Мои документы\Учеба\Диплом\work\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.dll
+D:\Мои документы\Учеба\Диплом\work\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.pdb
+D:\Мои документы\Учеба\Диплом\work\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.dll
+D:\Мои документы\Учеба\Диплом\work\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.pdb
+D:\Мои документы\Учеба\Диплом\work\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.csprojResolveAssemblyReference.cache
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.dll.config

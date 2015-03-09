@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B35D194E-7430-47BB-9C03-846B452100AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AHM.DataLayer</RootNamespace>
+    <AssemblyName>AHM.DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.0.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AhmContext.cs" />
+    <Compile Include="Interfaces\IBaseRepository.cs" />
+    <Compile Include="Interfaces\IPackageRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Migrations\201502181156216_CreateDB.cs" />
+    <Compile Include="Migrations\201502181156216_CreateDB.Designer.cs">
+      <DependentUpon>201502181156216_CreateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502221629117_AddedPostData.cs" />
+    <Compile Include="Migrations\201502221629117_AddedPostData.designer.cs">
+      <DependentUpon>201502221629117_AddedPostData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502281916114_RemovedPhotoSettings.cs" />
+    <Compile Include="Migrations\201502281916114_RemovedPhotoSettings.Designer.cs">
+      <DependentUpon>201502281916114_RemovedPhotoSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503011852028_AddedEventsAndInstructions.cs" />
+    <Compile Include="Migrations\201503011852028_AddedEventsAndInstructions.Designer.cs">
+      <DependentUpon>201503011852028_AddedEventsAndInstructions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503020544342_AddedIsClosedField.cs" />
+    <Compile Include="Migrations\201503020544342_AddedIsClosedField.Designer.cs">
+      <DependentUpon>201503020544342_AddedIsClosedField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503061752238_AddedUtilities.cs" />
+    <Compile Include="Migrations\201503061752238_AddedUtilities.Designer.cs">
+      <DependentUpon>201503061752238_AddedUtilities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503062023484_FixedUtilitiesClauseTypeName.cs" />
+    <Compile Include="Migrations\201503062023484_FixedUtilitiesClauseTypeName.Designer.cs">
+      <DependentUpon>201503062023484_FixedUtilitiesClauseTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503072041112_AddedOverpay.cs" />
+    <Compile Include="Migrations\201503072041112_AddedOverpay.Designer.cs">
+      <DependentUpon>201503072041112_AddedOverpay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503082103052_UpdatedUtilitiesItemsTable.cs" />
+    <Compile Include="Migrations\201503082103052_UpdatedUtilitiesItemsTable.Designer.cs">
+      <DependentUpon>201503082103052_UpdatedUtilitiesItemsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503090001510_UpdatedOccupantsTable.cs" />
+    <Compile Include="Migrations\201503090001510_UpdatedOccupantsTable.Designer.cs">
+      <DependentUpon>201503090001510_UpdatedOccupantsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503090950366_AddedIsLimitedForUtilitiesClause.cs" />
+    <Compile Include="Migrations\201503090950366_AddedIsLimitedForUtilitiesClause.Designer.cs">
+      <DependentUpon>201503090950366_AddedIsLimitedForUtilitiesClause.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\BillRepository.cs" />
+    <Compile Include="Repositories\OccupantRepository.cs" />
+    <Compile Include="Repositories\PackageRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\UtilitiesItemRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AHM.Common\AHM.Common.csproj">
+      <Project>{5DE3BB7E-776C-4C4A-B9B3-46AD494B5CB7}</Project>
+      <Name>AHM.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MigrationScript.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201502181156216_CreateDB.resx">
+      <DependentUpon>201502181156216_CreateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502221629117_AddedPostData.resx">
+      <DependentUpon>201502221629117_AddedPostData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502281916114_RemovedPhotoSettings.resx">
+      <DependentUpon>201502281916114_RemovedPhotoSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503011852028_AddedEventsAndInstructions.resx">
+      <DependentUpon>201503011852028_AddedEventsAndInstructions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503020544342_AddedIsClosedField.resx">
+      <DependentUpon>201503020544342_AddedIsClosedField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503061752238_AddedUtilities.resx">
+      <DependentUpon>201503061752238_AddedUtilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503062023484_FixedUtilitiesClauseTypeName.resx">
+      <DependentUpon>201503062023484_FixedUtilitiesClauseTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503072041112_AddedOverpay.resx">
+      <DependentUpon>201503072041112_AddedOverpay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503082103052_UpdatedUtilitiesItemsTable.resx">
+      <DependentUpon>201503082103052_UpdatedUtilitiesItemsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503090001510_UpdatedOccupantsTable.resx">
+      <DependentUpon>201503090001510_UpdatedOccupantsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503090950366_AddedIsLimitedForUtilitiesClause.resx">
+      <DependentUpon>201503090950366_AddedIsLimitedForUtilitiesClause.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

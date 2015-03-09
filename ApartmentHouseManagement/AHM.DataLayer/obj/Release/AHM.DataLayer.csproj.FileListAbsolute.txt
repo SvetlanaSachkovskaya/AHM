@@ -1,0 +1,31 @@
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\AHM.DataLayer.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\AHM.DataLayer.pdb
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\AHM.Common.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\AHM.Common.pdb
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\Microsoft.AspNet.Identity.Core.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.csprojResolveAssemblyReference.cache
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.pdb
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\AHM.DataLayer.dll.config
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\AHM.DataLayer.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\AHM.DataLayer.pdb
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\AHM.Common.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\EntityFramework.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\EntityFramework.SqlServer.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\AHM.Common.pdb
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\EntityFramework.xml
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\EntityFramework.SqlServer.xml
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\Microsoft.AspNet.Identity.Core.xml
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.csprojResolveAssemblyReference.cache
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.Migrations.InitialCreate.resources
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.csproj.GenerateResource.Cache
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.pdb

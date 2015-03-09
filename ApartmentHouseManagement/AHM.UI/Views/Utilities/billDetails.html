@@ -1,0 +1,59 @@
+﻿<div>
+    <div>
+        <label>Month : {{ bill.date | date: 'MMMM' }}</label>
+        <br />
+        <label>Apartment : {{ bill.apartment.name }}</label>
+        <br/>
+        <label>Status : {{ bill.isPaid ? "Paid" : "Pending" }}</label>
+        <br/>
+        <label>Email sent : {{ bill.isEmailSent ? "Yes" : "No" }}</label>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Measure</th>
+            <th>Quantity</th>
+            <th>Tariff*</th>
+            <th>Tariff**</th>
+            <th>Amount*</th>
+            <th>Amount**</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="utilitiesItem in bill.utilitiesItems">
+            <td>
+                {{ utilitiesItem.utilitiesClause.name }}
+            </td>
+            <td>
+                {{ utilitiesItem.utilitiesClause.measure }}
+            </td>
+            <td>
+                {{ utilitiesItem.quantity }}
+            </td>
+            <td>
+                {{ utilitiesItem.utilitiesClause.subsidizedTariff }}
+            </td>
+            <td>
+                {{ utilitiesItem.utilitiesClause.fullTariff }}
+            </td>
+            <td>
+                {{ utilitiesItem.subsidezedAmount }}
+            </td>
+            <td>
+                {{ utilitiesItem.amountByFullTariff }}
+            </td>
+            <td>
+                {{ (utilitiesItem.subsidezedAmount + utilitiesItem.amountByFullTariff) }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <!--<button data-ng-click="sendEmail()" class="btn btn-default">Send email</button>-->
+        <button data-ng-hide="bill.isPaid" data-ng-click="edit()" class="btn btn-default">Edit</button>
+        <button data-ng-click="cancel()" class="btn btn-default">Cancel</button>
+    </div>
+</div>

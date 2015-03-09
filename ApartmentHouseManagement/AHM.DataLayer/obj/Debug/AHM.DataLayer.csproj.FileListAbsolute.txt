@@ -1,0 +1,160 @@
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.pdb
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.pdb
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csprojResolveAssemblyReference.cache
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.pdb
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll.config
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csproj.GenerateResource.Cache
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll.config
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.pdb
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.pdb
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.xml
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.InitialCreate.resources
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csproj.GenerateResource.Cache
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.dll
+D:\Diplom\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.pdb
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll.config
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.pdb
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.pdb
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csprojResolveAssemblyReference.cache
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.pdb
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Newtonsoft.Json.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Owin.dll
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Newtonsoft.Json.xml
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.CreateDB.resources
+D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csproj.GenerateResource.Cache
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll.config
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.pdb
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Owin.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.pdb
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csprojResolveAssemblyReference.cache
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.CreateDB.resources
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csproj.GenerateResource.Cache
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.dll
+C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.pdb
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.CreateDB.resources
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Newtonsoft.Json.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Owin.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Newtonsoft.Json.xml
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedPostData.resources
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.RemovedPhotoSettings.resources
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedEventsAndInstructions.resources
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedIsClosedField.resources
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedUtilities.resources
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.FixedUtilitiesClauseTypeName.resources
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedOverpay.resources
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.UpdatedUtilitiesItemsTable.resources
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.UpdatedOccupantsTable.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll.config
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.DataLayer.pdb
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Newtonsoft.Json.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Owin.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\AHM.Common.pdb
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\bin\Debug\Newtonsoft.Json.xml
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csprojResolveAssemblyReference.cache
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.CreateDB.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedPostData.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.RemovedPhotoSettings.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedEventsAndInstructions.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedIsClosedField.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedUtilities.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.FixedUtilitiesClauseTypeName.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedOverpay.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.UpdatedUtilitiesItemsTable.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.UpdatedOccupantsTable.resources
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csproj.GenerateResource.Cache
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.dll
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.pdb
+D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedIsLimitedForUtilitiesClause.resources

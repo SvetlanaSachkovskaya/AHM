@@ -1,0 +1,47 @@
+﻿<form class="col-md-8 center-block">
+    <p class="page-title">New clause</p>
+
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" data-ng-model="utilitiesClause.name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Measure</label>
+        <input type="text" data-ng-model="utilitiesClause.measure" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        <select data-ng-model="utilitiesClause.utilitiesClauseType" data-ng-options="utilitiesClauseType.id as utilitiesClauseType.name for utilitiesClauseType in utilitiesClauseTypes"
+                class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label>Calculation</label>
+        <select data-ng-model="utilitiesClause.calculationType" data-ng-options="calculationType.id as calculationType.name for calculationType in calculationTypes"
+                class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label>Subsidized tariff / Rate</label>
+        <input type="text" data-ng-model="utilitiesClause.subsidizedTariff" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="checkbox" data-ng-model="utilitiesClause.isLimited" id="isLimitedCheckBox" />
+        <label for="isLimitedCheckBox">Set subsidized limit</label>
+    </div>
+    <div class="form-group">
+        <label>Full tariff / Rate</label>
+        <input type="text" data-ng-disabled="!utilitiesClause.isLimited" data-ng-model="utilitiesClause.fullTariff" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Limit</label>
+        <input type="text" data-ng-disabled="!utilitiesClause.isLimited" data-ng-model="utilitiesClause.limitForPerson" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="checkbox" data-ng-model="utilitiesClause.isActive" id="isActiveCheckBox" />
+        <label for="isActiveCheckBox">Active</label>
+    </div>
+
+    <div class="pull-right">
+        <add-button data-ng-hide="isEditMode" action="create()" text="Create"></add-button>
+        <add-button data-ng-hide="!isEditMode" action="save()" text="Save"></add-button>
+    </div>
+</form>

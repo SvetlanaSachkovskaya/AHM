@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="AhmApp">
+<head>
+    <title>AngularJS Authentication</title>
+    <link href="Content/Styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Styles/site.css" rel="stylesheet" />
+    <link href="Content/Styles/loading-bar.min.css" rel="stylesheet" />
+    <link href="Content/Styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/Styles/social-buttons.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a data-ng-hide="authentication.isAuthenticated" class="navbar-brand" href="#/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="#">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="#/orders">My Orders</a></li>
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="#/refresh">Refresh Token</a></li>
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="authentication.isAuthenticated"> <a href="#/login">Login</a></li>
+                    <li data-ng-hide="authentication.isAuthenticated"> <a href="#/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="page-header text-center">
+                <h1>Apartment House Management</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="userMenu" class="navbar-left" data-ng-controller="indexController">
+            <div class="list-group" data-ng-hide="!authentication.isAuthenticated">
+                <a href="#communal" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Communal services</a>
+                <div class="collapse" id="communal">
+                    <a href="javascript:;" class="list-group-item" data-toggle="collapse" data-parent="#communal">Create</a>
+                </div>
+                <a href="#post" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Post</a>
+                <div class="collapse" id="post">
+                    <a href="javascript:;" class="list-group-item" data-toggle="collapse" data-parent="#post">Packages board</a>
+                    <a href="javascript:;" class="list-group-item" data-toggle="collapse" data-parent="#post">Create Package</a>
+                </div>
+                <a href="#building" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Building</a>
+                <div class="collapse" id="building">
+                    <a href="" class="list-group-item" data-toggle="collapse" data-parent="#building">Apartments</a>
+                    <a href="javascript:;" class="list-group-item" data-toggle="collapse" data-parent="#building">Occupant</a>
+                    <a href="#/locations" class="list-group-item" data-toggle="collapse" data-parent="#building">Locations</a>
+                    <a href="javascript:;" class="list-group-item" data-toggle="collapse" data-parent="#building">Package Types</a>
+                </div>
+            </div>
+        </div>
+
+        <div data-ng-view="">
+        </div>
+    </div>
+    <hr />
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <p class="text-muted text-center">2015</p>
+            </div>
+        </div>
+    </div>
+<!-- 3rd party libraries -->
+    <script src="Scripts/Libraries/jquery/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/Libraries/angularjs/angular.min.js"></script>
+    <script src="Scripts/Libraries/angularjs/angular-route.min.js"></script>
+    <script src="Scripts/Libraries/angularjs/angular-local-storage.min.js"></script>
+    <script src="Scripts/Libraries/bootstrap/bootstrap.min.js"></script>
+    <script src="Scripts/Libraries/loading-bar/loading-bar.min.js"></script>
+    <!-- Load app main script -->
+    <script src="Scripts/App/app.js?v=2"></script>
+    <!-- Load services -->
+    <script src="Scripts/App/Services/authInterceptorService.js?v=2"></script>
+    <script src="Scripts/App/Services/authenticationService.js?v=2"></script>
+    <script src="Scripts/App/Services/ordersService.js?v=2"></script>
+    <!-- Load controllers -->
+    <script src="Scripts/App/Controllers/indexController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/homeController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/loginController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/signupController.js?v=2"></script>
+    <!-- Load custom filters -->
+    <!-- Load custom directives -->
+    <script src="Scripts/App/Directives/deleteButtonDirective.js"></script>
+</body>
+</html>

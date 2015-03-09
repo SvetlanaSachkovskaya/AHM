@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="AHMWebAPI" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Мои\ документы\\Учеба\\Диплом\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Мои\ документы\\Учеба\\Диплом\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="AhmContext-Web.config Connection String" description="" value="Data Source=(local);Initial Catalog=ApartmentHouseManagement;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Мои\ документы\\Учеба\\Диплом\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AhmContext']/@connectionString" />
+  </parameter>
+  <parameter name="AhmDbContext-Web.config Connection String" description="" value="Data Source=(local);Initial Catalog=ApartmentHouseManagement;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Мои\ документы\\Учеба\\Диплом\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AhmDbContext']/@connectionString" />
+  </parameter>
+</parameters>

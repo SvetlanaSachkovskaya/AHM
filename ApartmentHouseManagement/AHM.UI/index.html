@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="AhmApp">
+<head>
+    <title>AHM</title>
+    <link href="Content/Styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Styles/site.css" rel="stylesheet" />
+    <link href="Content/Styles/loading-bar.min.css" rel="stylesheet" />
+    <link href="Content/Styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/Styles/social-buttons.css" rel="stylesheet" />
+</head>
+<body>
+    <div data-ui-view=""></div>
+    <hr />
+    <div id="footer" class="navbar-inverse">
+        <div class="container">
+            <div class="row">
+                <p class="text-muted text-center">2015</p>
+            </div>
+        </div>
+    </div>
+    <!-- libraries -->
+    <script src="Scripts/Libraries/jquery/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/Libraries/angularjs/angular.min.js"></script>
+    <script src="Scripts/Libraries/angularjs/angular-ui-router.min.js"></script>
+    <script src="Scripts/Libraries/angularjs/angular-local-storage.min.js"></script>
+    <script src="Scripts/Libraries/bootstrap/bootstrap.min.js"></script>
+    <script src="Scripts/Libraries/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="Scripts/Libraries/loading-bar/loading-bar.min.js"></script>
+    <!-- Load app main script -->
+    <script src="Scripts/App/app.js?v=2"></script>
+    <!-- Load services -->
+    <script src="Scripts/App/Services/constants.js?v=2"></script>
+    <script src="Scripts/App/Services/authInterceptorService.js?v=2"></script>
+    <script src="Scripts/App/Services/authenticationService.js?v=2"></script>
+    <script src="Scripts/App/Services/buildingService.js?v=2"></script>
+    <script src="Scripts/App/Services/postService.js?v=2"></script>
+    <script src="Scripts/App/Services/utilitiesService.js?v=2"></script>
+    <!-- Load controllers -->
+    <script src="Scripts/App/Controllers/indexController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/homeController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/loginController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/signupController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/BuildingInfo/locationsController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/BuildingInfo/apartmentsController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/BuildingInfo/packageTypesController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/BuildingInfo/occupantsController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/BuildingInfo/createOccupantController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Post/createPackageController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Post/editPackageController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Post/packagesBoardController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/UtilitiesClause/utilitiesClausesController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/UtilitiesClause/editUtilitiesClauseController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Utilities/billsBoardController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Utilities/editBillController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Utilities/billDetailsController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/BuildingInfo/editApartmentConroller.js?v=2"></script>
+    <!-- Load custom directives -->
+    <script src="Scripts/App/Directives/deleteButtonDirective.js"></script>
+    <script src="Scripts/App/Directives/addButtonDirective.js"></script>
+    <script src="Scripts/App/Directives/datePickerDirective.js"></script>
+</body>
+</html>

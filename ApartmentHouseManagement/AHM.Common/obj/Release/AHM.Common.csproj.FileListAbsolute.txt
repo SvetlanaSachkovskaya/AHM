@@ -1,0 +1,16 @@
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Release\AHM.Common.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Release\AHM.Common.pdb
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\obj\Release\AHM.Common.csprojResolveAssemblyReference.cache
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\obj\Release\AHM.Common.dll
+D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\obj\Release\AHM.Common.pdb
+D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Release\AHM.Common.dll
+D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Release\AHM.Common.pdb
+D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Release\EntityFramework.dll
+D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Release\Microsoft.AspNet.Identity.Core.xml
+D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Release\EntityFramework.xml
+D:\Diplom\ApartmentHouseManagement\AHM.Common\obj\Release\AHM.Common.csprojResolveAssemblyReference.cache
+D:\Diplom\ApartmentHouseManagement\AHM.Common\obj\Release\AHM.Common.dll
+D:\Diplom\ApartmentHouseManagement\AHM.Common\obj\Release\AHM.Common.pdb

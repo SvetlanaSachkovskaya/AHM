@@ -1,0 +1,44 @@
+﻿<div class="row">
+    <form class="col-md-8">
+        <h2 class="page-title">Create package</h2>
+
+        <div class="form-group">
+            <label>Apartment</label>
+            <select data-ng-options="apartment.id as apartment.number for apartment in apartments" data-ng-model="package.apartmentId"
+                    ng-change="setOccupants()" required class="form-control">
+                <option value="">Select apartment</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Type</label>
+            <select data-ng-options="type.id as type.longDescription for type in packageTypes" data-ng-model="package.packageTypeId" required
+                    class="form-control">
+                <option value="">Select Type</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Location</label>
+            <select data-ng-options="location.id as location.longDescription for location in locations" data-ng-model="package.locationId"
+                    required class="form-control">
+                <option value="">Select location</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Occupant</label>
+            <select data-ng-options="occupant.id as occupant.name for occupant in occupants" data-ng-model="package.occupantId"
+                    class="form-control">
+                <option value="">All</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Comment</label>
+            <textarea data-ng-model="package.openComment" rows="3" class="form-control" />
+        </div>
+
+        <add-button action="create()" text="Create" class="pull-right"></add-button>
+    </form>
+</div>
