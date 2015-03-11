@@ -22,6 +22,7 @@ namespace AHM.DependencyInjection
             container.RegisterType<IUtilitiesClauseService, UtilitiesClauseService>();
             container.RegisterType<IBillService, BillService>();
             container.RegisterType<IUtilitiesItemService, UtilitiesItemService>();
+            container.RegisterType<IBuildingService, BuildingService>();
         }
 
         public static void ConfigureUserManager(IAppBuilder app)

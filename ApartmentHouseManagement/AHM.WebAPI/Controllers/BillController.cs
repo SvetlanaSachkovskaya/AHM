@@ -4,6 +4,7 @@ using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common;
 using AHM.Common.Helpers;
+using AHM.WebAPI.Helper;
 using AHM.WebAPI.Models;
 
 namespace AHM.WebAPI.Controllers
@@ -60,6 +61,14 @@ namespace AHM.WebAPI.Controllers
             return Ok(new BillModel(bill, utilitiesItems.ToList()));
         }
 
+        [HttpGet]
+        [Route("GeneratePdf")]
+        public async Task<IHttpActionResult> GeneratePdf(int billId)
+        {
+            return Ok();
+        }
+        
+            
         [HttpPost]
         [Route("Add")]
         public async Task<IHttpActionResult> Add(BillModel bill)

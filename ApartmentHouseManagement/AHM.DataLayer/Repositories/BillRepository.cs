@@ -22,7 +22,7 @@ namespace AHM.DataLayer.Repositories
 
         public async override Task<Bill> GetByIdAsync(int id)
         {
-            return await GetQuery(b => b.Id == id, bill => bill.Apartment).FirstOrDefaultAsync();
+            return await GetQuery(b => b.Id == id, bill => bill.Apartment, bill => bill.Apartment.Building).FirstOrDefaultAsync();
         }
     }
 }
