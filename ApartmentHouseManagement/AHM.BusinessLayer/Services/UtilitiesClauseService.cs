@@ -6,42 +6,49 @@ using AHM.DataLayer.Interfaces;
 
 namespace AHM.BusinessLayer.Services
 {
-    public class UtilitiesClauseService : IUtilitiesClauseService
+    public class UtilitiesClauseService : BaseService, IUtilitiesClauseService
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-
-        public UtilitiesClauseService(IUnitOfWork unitOfWork)
+        public UtilitiesClauseService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+
         }
 
 
         public async Task<ICollection<UtilitiesClause>> GetAllUtilitiesClausesAsync(int buildingId)
         {
-            return await _unitOfWork.GetRepository<UtilitiesClause>().GetAllAsync(a => a.BuildingId == buildingId);
+            return await UnitOfWork.GetRepository<UtilitiesClause>().GetAllAsync(a => a.BuildingId == buildingId);
         }
 
         public async Task<ICollection<UtilitiesClause>> GetActiveUtilitiesClausesAsync(int buildingId)
         {
-            return await _unitOfWork.GetRepository<UtilitiesClause>().GetAllAsync(a => a.BuildingId == buildingId && a.IsActive);
+            return await UnitOfWork.GetRepository<UtilitiesClause>().GetAllAsync(a => a.BuildingId == buildingId && a.IsActive);
         }
 
         public async Task<UtilitiesClause> GetByIdAsync(int id)
         {
-            return await _unitOfWork.GetRepository<UtilitiesClause>().GetEntityAsync(i => i.Id == id);
+            return await UnitOfWork.GetRepository<UtilitiesClause>().GetEntityAsync(i => i.Id == id);
         }
 
-        public async Task AddAsync(UtilitiesClause utilitiesClause)
+        public async Task<ModifyDbStateResult> AddAsync(UtilitiesClause utilitiesClause)
         {
-            _unitOfWork.GetRepository<UtilitiesClause>().Add(utilitiesClause);
-            await _unitOfWork.SaveAsync();
+            var creationResult = await AddEntityAsync(utilitiesClause, "Failed to create Utilities clause", async () =>
+            {
+                UnitOfWork.GetRepository<UtilitiesClause>().Add(utilitiesClause);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return creationResult;
         }
 
-        public async Task UpdateAsync(UtilitiesClause utilitiesClause)
+        public async Task<ModifyDbStateResult> UpdateAsync(UtilitiesClause utilitiesClause)
         {
-            _unitOfWork.GetRepository<UtilitiesClause>().Update(utilitiesClause);
-            await _unitOfWork.SaveAsync();
+            var updatingResult = await UpdateEntityAsync(utilitiesClause, "Failed to update Utilities clause", async () =>
+            {
+                UnitOfWork.GetRepository<UtilitiesClause>().Update(utilitiesClause);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updatingResult;
         }
     }
 }

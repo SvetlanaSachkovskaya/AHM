@@ -1,11 +1,18 @@
 ﻿app.controller('createOccupantController', ['$scope', '$state', '$stateParams', 'buildingService', function ($scope, $state, $stateParams, buildingService) {
     'use strict';
 
+    function forceRequiredValidation() {
+        if ($scope.occupantForm.$error.required) {
+            $scope.occupantForm.$error.required.forEach(function (element) {
+                element.$setDirty();
+            });
+        }
+    }
+
     $scope.apartments = [];
 
     $scope.occupant = {
-        firstName: '',
-        lastName: '',
+        name: '',
         dateOfBirth: new Date(),
         email: '',
         aparmentId: 0,
@@ -15,21 +22,23 @@
     $scope.isEditMode = false;
 
     $scope.create = function () {
-        buildingService.addOccupant($scope.occupant).then(function () {
-            $state.go('landing.occupants');
-        },
-        function (error) {
-            alert(error);
-        });
+        forceRequiredValidation();
+
+        if ($scope.occupantForm.$valid) {
+            buildingService.addOccupant($scope.occupant, function () {
+                $state.go('landing.occupants');
+            });
+        }
     }
 
     $scope.save = function () {
-        buildingService.updateOccupant($scope.occupant).then(function () {
-            $state.go('landing.occupants');
-        },
-        function (error) {
-            alert(error);
-        });
+        forceRequiredValidation();
+
+        if ($scope.occupantForm.$valid) {
+            buildingService.updateOccupant($scope.occupant, function () {
+                $state.go('landing.occupants');
+            });
+        }
     }
 
     $scope.datePickerSettings = {
@@ -47,19 +56,14 @@
         }
     }
 
-    buildingService.getApartments().then(function (results) {
-        $scope.apartments = results.data;
+    buildingService.getApartments(function (data) {
+        $scope.apartments = data;
 
         if ($stateParams.occupantId) {
-            buildingService.getOccupantById($stateParams.occupantId).then(function (result) {
-                $scope.occupant = result.data;
+            buildingService.getOccupantById($stateParams.occupantId, function (occupant) {
+                $scope.occupant = occupant;
                 $scope.isEditMode = true;
-            },
-            function (error) {
-                alert(error);
             });
         }
-    }, function (error) {
-        alert(error.data.message);
     });
 }]);

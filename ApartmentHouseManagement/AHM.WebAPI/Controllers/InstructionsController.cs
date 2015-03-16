@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
@@ -30,6 +30,22 @@ namespace AHM.WebAPI.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllOpen")]
+        public async Task<IHttpActionResult> GetAllOpen()
+        {
+            var instructions = await _instructionService.GetAllOpenInstructionsAsync(AppUser.BuildingId ?? 0);
+            return Ok(instructions);
+        }
+
+        [HttpGet]
+        [Route("GetById")]
+        public async Task<IHttpActionResult> GetById(int id)
+        {
+            var instruction = await _instructionService.GetByIdAsync(id);
+            return Ok(instruction);
+        }
+
+        [HttpGet]
         [Route("GetPriorities")]
         public OkNegotiatedContentResult<EnumCollection<Priority>> GetPriorities()
         {
@@ -45,15 +61,16 @@ namespace AHM.WebAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            instruction.EmploeeId = AppUser.Id;
             if (AppUser.BuildingId.HasValue)
             {
                 instruction.BuildingId = AppUser.BuildingId.Value;
             }
-            instruction.CreateDate = DateTime.Now;
 
-            await _instructionService.AddAsync(instruction);
+            var result = await _instructionService.AddAsync(instruction);
 
-            return Ok(instruction);
+            return result.IsSuccessful ? (IHttpActionResult) Ok(instruction) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -65,9 +82,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _instructionService.UpdateAsync(instruction);
+            var result = await _instructionService.UpdateAsync(instruction);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
         }
     }
 }

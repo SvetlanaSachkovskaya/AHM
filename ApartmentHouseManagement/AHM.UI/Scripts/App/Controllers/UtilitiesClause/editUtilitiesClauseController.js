@@ -2,6 +2,14 @@
     function ($scope, $state, $stateParams, utilitiesService) {
         'use strict';
 
+        function forceRequiredValidation() {
+            if ($scope.clauseForm.$error.required) {
+                $scope.clauseForm.$error.required.forEach(function (element) {
+                    element.$setDirty();
+                });
+            }
+        }
+
         $scope.utilitiesClause = {
             name: '',
             utilitiesClauseType: 0,
@@ -20,52 +28,40 @@
         $scope.isEditMode = false;
 
         $scope.create = function () {
-            utilitiesService.addUtilitiesClause($scope.utilitiesClause).then(
-                function () {
+            forceRequiredValidation();
+
+            if ($scope.clauseForm.$valid) {
+                utilitiesService.addUtilitiesClause($scope.utilitiesClause, function () {
                     $state.go('landing.utilitiesClauses');
-                },
-                function (error) {
-                    alert(error);
                 });
+            }
         }
 
         $scope.save = function () {
-            utilitiesService.updateUtilitiesClause($scope.utilitiesClause).then(
-                function () {
+            forceRequiredValidation();
+
+            if ($scope.clauseForm.$valid) {
+                utilitiesService.updateUtilitiesClause($scope.utilitiesClause, function() {
                     $state.go('landing.utilitiesClauses');
-                },
-                function (error) {
-                    alert(error);
                 });
+            }
         }
 
-        utilitiesService.getUtilitiesClauseTypes().then(
-                function (result) {
-                    $scope.utilitiesClauseTypes = result.data;
-                    $scope.utilitiesClauseType = $scope.utilitiesClauseTypes[0].id;
-                },
-                function (error) {
-                    alert(error);
-                });
+        utilitiesService.getUtilitiesClauseTypes(function (data) {
+            $scope.utilitiesClauseTypes = data;
+            $scope.utilitiesClauseType = $scope.utilitiesClauseTypes[0].id;
+        });
 
-        utilitiesService.getCalculationTypes().then(
-                function (result) {
-                    $scope.calculationTypes = result.data;
-                    $scope.calculationType = $scope.calculationTypes[0].id;
-                },
-                function (error) {
-                    alert(error);
-                });
+        utilitiesService.getCalculationTypes(function (data) {
+            $scope.calculationTypes = data;
+            $scope.calculationType = $scope.calculationTypes[0].id;
+        });
 
         if ($stateParams.utilitiesClauseId) {
-            utilitiesService.getUtilitiesClauseById($stateParams.utilitiesClauseId).then(
-                function(result) {
-                    $scope.utilitiesClause = result.data;
-                    $scope.isEditMode = true;
-                },
-                function(error) {
-                    alert(error);
-                });
+            utilitiesService.getUtilitiesClauseById($stateParams.utilitiesClauseId, function (data) {
+                $scope.utilitiesClause = data;
+                $scope.isEditMode = true;
+            });
         }
     }
 ]);

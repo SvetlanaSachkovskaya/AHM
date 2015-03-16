@@ -12,12 +12,8 @@
             $state.go('landing.editUtilitiesClause');
         }
 
-        utilitiesService.getUtilitiesClauses().then(
-            function(result) {
-                $scope.utilitiesClauses = result.data;
-            },
-            function(error) {
-                alert(error);
-            });
+        utilitiesService.getUtilitiesClauses(function (data) {
+            $scope.utilitiesClauses = data;
+        });
     }
 ]);

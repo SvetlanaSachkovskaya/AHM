@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
@@ -79,9 +80,9 @@ namespace AHM.WebAPI.Controllers
                 utilitiesClause.BuildingId = AppUser.BuildingId.Value;
             }
 
-            await _utilitiesClauseService.AddAsync(utilitiesClause);
+            var result = await _utilitiesClauseService.AddAsync(utilitiesClause);
 
-            return Ok(utilitiesClause);
+            return result.IsSuccessful ? (IHttpActionResult) Ok(utilitiesClause) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -93,9 +94,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _utilitiesClauseService.UpdateAsync(utilitiesClause);
+            var result = await _utilitiesClauseService.UpdateAsync(utilitiesClause);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
         }
     }
 }

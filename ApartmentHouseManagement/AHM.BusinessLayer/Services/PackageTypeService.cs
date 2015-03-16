@@ -6,38 +6,50 @@ using AHM.DataLayer.Interfaces;
 
 namespace AHM.BusinessLayer.Services
 {
-    public class PackageTypeService : IPackageTypeService
+    public class PackageTypeService : BaseService, IPackageTypeService
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-
-        public PackageTypeService(IUnitOfWork unitOfWork)
+        public PackageTypeService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+
         }
 
 
         public async Task<ICollection<PackageType>> GetAllPackageTypesAsync(int buildingId)
         {
-            return await _unitOfWork.GetRepository<PackageType>().GetAllAsync(t => t.BuildingId == buildingId);
+            return await UnitOfWork.GetRepository<PackageType>().GetAllAsync(t => t.BuildingId == buildingId);
         }
 
-        public async Task AddAsync(PackageType packageType)
+        public async Task<ModifyDbStateResult> AddAsync(PackageType packageType)
         {
-            _unitOfWork.GetRepository<PackageType>().Add(packageType);
-            await _unitOfWork.SaveAsync();
+            var creationResult = await AddEntityAsync(packageType, "Failed to create Package type", async () =>
+            {
+                UnitOfWork.GetRepository<PackageType>().Add(packageType);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return creationResult;
         }
 
-        public async Task UpdateAsync(PackageType packageType)
+        public async Task<ModifyDbStateResult> UpdateAsync(PackageType packageType)
         {
-            _unitOfWork.GetRepository<PackageType>().Update(packageType);
-            await _unitOfWork.SaveAsync();
+            var updatingResult = await UpdateEntityAsync(packageType, "Failed to update Package type", async () =>
+            {
+                UnitOfWork.GetRepository<PackageType>().Update(packageType);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updatingResult;
         }
 
-        public async Task RemoveAsync(int id)
+        public async Task<ModifyDbStateResult> RemoveAsync(int id)
         {
-            _unitOfWork.GetRepository<PackageType>().Delete(id);
-            await _unitOfWork.SaveAsync();
+            var result = await RemoveEntityAsync(id, "Failed to remove Package type", async () =>
+            {
+                UnitOfWork.GetRepository<PackageType>().Delete(id);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return result;
         }
     }
 }

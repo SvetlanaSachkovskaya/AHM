@@ -1,59 +1,41 @@
-﻿app.factory('journalService', ['$http', 'ngAuthSettings', function ($http, ngAuthSettings) {
+﻿app.factory('journalService', ['httpModule', function (httpModule) {
     'use strict';
 
-    var serviceBase = ngAuthSettings.apiServiceBaseUri;
-
-    var getAllEvents = function () {
-        return $http.get(serviceBase + 'api/journal/getAll').then(function (results) {
-            return results;
-        });
+    var getAllActiveEvents = function (callback) {
+        httpModule.get('api/journal/getAllActive', null, callback);
     };
 
-    var createEvent = function (event) {
-        return $http.post(serviceBase + 'api/journal/add', event).then(function (result) {
-            return result;
-        });
+    var createEvent = function (event, callback) {
+        httpModule.post('api/journal/add', event, callback);
     }
 
-    var updateEvent = function (event) {
-        return $http.post(serviceBase + 'api/journal/update', event).then(function (result) {
-            return result;
-        });
+    var updateEvent = function (event, callback) {
+        httpModule.post('api/journal/update', event, callback);
     }
 
-    var getEventById = function (id) {
-        return $http.get(serviceBase + 'api/journal/getById', { params: { id: id } }).then(function (result) {
-            return result;
-        });
+    var getEventById = function (id, callback) {
+        httpModule.get('api/journal/getById', id, callback);
     }
 
-    var getEventsPerDay = function () {
-        return $http.get(serviceBase + 'api/journal/getEventsPerDay').then(function (result) {
-            return result;
-        });
+    var getEventsPerDay = function (callback) {
+        httpModule.get('api/journal/getEventsPerDay', null, callback);
     }
 
-    var getEventsPerWeek = function () {
-        return $http.get(serviceBase + 'api/journal/getEventsPerWeek').then(function (result) {
-            return result;
-        });
+    var getEventsPerWeek = function (callback) {
+        httpModule.get('api/journal/getEventsPerWeek', null, callback);
     }
 
-    var getEventsPerMonth = function () {
-        return $http.get(serviceBase + 'api/journal/getEventsPerMonth').then(function (result) {
-            return result;
-        });
+    var getEventsPerMonth = function (callback) {
+        httpModule.get('api/journal/getEventsPerMonth', null, callback);
     }
 
-    var getEventsPerYear = function () {
-        return $http.get(serviceBase + 'api/journal/getEventsPerYear').then(function (result) {
-            return result;
-        });
+    var getEventsPerYear = function (callback) {
+        httpModule.get('api/journal/getEventsPerYear', null, callback);
     }
 
     var self = {};
 
-    self.getAllEvents = getAllEvents;
+    self.getAllActiveEvents = getAllActiveEvents;
     self.createEvent = createEvent;
     self.updateEvent = updateEvent;
     self.getEventById = getEventById;

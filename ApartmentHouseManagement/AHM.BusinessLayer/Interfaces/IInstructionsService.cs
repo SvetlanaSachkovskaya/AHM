@@ -8,8 +8,12 @@ namespace AHM.BusinessLayer.Interfaces
     {
         Task<ICollection<Instruction>> GetAllInstructionsAsync(int buildingId);
 
-        Task AddAsync(Instruction instruction);
+        Task<ICollection<Instruction>> GetAllOpenInstructionsAsync(int buildingId);
 
-        Task UpdateAsync(Instruction instruction);
+        Task<Instruction> GetByIdAsync(int id);
+
+        Task<ModifyDbStateResult> AddAsync(Instruction instruction);
+
+        Task<ModifyDbStateResult> UpdateAsync(Instruction instruction);
     }
 }

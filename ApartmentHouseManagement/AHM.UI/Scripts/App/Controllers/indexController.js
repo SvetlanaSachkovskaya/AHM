@@ -1,4 +1,4 @@
-﻿app.controller('indexController', ['$scope', '$state', 'authenticationService', function ($scope, $state, authenticationService) {
+﻿app.controller('indexController', ['$scope', '$state', 'authenticationService', 'httpModule', function ($scope, $state, authenticationService, httpModule) {
     'use strict';
 
     $scope.logOut = function() {
@@ -8,4 +8,9 @@
 
     $scope.authentication = authenticationService.authentication;
 
+    $scope.requestResult = httpModule.requestResult;
+
+    $scope.closeAlert = function () {
+        $scope.requestResult.isSuccessful = true;
+    };
 }]);

@@ -7,14 +7,11 @@ using AHM.DataLayer.Interfaces;
 
 namespace AHM.BusinessLayer.Services
 {
-    public class OccupantService : IOccupantService
+    public class OccupantService : BaseService, IOccupantService
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-
-        public OccupantService(IUnitOfWork unitOfWork)
+        public OccupantService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+
         }
 
 
@@ -22,53 +19,68 @@ namespace AHM.BusinessLayer.Services
         {
             return
                 await
-                    _unitOfWork.GetRepository<Occupant>()
+                    UnitOfWork.GetRepository<Occupant>()
                         .GetAllAsync(o => o.Apartment.BuildingId == buildingId);
         }
 
         public async Task<Occupant> GetOccupantByIdAsync(int id)
         {
-            return await _unitOfWork.GetRepository<Occupant>().GetByIdAsync(id);
+            return await UnitOfWork.GetRepository<Occupant>().GetByIdAsync(id);
         }
 
         public async Task<Occupant> GetApartmentOwnerAsync(int apartmentId)
         {
             return
                 await
-                    _unitOfWork.GetRepository<Occupant>().GetEntityAsync(o => o.ApartmentId == apartmentId && o.IsOwner);
+                    UnitOfWork.GetRepository<Occupant>().GetEntityAsync(o => o.ApartmentId == apartmentId && o.IsOwner);
         }
 
         public async Task<IEnumerable<Occupant>> GetOccupantsByApartmentIdAsync(int apartmentId)
         {
-            return await _unitOfWork.GetRepository<Occupant>().GetAllAsync(o => o.ApartmentId == apartmentId);
+            return await UnitOfWork.GetRepository<Occupant>().GetAllAsync(o => o.ApartmentId == apartmentId);
         }
 
-        public async Task AddAsync(Occupant occupant)
+        public async Task<ModifyDbStateResult> AddAsync(Occupant occupant)
         {
-            _unitOfWork.GetRepository<Occupant>().Add(occupant);
-            await _unitOfWork.SaveAsync();
-        }
-
-        public async Task UpdateAsync(Occupant occupant)
-        {
-            if (occupant.IsOwner)
+            var creationResult = await AddEntityAsync(occupant, "Failed to create Occupant", async () =>
             {
-                var apartment = await _unitOfWork.GetRepository<Apartment>().GetByIdAsync(occupant.ApartmentId);
-                if (apartment != null)
-                {
-                    apartment.Name = String.Format("{0} - {1}", apartment.Number, occupant.Name);
-                }
-                _unitOfWork.GetRepository<Apartment>().Update(apartment);
-            }
+                UnitOfWork.GetRepository<Occupant>().Add(occupant);
+                await UnitOfWork.SaveAsync();
+            });
 
-            _unitOfWork.GetRepository<Occupant>().Update(occupant);
-            await _unitOfWork.SaveAsync();
+            return creationResult;
         }
 
-        public async Task RemoveAsync(int id)
+        public async Task<ModifyDbStateResult> UpdateAsync(Occupant occupant)
         {
-            _unitOfWork.GetRepository<Occupant>().Delete(id);
-            await _unitOfWork.SaveAsync();
+            var updatingResult = await UpdateEntityAsync(occupant, "Failed to update Occupant", async () =>
+            {
+                if (occupant.IsOwner)
+                {
+                    var apartment = await UnitOfWork.GetRepository<Apartment>().GetByIdAsync(occupant.ApartmentId);
+                    if (apartment != null)
+                    {
+                        apartment.Name = String.Format("{0} - {1}", apartment.Number, occupant.Name);
+                    }
+                    UnitOfWork.GetRepository<Apartment>().Update(apartment);
+                }
+
+                UnitOfWork.GetRepository<Occupant>().Update(occupant);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updatingResult;
+        }
+
+        public async Task<ModifyDbStateResult> RemoveAsync(int id)
+        {
+            var result = await RemoveEntityAsync(id, "Failed to remove Occupant", async () =>
+            {
+                UnitOfWork.GetRepository<Occupant>().Delete(id);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return result;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
@@ -19,10 +20,46 @@ namespace AHM.WebAPI.Controllers
 
 
         [HttpGet]
-        [Route("GetAll")]
-        public async Task<IHttpActionResult> GetAll()
+        [Route("GetAllActive")]
+        public async Task<IHttpActionResult> GetAllActive()
         {
-            var events = await _journalService.GetAllEventsAsync(AppUser.BuildingId ?? 0);
+            var events = await _journalService.GetAllActiveEventsAsync(AppUser.BuildingId ?? 0);
+
+            return Ok(events);
+        }
+
+        [HttpGet]
+        [Route("GetEventsPerDay")]
+        public async Task<IHttpActionResult> GetEventsPerDay()
+        {
+            var events = await _journalService.GetEventsPerDay(AppUser.BuildingId ?? 0);
+
+            return Ok(events);
+        }
+
+        [HttpGet]
+        [Route("GetEventsPerWeek")]
+        public async Task<IHttpActionResult> GetEventsPerWeek()
+        {
+            var events = await _journalService.GetEventsPerWeek(AppUser.BuildingId ?? 0);
+
+            return Ok(events);
+        }
+
+        [HttpGet]
+        [Route("GetEventsPerMonth")]
+        public async Task<IHttpActionResult> GetEventsPerMonth()
+        {
+            var events = await _journalService.GetEventsPerMonth(AppUser.BuildingId ?? 0);
+
+            return Ok(events);
+        }
+
+        [HttpGet]
+        [Route("GetEventsPerYear")]
+        public async Task<IHttpActionResult> GetEventsPerYear()
+        {
+            var events = await _journalService.GetEventsPerYear(AppUser.BuildingId ?? 0);
 
             return Ok(events);
         }
@@ -40,9 +77,9 @@ namespace AHM.WebAPI.Controllers
                 ev.BuildingId = AppUser.BuildingId.Value;
             }
 
-            await _journalService.AddAsync(ev);
+            var result = await _journalService.AddAsync(ev);
 
-            return Ok(ev);
+            return result.IsSuccessful ? (IHttpActionResult) Ok(ev) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -54,9 +91,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _journalService.UpdateAsync(ev);
+            var result = await _journalService.UpdateAsync(ev);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(ev) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -70,9 +107,9 @@ namespace AHM.WebAPI.Controllers
 
             ev.IsRemoved = true;
 
-            await _journalService.UpdateAsync(ev);
+            var result = await _journalService.UpdateAsync(ev);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(ev) : BadRequest(result.Errors.First());
         }
     }
 }

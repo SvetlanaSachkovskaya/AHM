@@ -24,30 +24,23 @@
                 false;
         }
 
-        postService.getPackages().then(function (results) {
-            $scope.packages = results.data;
-        }, function (error) {
-            alert(error.data.message);
+        postService.getPackages(function (data) {
+            $scope.packages = data;
         });
 
-        buildingService.getPackageTypes().then(function (result) {
-            $scope.packageTypes = result.data;
+        buildingService.getPackageTypes(function (data) {
+            $scope.packageTypes = data;
             $scope.packageTypes.splice(0, 0, {
                 longDescription: "All types",
                 id: allOption.value
             });
-        },
-            function (error) {
-                alert(error.data.message);
-            });
+        });
 
-        buildingService.getLocations().then(function (result) {
-            $scope.locations = result.data;
+        buildingService.getLocations(function (data) {
+            $scope.locations = data;
             $scope.locations.splice(0, 0, {
                 longDescription: "All locations",
                 id: allOption.value
             });
-        }, function (error) {
-            alert(error.data.message);
         });
     }]);

@@ -3,13 +3,16 @@
 
     $scope.instructions = [];
 
-    $scope.completeInstruction = function (instruction) {
+    $scope.orderByOptions = [{ id: 'executionDate', name: 'Date' }, { id: '-priority', name: 'Priority' }];
+    $scope.orderBy = {
+        value: $scope.orderByOptions[0].id
+    };
+    
+
+    $scope.closeInstruction = function (instruction) {
         instruction.isClosed = true;
-        instructionsService.updateInstruction(instruction).then(function () {
+        instructionsService.updateInstruction(instruction, function () {
             $scope.instructions.splice($scope.instructions.indexOf(instruction), 1);
-        },
-        function (error) {
-            alert(error);
         });
     }
 
@@ -17,13 +20,11 @@
         $state.go('landing.createInstruction');
     }
 
-    $scope.edit = function (instruction) {
-        $state.go('landing.editInstruction', {instructionId : instruction.id});
+    $scope.edit = function (instructionId) {
+        $state.go('landing.editInstruction', {instructionId : instructionId});
     }
 
-    instructionsService.getInstructions().then(function (results) {
-        $scope.instructions = results.data;
-    }, function (error) {
-        alert(error.data.message);
+    instructionsService.getOpenInstructions (function (data) {
+        $scope.instructions = data;
     });
 }]);

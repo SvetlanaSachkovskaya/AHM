@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
@@ -48,9 +49,9 @@ namespace AHM.WebAPI.Controllers
             var package = packageModel.GetPackage();
             package.OpenedByEmployeeId = AppUser.Id;
 
-            await _packageService.AddAsync(package);
+            var result = await _packageService.AddAsync(package);
 
-            return Ok(package);
+            return result.IsSuccessful ? (IHttpActionResult)Ok(package) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -64,9 +65,9 @@ namespace AHM.WebAPI.Controllers
 
             package.LastChangeDate = DateTime.Now;
 
-            await _packageService.UpdateAsync(package);
+            var result = await _packageService.UpdateAsync(package);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
         }
     }
 }

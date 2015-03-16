@@ -29,46 +29,30 @@
         };
 
         $scope.refreshBoard = function () {
-            utilitiesService.getBills($scope.dateInterval.value, $scope.showPaid).then(
-            function (result) {
-                $scope.bills = result.data;
-            },
-            function (error) {
-                alert(error);
+            utilitiesService.getBills($scope.dateInterval.value, $scope.showPaid, function (data) {
+                $scope.bills = data;
             });
         }
 
         $scope.payBill = function (bill) {
             bill.isPaid = true;
-            utilitiesService.updateBill(bill).then(
-                function () {
-                    if (!$scope.showPaid) {
-                        $scope.bills.splice($scope.bills.indexOf(bill), 1);
-                    }
-                },
-                function (error) {
-                    alert(error);
-                });
+            utilitiesService.updateBill(bill, function () {
+                if (!$scope.showPaid) {
+                    $scope.bills.splice($scope.bills.indexOf(bill), 1);
+                }
+            });
         }
 
-        utilitiesService.getBillDateIntervals().then(
-            function (result) {
-                $scope.dateIntervals = result.data;
-                $scope.dateInterval.value = $scope.dateIntervals[0].id;
+        utilitiesService.getBillDateIntervals(function (data) {
+            $scope.dateIntervals = data;
+            $scope.dateInterval.value = $scope.dateIntervals[0].id;
 
-                $scope.refreshBoard();
-            },
-            function (error) {
-                alert(error);
-            });
+            $scope.refreshBoard();
+        });
 
-        buildingService.getApartments().then(
-            function (result) {
-                $scope.apartments = result.data;
-                $scope.apartments.splice(0, 0, { id: 0, number: "All apartments" });
-            },
-            function (error) {
-                alert(error);
-            });
+        buildingService.getApartments(function (data) {
+            $scope.apartments = data;
+            $scope.apartments.splice(0, 0, { id: 0, number: "All apartments" });
+        });
     }
 ]);

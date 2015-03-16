@@ -6,43 +6,55 @@ using AHM.DataLayer.Interfaces;
 
 namespace AHM.BusinessLayer.Services
 {
-    public class BuildingService : IBuildingService
+    public class BuildingService : BaseService, IBuildingService
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-
-        public BuildingService(IUnitOfWork unitOfWork)
+        public BuildingService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+
         }
 
 
         public async Task<ICollection<Building>> GetAllBuildingsAsync()
         {
-            return await _unitOfWork.GetRepository<Building>().GetAllAsync();
+            return await UnitOfWork.GetRepository<Building>().GetAllAsync();
         }
 
         public async Task<Building> GetBuildingByIdAsync(int id)
         {
-            return await _unitOfWork.GetRepository<Building>().GetByIdAsync(id);
+            return await UnitOfWork.GetRepository<Building>().GetByIdAsync(id);
         }
 
-        public async Task AddAsync(Building building)
+        public async Task<ModifyDbStateResult> AddAsync(Building building)
         {
-            _unitOfWork.GetRepository<Building>().Add(building);
-            await _unitOfWork.SaveAsync();
+            var creationResult = await AddEntityAsync(building, "Failed to create Building", async () =>
+            {
+                UnitOfWork.GetRepository<Building>().Add(building);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return creationResult;
         }
 
-        public async Task UpdateAsync(Building building)
+        public async Task<ModifyDbStateResult> UpdateAsync(Building building)
         {
-            _unitOfWork.GetRepository<Building>().Update(building);
-            await _unitOfWork.SaveAsync();
+            var updatingResult = await UpdateEntityAsync(building, "Failed to update Building", async () =>
+            {
+                UnitOfWork.GetRepository<Building>().Update(building);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updatingResult;
         }
 
-        public async Task RemoveAsync(int id)
+        public async Task<ModifyDbStateResult> RemoveAsync(int id)
         {
-            _unitOfWork.GetRepository<Building>().Delete(id);
-            await _unitOfWork.SaveAsync();
+            var result = await RemoveEntityAsync(id, "Failed to remove Building", async () =>
+            {
+                UnitOfWork.GetRepository<Building>().Delete(id);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return result;
         }
     }
 }

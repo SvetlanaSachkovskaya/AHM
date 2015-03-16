@@ -12,8 +12,8 @@ namespace AHM.BusinessLayer.Interfaces
 
         Task<UtilitiesClause> GetByIdAsync(int id);
 
-        Task AddAsync(UtilitiesClause utilitiesClause);
+        Task<ModifyDbStateResult> AddAsync(UtilitiesClause utilitiesClause);
 
-        Task UpdateAsync(UtilitiesClause utilitiesClause);
+        Task<ModifyDbStateResult> UpdateAsync(UtilitiesClause utilitiesClause);
     }
 }

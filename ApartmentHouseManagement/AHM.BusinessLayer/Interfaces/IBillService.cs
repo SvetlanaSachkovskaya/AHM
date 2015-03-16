@@ -11,8 +11,8 @@ namespace AHM.BusinessLayer.Interfaces
 
         Task<Bill> GetByIdAsync(int id);
 
-        Task AddAsync(Bill bill, List<UtilitiesItem> utilitiesItems);
+        Task<ModifyDbStateResult> AddAsync(Bill bill, List<UtilitiesItem> utilitiesItems);
 
-        Task UpdateAsync(Bill bill, List<UtilitiesItem> utilitiesItems);
+        Task<ModifyDbStateResult> UpdateAsync(Bill bill, List<UtilitiesItem> utilitiesItems = null);
     }
 }

@@ -1,1 +1,30 @@
-﻿
+﻿<div>
+    <add-button action="createInstruction()" text="Add new"></add-button>
+
+    <div class="vertical-margin">
+        <label>Sort by</label>
+        <div class="btn-group">
+            <label data-ng-repeat="orderByOption in orderByOptions" class="btn btn-primary" data-ng-model="orderBy.value"
+                   btn-radio="orderByOption.id">{{ orderByOption.name }}</label>
+        </div>
+    </div>
+
+    <div data-ng-repeat="instruction in instructions | orderBy: orderBy.value">
+        <div data-ng-class="{ minor: instruction.priority === 0,
+                        normal: instruction.priority === 1,
+                        major: instruction.priority === 2 ,
+                        critical: instruction.priority === 3}"
+             class="vertical-margin bill">
+
+            <div data-ng-click="edit(instruction.id)">
+                <strong class="text-uppercase">{{ instruction.title }}</strong>
+                <br />
+                {{ instruction.content }}
+                <br />
+                Date : {{ instruction.executionDate | date : 'MM/dd/yyyy' }}
+            </div>
+
+            <button data-ng-click="closeInstruction(instruction)" class="btn close-button btn-default">x</button>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,18 @@
 ﻿app.controller('packageTypesController', ['$scope', '$filter', 'buildingService', function ($scope, $filter, buildingService) {
     'use strict';
 
+    function forceRequiredValidation() {
+        if ($scope.packageTypeForm.$error.required) {
+            $scope.packageTypeForm.$error.required.forEach(function (element) {
+                element.$setDirty();
+            });
+        }
+    }
+
+    function setPristine() {
+        $scope.packageTypeForm.$setPristine();
+    }
+
     function setPackageType(packageType) {
         if (packageType) {
             $scope.newPackageType.id = packageType.id;
@@ -28,36 +40,39 @@
 
     $scope.removePackageType = function (type) {
         if (confirm('Are you sure you want to delete this type?')) {
-            buildingService.removePackageType(type).then(function() {
+            buildingService.removePackageType(type, function() {
                 $scope.packageTypes.splice($scope.packageTypes.indexOf(type), 1);
-            }, function(error) {
-                alert(error);
             });
         }
     }
 
     $scope.addPackageType = function () {
-        buildingService.addPackageType($scope.newPackageType).then(function (result) {
-            $scope.packageTypes.push(result.data);
-            setPackageType();
+        forceRequiredValidation();
 
-        }, function (error) {
-            alert(error);
-        });
+        if ($scope.packageTypeForm.$valid) {
+            buildingService.addPackageType($scope.newPackageType, function (data) {
+                $scope.packageTypes.push(data);
+                setPackageType();
+
+                setPristine();
+            });
+        }
     }
 
     $scope.updatePackageType = function () {
-        buildingService.updatePackageType($scope.newPackageType).then(function () {
-            var packageType = $filter('filter')($scope.packageTypes, { id: $scope.newPackageType.id })[0];
-            packageType.shortDescription = $scope.newPackageType.shortDescription;
-            packageType.longDescription = $scope.newPackageType.longDescription;
+        forceRequiredValidation();
 
-            setPackageType();
-            $scope.isEditMode = false;
+        if ($scope.packageTypeForm.$valid) {
+            buildingService.updatePackageType($scope.newPackageType, function () {
+                var packageType = $filter('filter')($scope.packageTypes, { id: $scope.newPackageType.id })[0];
+                packageType.shortDescription = $scope.newPackageType.shortDescription;
+                packageType.longDescription = $scope.newPackageType.longDescription;
 
-        }, function (error) {
-            alert(error);
-        });
+                setPackageType();
+                $scope.isEditMode = false;
+                setPristine();
+            });
+        }
     }
 
     $scope.edit = function (packageType) {
@@ -68,11 +83,10 @@
     $scope.cancelEdition = function () {
         setPackageType();
         $scope.isEditMode = false;
+        setPristine();
     }
 
-    buildingService.getPackageTypes().then(function (results) {
-        $scope.packageTypes = results.data;
-    }, function (error) {
-        alert(error.data.message);
+    buildingService.getPackageTypes(function (data) {
+        $scope.packageTypes = data;
     });
 }]);

@@ -8,10 +8,10 @@ namespace AHM.BusinessLayer.Interfaces
     {
         Task<ICollection<PackageType>> GetAllPackageTypesAsync(int buildingId);
 
-        Task AddAsync(PackageType packageType);
+        Task<ModifyDbStateResult> AddAsync(PackageType packageType);
 
-        Task UpdateAsync(PackageType packageType);
+        Task<ModifyDbStateResult> UpdateAsync(PackageType packageType);
 
-        Task RemoveAsync(int id);
+        Task<ModifyDbStateResult> RemoveAsync(int id);
     }
 }

@@ -15,7 +15,8 @@ namespace AHM.WebAPI.Models
                 BuildingId = BuildingId,
                 Floor = Floor,
                 Number = Number,
-                Square = Square
+                Square = Square,
+                PersonalAccount = PersonalAccount
             };
         }
     }

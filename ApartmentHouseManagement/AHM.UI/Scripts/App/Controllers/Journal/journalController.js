@@ -1,46 +1,54 @@
 ﻿app.controller('journalController', ['$scope', '$state', 'journalService', function ($scope, $state, journalService) {
     'use strict';
 
-    function resultCallback(result) {
-        $scope.events = result.data;
+    function resultCallback(data) {
+        $scope.events = data;
     }
 
-    function errorCallback(error) {
-        alert(error);
-    }
+    $scope.timeIntervals = [
+        { id: 1, name: 'Day' },
+        { id: 2, name: 'Week' },
+        { id: 3, name: 'Month' },
+        { id: 4, name: 'Year' },
+        { id: 5, name: 'All' }
+    ];
 
-    $scope.timeInterval = 1;
+    $scope.timeInterval = {
+        value: $scope.timeIntervals[0].id
+    };
 
     $scope.events = [];
 
     $scope.removeEvent = function (event) {
-        journalService.updateEvent(event).then(
-            function () {
-                $scope.events.splice($scope.events.indexOf(event), 1);
-            },
-            function (error) {
-                alert(error);
-            });
-    }
+        if (confirm("Are you sure that you want to delete this event?")) {
+            event.isRemoved = true;
 
-    $scope.refreshJournal = function () {
-        switch ($scope.timeInterval) {
-            case 1:
-                journalService.getEventsPerDay.then(resultCallback, errorCallback);
-            break;
-            case 2:
-                journalService.getEventsPerWeek.then(resultCallback, errorCallback);
-            break;
-            case 3:
-                journalService.getEventsPerMonth.then(resultCallback, errorCallback);
-            break;
-            case 4:
-                journalService.getEventsPerYear.then(resultCallback, errorCallback);
-            break;
-            default:
-                journalService.getAllEvents.then(resultCallback, errorCallback);
+            journalService.updateEvent(event, function () {
+                $scope.events.splice($scope.events.indexOf(event), 1);
+            });
         }
     }
 
-    $scope.refreshJournal();
+    $scope.createEvent = function () {
+        $state.go('landing.createEvent');
+    }
+
+    $scope.$watch('timeInterval.value', function(newValue) {
+        switch (newValue) {
+        case 1:
+            journalService.getEventsPerDay(resultCallback);
+            break;
+        case 2:
+            journalService.getEventsPerWeek(resultCallback);
+            break;
+        case 3:
+            journalService.getEventsPerMonth(resultCallback);
+            break;
+        case 4:
+            journalService.getEventsPerYear(resultCallback);
+            break;
+        default:
+            journalService.getAllActiveEvents(resultCallback);
+        }
+    });
 }]);

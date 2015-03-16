@@ -21,6 +21,8 @@
             </div>
         </div>
     </div>
+
+    <alert data-ng-hide="requestResult.isSuccessful" type="danger" close="closeAlert()" class="error-alert">{{requestResult.errorMessage}}</alert>
 </div>
 <div class="container">
     <div class="row">
@@ -37,8 +39,8 @@
                     <a data-ui-sref=".packagesBoard" class="list-group-item" data-parent="#post">Packages board</a>
                     <a data-ui-sref=".createPackage" class="list-group-item" data-parent="#post">Create Package</a>
                 </div>
-                <!--<a data-ui-sref=".instructions" class="list-group-item list-group-item-success" data-parent="#userMenu">Instructions</a>
-                <a data-ui-sref=".journal" class="list-group-item list-group-item-success" data-parent="#userMenu">Journal</a>-->
+                <a data-ui-sref=".instructions" class="list-group-item list-group-item-success" data-parent="#userMenu">Instructions</a>
+                <a data-ui-sref=".journal" class="list-group-item list-group-item-success" data-parent="#userMenu">Journal</a>
                 <a href="#building" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Building</a>
                 <div class="collapse submenu" id="building">
                     <a data-ui-sref=".apartments" class="list-group-item" data-parent="#building">Apartments</a>

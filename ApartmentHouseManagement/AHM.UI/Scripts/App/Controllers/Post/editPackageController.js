@@ -8,15 +8,13 @@
         $scope.locations = [];
 
         $scope.save = function () {
-            postService.updatePackage($scope.package).then(function () {
+            postService.updatePackage($scope.package, function () {
                 $state.go('landing.packagesBoard');
-            }, function (error) {
-                alert(error.data.message);
             });
         };
 
-        postService.getPackageById($stateParams.packageId).then(function (results) {
-            $scope.package = results.data;
+        postService.getPackageById($stateParams.packageId, function (data) {
+            $scope.package = data;
             if ($scope.package.notificationOptions.shouldNotifyAllOccupants) {
                 $scope.notification = 'All';
             }
@@ -25,15 +23,9 @@
             } else {
                 $scope.notification = "None";
             }
-        },
-            function (error) {
-                alert(error);
-            });
+        });
 
-        buildingService.getLocations().then(function (result) {
-            $scope.locations = result.data;
-        },
-        function (error) {
-            alert(error.data.message);
+        buildingService.getLocations(function (data) {
+            $scope.locations = data;
         });
     }]);

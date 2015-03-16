@@ -116,6 +116,8 @@ textarea {
     background: red;
     color: white;
     cursor: pointer;
+    padding: 5px;
+    position: relative;
 }
 
 .paid {
@@ -125,4 +127,41 @@ textarea {
 
 .paid-button-height {
     height: 50px;
+}
+
+.error-alert {
+    position: fixed;
+    right: 15px;
+    bottom: 60px;
+    width: 300px;
+}
+
+.minor {
+    background: grey;
+}
+
+.normal {
+    background: green;
+}
+
+.major {
+    background: orange;
+}
+
+.critical {
+    background: red;
+}
+
+.close-button {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+}
+
+.event {
+    position: relative;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 3px;
+    background: lightblue;
 }

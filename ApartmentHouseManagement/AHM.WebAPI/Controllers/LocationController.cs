@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
@@ -40,9 +41,9 @@ namespace AHM.WebAPI.Controllers
                 location.BuildingId = AppUser.BuildingId.Value;
             }
 
-            await _locationService.AddAsync(location);
+            var result = await _locationService.AddAsync(location);
 
-            return Ok(location);
+            return result.IsSuccessful ? (IHttpActionResult)Ok(location) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -54,9 +55,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _locationService.UpdateAsync(location);
+            var result = await _locationService.UpdateAsync(location);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(location) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -68,9 +69,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _locationService.RemoveAsync(location.Id);
+            var result = await _locationService.RemoveAsync(location.Id);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(location) : BadRequest(result.Errors.First());
         }
     }
 }

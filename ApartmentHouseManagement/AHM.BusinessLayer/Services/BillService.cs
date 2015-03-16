@@ -9,14 +9,11 @@ using AHM.DataLayer.Interfaces;
 
 namespace AHM.BusinessLayer.Services
 {
-    public class BillService : IBillService
+    public class BillService : BaseService, IBillService
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-
-        public BillService(IUnitOfWork unitOfWork)
+        public BillService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+            
         }
 
 
@@ -27,7 +24,7 @@ namespace AHM.BusinessLayer.Services
                 case BillDateInteval.Mounth:
                     return
                         await
-                            _unitOfWork.GetRepository<Bill>()
+                            UnitOfWork.GetRepository<Bill>()
                                 .GetAllAsync(
                                     b =>
                                         b.Date.Month == DateTime.Now.Month && b.Date.Year == DateTime.Now.Year &&
@@ -35,7 +32,7 @@ namespace AHM.BusinessLayer.Services
                 case BillDateInteval.Year:
                     return
                         await
-                            _unitOfWork.GetRepository<Bill>()
+                            UnitOfWork.GetRepository<Bill>()
                                 .GetAllAsync(
                                     b =>
                                         b.Date.Year == DateTime.Now.Year &&
@@ -43,7 +40,7 @@ namespace AHM.BusinessLayer.Services
                 case BillDateInteval.All:
                     return
                         await
-                            _unitOfWork.GetRepository<Bill>()
+                            UnitOfWork.GetRepository<Bill>()
                                 .GetAllAsync(
                                     b => (!isPaid.HasValue || b.IsPaid == isPaid.Value));
                 default:
@@ -53,62 +50,73 @@ namespace AHM.BusinessLayer.Services
 
         public async Task<Bill> GetByIdAsync(int id)
         {
-            return await _unitOfWork.GetRepository<Bill>().GetByIdAsync(id);
+            return await UnitOfWork.GetRepository<Bill>().GetByIdAsync(id);
         }
 
-        public async Task AddAsync(Bill bill, List<UtilitiesItem> utilitiesItems)
+        public async Task<ModifyDbStateResult> AddAsync(Bill bill, List<UtilitiesItem> utilitiesItems)
         {
-            _unitOfWork.GetRepository<Bill>().Add(bill);
-            await _unitOfWork.SaveAsync();
-
-            var occupants = await _unitOfWork.GetRepository<Occupant>().GetAllAsync(o => o.ApartmentId == bill.ApartmentId);
-            var occuantsCount = occupants.Count();
-
-            foreach (var utilitiesItem in utilitiesItems)
+            var creationResult = await AddEntityAsync(bill, "Failed to create bill", async () =>
             {
-                utilitiesItem.BillId = bill.Id;
-                await ProcessUtilitiesItemAsync(utilitiesItem, occuantsCount);
-            }
-            _unitOfWork.GetRepository<UtilitiesItem>().AddRange(utilitiesItems);
+                UnitOfWork.GetRepository<Bill>().Add(bill);
+                await UnitOfWork.SaveAsync();
 
-            bill.TotalAmount = utilitiesItems.Sum(i => (i.SubsidezedAmount + i.AmountByFullTariff));
-            _unitOfWork.GetRepository<Bill>().Update(bill);
-
-            await _unitOfWork.SaveAsync();
-        }
-
-        public async Task UpdateAsync(Bill bill, List<UtilitiesItem> utilitiesItems)
-        {
-            if (utilitiesItems != null)
-            {
-                var occupants = await _unitOfWork.GetRepository<Occupant>().GetAllAsync(o => o.ApartmentId == bill.ApartmentId);
+                var occupants =
+                    await UnitOfWork.GetRepository<Occupant>().GetAllAsync(o => o.ApartmentId == bill.ApartmentId);
                 var occuantsCount = occupants.Count();
+
                 foreach (var utilitiesItem in utilitiesItems)
                 {
+                    utilitiesItem.BillId = bill.Id;
                     await ProcessUtilitiesItemAsync(utilitiesItem, occuantsCount);
-
-                    if (utilitiesItem.Id > 0)
-                    {
-                        _unitOfWork.GetRepository<UtilitiesItem>().Update(utilitiesItem);
-                    }
-                    else
-                    {
-                        utilitiesItem.BillId = bill.Id;
-                        _unitOfWork.GetRepository<UtilitiesItem>().Add(utilitiesItem);
-                    }
                 }
+                UnitOfWork.GetRepository<UtilitiesItem>().AddRange(utilitiesItems);
 
                 bill.TotalAmount = utilitiesItems.Sum(i => (i.SubsidezedAmount + i.AmountByFullTariff));
-            }
+                UnitOfWork.GetRepository<Bill>().Update(bill);
 
-            _unitOfWork.GetRepository<Bill>().Update(bill);
-            await _unitOfWork.SaveAsync();
+                await UnitOfWork.SaveAsync();
+            });
+
+            return creationResult;
+        }
+
+        public async Task<ModifyDbStateResult> UpdateAsync(Bill bill, List<UtilitiesItem> utilitiesItems = null)
+        {
+            var updatingResult = await UpdateEntityAsync(bill, "Failed to update Bill", async () =>
+            {
+                if (utilitiesItems != null)
+                {
+                    var occupants = await UnitOfWork.GetRepository<Occupant>().GetAllAsync(o => o.ApartmentId == bill.ApartmentId);
+                    var occuantsCount = occupants.Count();
+                    foreach (var utilitiesItem in utilitiesItems)
+                    {
+                        await ProcessUtilitiesItemAsync(utilitiesItem, occuantsCount);
+
+                        if (utilitiesItem.Id > 0)
+                        {
+                            UnitOfWork.GetRepository<UtilitiesItem>().Update(utilitiesItem);
+                        }
+                        else
+                        {
+                            utilitiesItem.BillId = bill.Id;
+                            UnitOfWork.GetRepository<UtilitiesItem>().Add(utilitiesItem);
+                        }
+                    }
+
+                    bill.TotalAmount = utilitiesItems.Sum(i => (i.SubsidezedAmount + i.AmountByFullTariff));
+                }
+
+                UnitOfWork.GetRepository<Bill>().Update(bill);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updatingResult;
         }
 
         private async Task ProcessUtilitiesItemAsync(UtilitiesItem utilitiesItem, int occupantsCount)
         {
-            var utilitiesClause = await 
-                _unitOfWork.GetRepository<UtilitiesClause>().GetByIdAsync(utilitiesItem.UtilitiesClauseId);
+            var utilitiesClause = await
+                UnitOfWork.GetRepository<UtilitiesClause>().GetByIdAsync(utilitiesItem.UtilitiesClauseId);
 
             double overshoot = 0;
             if (utilitiesClause.IsLimited)

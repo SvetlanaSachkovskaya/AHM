@@ -6,27 +6,24 @@ using AHM.DataLayer.Interfaces;
 
 namespace AHM.BusinessLayer.Services
 {
-    public class PackageService : IPackageService
+    public class PackageService : BaseService, IPackageService
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-
-        public PackageService(IUnitOfWork unitOfWork)
+        public PackageService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+
         }
 
 
         public async Task<ICollection<Package>> GetAllPackagesAsync(int buildingId)
         {
-            return await _unitOfWork.GetRepository<Package>().GetAllAsync(p => p.Apartment.BuildingId == buildingId && !p.IsClosed);
+            return await UnitOfWork.GetRepository<Package>().GetAllAsync(p => p.Apartment.BuildingId == buildingId && !p.IsClosed);
         }
 
         public async Task<ICollection<Package>> FilterPackagesAsync(int buildingId, int locationId, int packageTypeId)
         {
             return
                 await
-                    _unitOfWork.GetRepository<Package>()
+                    UnitOfWork.GetRepository<Package>()
                         .GetAllAsync(
                             p =>
                                 p.Apartment.BuildingId == buildingId && !p.IsClosed &&
@@ -36,19 +33,29 @@ namespace AHM.BusinessLayer.Services
 
         public async Task<Package> GetByIdAsync(int id)
         {
-            return await _unitOfWork.GetRepository<Package>().GetByIdAsync(id);
+            return await UnitOfWork.GetRepository<Package>().GetByIdAsync(id);
         }
 
-        public async Task AddAsync(Package package)
+        public async Task<ModifyDbStateResult> AddAsync(Package package)
         {
-            _unitOfWork.GetRepository<Package>().Add(package);
-            await _unitOfWork.SaveAsync();
+            var creationResult = await AddEntityAsync(package, "Failed to create Package", async () =>
+            {
+                UnitOfWork.GetRepository<Package>().Add(package);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return creationResult;
         }
 
-        public async Task UpdateAsync(Package package)
+        public async Task<ModifyDbStateResult> UpdateAsync(Package package)
         {
-            _unitOfWork.GetRepository<Package>().Update(package);
-            await _unitOfWork.SaveAsync();
+            var updatingResult = await UpdateEntityAsync(package, "Failed to update Package", async () =>
+            {
+                UnitOfWork.GetRepository<Package>().Update(package);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updatingResult;
         }
     }
 }

@@ -1,15 +1,20 @@
 ﻿<div>
     <p class="page-title">Locations</p>
 
-    <form class="form-inline bottom-margin create-panel">
-        <div class="form-group">
-            <label class="block-label">Short Description</label>
-            <input type="text" class="form-control" data-ng-model="newLocation.shortDescription" />
+    <form name="locationForm" novalidate class="form-inline bottom-margin create-panel">
+        <div ng-class="{ 'has-error' : locationForm.$invalid }">
+            <p ng-show="locationForm.shortDescription.$invalid && locationForm.shortDescription.$dirty" class="help-block">Short description is required</p>
+            <p ng-show="locationForm.longDescription.$invalid && locationForm.longDescription.$dirty" class="help-block">Long description is required</p>
         </div>
 
-        <div class="form-group">
+        <div ng-class="{ 'has-error' : locationForm.shortDescription.$invalid && locationForm.shortDescription.$dirty }" class="form-group">
+            <label class="block-label">Short Description</label>
+            <input type="text" name="shortDescription" class="form-control" data-ng-model="newLocation.shortDescription" required />
+        </div>
+
+        <div ng-class="{ 'has-error' : locationForm.longDescription.$invalid && locationForm.longDescription.$dirty }" class="form-group">
             <label class="block-label">Long Description</label>
-            <input type="text" class="form-control" data-ng-model="newLocation.longDescription" />
+            <input type="text" name="longDescription" class="form-control" data-ng-model="newLocation.longDescription" required />
         </div>
 
         <div class="form-group">

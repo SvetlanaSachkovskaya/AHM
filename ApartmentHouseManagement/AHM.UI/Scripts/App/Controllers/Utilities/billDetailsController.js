@@ -12,17 +12,19 @@
             $state.go('landing.billsBoard');
         }
 
-        $scope.senEmail = function () {
-            $state.go('landing.billDetails', { billId: id });
+        $scope.sendEmail = function () {
+            utilitiesService.sendEmail($scope.bill, function () {
+                $scope.bill.isEmailSent = true;
+            });
+        }
+
+        $scope.viewPdf = function () {
+            $state.go('landing.viewPdf', { billId: $scope.bill.id });
         }
 
         if ($stateParams.billId) {
-            utilitiesService.getBillById($stateParams.billId).then(
-            function (result) {
-                $scope.bill = result.data;
-            },
-            function (error) {
-                alert(error);
+            utilitiesService.getBillById($stateParams.billId, function (data) {
+                $scope.bill = data;
             });
         }
     }

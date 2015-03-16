@@ -8,10 +8,10 @@ namespace AHM.BusinessLayer.Interfaces
     {
         Task<ICollection<Location>> GetAllLocationsAsync(int buildingId);
 
-        Task AddAsync(Location location);
+        Task<ModifyDbStateResult> AddAsync(Location location);
 
-        Task UpdateAsync(Location location);
+        Task<ModifyDbStateResult> UpdateAsync(Location location);
 
-        Task RemoveAsync(int id);
+        Task<ModifyDbStateResult> RemoveAsync(int id);
     }
 }

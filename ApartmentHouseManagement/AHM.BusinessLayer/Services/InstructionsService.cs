@@ -6,32 +6,49 @@ using AHM.DataLayer.Interfaces;
 
 namespace AHM.BusinessLayer.Services
 {
-    public class InstructionsService : IInstructionsService
+    public class InstructionsService : BaseService, IInstructionsService
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-
-        public InstructionsService(IUnitOfWork unitOfWork)
+        public InstructionsService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+
         }
 
 
         public async Task<ICollection<Instruction>> GetAllInstructionsAsync(int buildingId)
         {
-            return await _unitOfWork.GetRepository<Instruction>().GetAllAsync(l => l.BuildingId == buildingId);
+            return await UnitOfWork.GetRepository<Instruction>().GetAllAsync(l => l.BuildingId == buildingId);
         }
 
-        public async Task AddAsync(Instruction instruction)
+        public async Task<ICollection<Instruction>> GetAllOpenInstructionsAsync(int buildingId)
         {
-            _unitOfWork.GetRepository<Instruction>().Add(instruction);
-            await _unitOfWork.SaveAsync();
+            return await UnitOfWork.GetRepository<Instruction>().GetAllAsync(i => i.BuildingId == buildingId && !i.IsClosed );
         }
 
-        public async Task UpdateAsync(Instruction instruction)
+        public async Task<Instruction> GetByIdAsync(int id)
         {
-            _unitOfWork.GetRepository<Instruction>().Update(instruction);
-            await _unitOfWork.SaveAsync();
+            return await UnitOfWork.GetRepository<Instruction>().GetByIdAsync(id);
+        }
+
+        public async Task<ModifyDbStateResult> AddAsync(Instruction instruction)
+        {
+            var creationResult = await AddEntityAsync(instruction, "Failed to create Instruction", async () =>
+            {
+                UnitOfWork.GetRepository<Instruction>().Add(instruction);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return creationResult;
+        }
+
+        public async Task<ModifyDbStateResult> UpdateAsync(Instruction instruction)
+        {
+            var updatingResult = await UpdateEntityAsync(instruction, "Failed to update Instruction", async () =>
+            {
+                UnitOfWork.GetRepository<Instruction>().Update(instruction);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updatingResult;
         }
     }
 }

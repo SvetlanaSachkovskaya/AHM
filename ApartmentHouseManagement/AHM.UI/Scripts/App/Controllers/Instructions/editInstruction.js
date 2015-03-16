@@ -2,32 +2,31 @@
     function ($scope, $state, $stateParams, instructionsService) {
         'use strict';
 
-        $scope.instruction = null;
+        $scope.instruction = {};
         $scope.priorities = [];
 
-        $scope.saveInstruction = function () {
-            instructionsService.updateInstruction($scope.instruction).then(
-                function () {
-                    $state.go('landing.instructions');
-                },
-                function (error) {
-                    alert(error);
-                });
+        $scope.datePickerSettings = {
+            open: function ($event) {
+                $event.preventDefault();
+                $event.stopPropagation();
+
+                $scope.opened = true;
+            }
         }
 
-        instructionsService.getById($stateParams.instructionId).then(
-            function (result) {
-                $scope.instruction = result.data;
-            },
-            function (error) {
-                alert(error);
+        $scope.saveInstruction = function () {
+            instructionsService.updateInstruction($scope.instruction, function () {
+                $state.go('landing.instructions');
             });
+        }
 
-        instructionsService.getPriorities().then(
-            function(result) {
-                $scope.priorities = result.data;
-            },
-            function(error) {
-                alert(error);
+        if ($stateParams.instructionId) {
+            instructionsService.getInstructionById($stateParams.instructionId, function (data) {
+                $scope.instruction = data;
             });
+        }
+
+        instructionsService.getPriorities(function (data) {
+            $scope.priorities = data;
+        });
     }]);

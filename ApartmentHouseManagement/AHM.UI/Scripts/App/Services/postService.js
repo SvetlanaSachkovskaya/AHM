@@ -1,31 +1,20 @@
-﻿app.factory('postService', ['$http', 'ngAuthSettings', function ($http, ngAuthSettings) {
+﻿app.factory('postService', ['httpModule', function (httpModule) {
     'use strict';
 
-    var serviceBase = ngAuthSettings.apiServiceBaseUri;
-
-    var getPackages = function () {
-
-        return $http.get(serviceBase + 'api/post/getAll').then(function (results) {
-            return results;
-        });
+    var getPackages = function (callback) {
+        httpModule.get('api/post/getAll', null, callback);
     };
 
-    var createPackage = function (pack) {
-        return $http.post(serviceBase + 'api/post/add', pack).then(function (result) {
-            return result;
-        });
+    var createPackage = function (pack, callback) {
+        httpModule.post('api/post/add', pack, callback);
     }
 
-    var updatePackage = function (pack) {
-        return $http.post(serviceBase + 'api/post/update', pack).then(function (result) {
-            return result;
-        });
+    var updatePackage = function (pack, callback) {
+        httpModule.post('api/post/update', pack, callback);
     }
 
-    var getPackageById = function (id) {
-        return $http.get(serviceBase + 'api/post/getById', {params: {id : id}}).then(function (result) {
-            return result;
-        });
+    var getPackageById = function (id, callback) {
+        httpModule.get('api/post/getById', { id: id }, callback);
     }
 
     var self = {};

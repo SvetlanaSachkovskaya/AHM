@@ -1,4 +1,5 @@
-﻿using AHM.BusinessLayer.Interfaces;
+﻿using AHM.BusinessLayer;
+using AHM.BusinessLayer.Interfaces;
 using AHM.BusinessLayer.Services;
 using AHM.DataLayer;
 using AHM.DataLayer.Interfaces;
@@ -23,6 +24,9 @@ namespace AHM.DependencyInjection
             container.RegisterType<IBillService, BillService>();
             container.RegisterType<IUtilitiesItemService, UtilitiesItemService>();
             container.RegisterType<IBuildingService, BuildingService>();
+            container.RegisterType<IBillPdfGenerator, BillPdfGenerator>();
+            container.RegisterType<IInstructionsService, InstructionsService>();
+            container.RegisterType<IJournalService, JournalService>();
         }
 
         public static void ConfigureUserManager(IAppBuilder app)

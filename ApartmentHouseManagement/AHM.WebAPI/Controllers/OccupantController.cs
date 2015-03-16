@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
@@ -46,7 +47,8 @@ namespace AHM.WebAPI.Controllers
         [Route("GetApartmentOwner")]
         public async Task<IHttpActionResult> GetApartmentOwner(int apartmentId)
         {
-            var occupants = await _occupantService.GetApartmentOwnerAsync(apartmentId);            return Ok(occupants);
+            var occupants = await _occupantService.GetApartmentOwnerAsync(apartmentId);            
+            return Ok(occupants);
         }
 
         [HttpPost]
@@ -58,9 +60,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _occupantService.AddAsync(occupant);
+            var result = await _occupantService.AddAsync(occupant);
 
-            return Ok(occupant);
+            return result.IsSuccessful ? (IHttpActionResult)Ok(occupant) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -72,9 +74,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _occupantService.UpdateAsync(occupant);
+            var result = await _occupantService.UpdateAsync(occupant);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(occupant) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -86,9 +88,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _occupantService.RemoveAsync(occupant.Id);
+            var result = await _occupantService.RemoveAsync(occupant.Id);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(occupant) : BadRequest(result.Errors.First());
         }
     }
 }

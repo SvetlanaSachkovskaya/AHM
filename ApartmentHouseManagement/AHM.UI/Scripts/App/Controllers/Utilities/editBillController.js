@@ -2,6 +2,14 @@
     function ($scope, $state, $stateParams, $filter, utilitiesService, buildingService) {
         'use strict';
 
+        function forceRequiredValidation() {
+            if ($scope.billForm.$error.required) {
+                $scope.billForm.$error.required.forEach(function (element) {
+                    element.$setDirty();
+                });
+            }
+        }
+
         //todo: move to separate file
         function UtilitiesItem(utilitiesClause, utilitiesItem) {
             var self = {};
@@ -70,25 +78,25 @@
         $scope.isEditMode = false;
 
         $scope.create = function () {
-            $scope.bill.utilitiesItems = getCheckedItems();
-            utilitiesService.addBill($scope.bill).then(
-                function () {
+            forceRequiredValidation();
+
+            if ($scope.billForm.$valid) {
+                $scope.bill.utilitiesItems = getCheckedItems();
+                utilitiesService.addBill($scope.bill, function () {
                     $state.go('landing.billsBoard');
-                },
-                function (error) {
-                    alert(error);
                 });
+            }
         }
 
         $scope.update = function () {
-            $scope.bill.utilitiesItems = getCheckedItems();
-            utilitiesService.updateBill($scope.bill).then(
-                function () {
+            forceRequiredValidation();
+
+            if ($scope.billForm.$valid) {
+                $scope.bill.utilitiesItems = getCheckedItems();
+                utilitiesService.updateBill($scope.bill, function () {
                     $state.go('landing.billsBoard');
-                },
-                function (error) {
-                    alert(error);
                 });
+            }
         }
 
         $scope.openDatePicker  = function ($event) {
@@ -103,34 +111,22 @@
             maxMode: 'month'
         };
 
-        utilitiesService.getActiveUtilitiesClauses().then(
-            function (typesResult) {
-                var types = typesResult.data;
-                if ($stateParams.billId) {
-                    utilitiesService.getBillById($stateParams.billId).then(
-                        function(itemsResult) {
-                            $scope.bill = itemsResult.data;
-                            $scope.isEditMode = true;
+        utilitiesService.getActiveUtilitiesClauses(function (typesData) {
+            var types = typesData;
+            if ($stateParams.billId) {
+                utilitiesService.getBillById($stateParams.billId, function (itemsData) {
+                    $scope.bill = itemsData;
+                    $scope.isEditMode = true;
 
-                            initializeUtilitiesItems(types);
-                        },
-                        function(error) {
-                            alert(error);
-                        });
-                } else {
                     initializeUtilitiesItems(types);
-                }
-            },
-            function (error) {
-                alert(error);
-            });
+                });
+            } else {
+                initializeUtilitiesItems(types);
+            }
+        });
 
-        buildingService.getApartments().then(
-            function (result) {
-                $scope.apartments = result.data;
-            },
-            function (error) {
-                alert(error);
-            });
+        buildingService.getApartments(function (data) {
+            $scope.apartments = data;
+        });
     }
 ]);

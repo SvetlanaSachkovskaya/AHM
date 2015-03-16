@@ -1,12 +1,10 @@
-﻿app.factory('apartmentService', ['$http', 'ngAuthSettings', function ($http, ngAuthSettings) {
+﻿app.factory('apartmentService', ['$http', 'ngAuthSettings', 'httpModule', function ($http, ngAuthSettings, httpModule) {
     'use strict';
 
     var serviceBase = ngAuthSettings.apiServiceBaseUri;
 
-    var getApartments = function () {
-        return $http.get(serviceBase + 'api/apartment/getApartments').then(function (results) {
-            return results;
-        });
+    var getApartments = function (callback) {
+        httpModule.get('api/apartment/getAll', null, callback);
     };
 
     var addApartment = function (apartment) {

@@ -28,3 +28,20 @@ D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.BusinessLayer\bin
 D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.csprojResolveAssemblyReference.cache
 D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.dll
 D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.pdb
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.BusinessLayer.dll
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.BusinessLayer.pdb
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.Common.dll
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.DataLayer.dll
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.Common.pdb
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.DataLayer.pdb
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.dll
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.pdb
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\itextsharp.dll
+D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\itextsharp.xml

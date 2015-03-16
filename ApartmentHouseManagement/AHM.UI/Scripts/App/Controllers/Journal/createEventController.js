@@ -1,10 +1,17 @@
-﻿app.controller('journalController', ['$scope', '$state', 'journalService', function ($scope, $state, journalService) {
+﻿app.controller('createEventController', ['$scope', '$state', 'journalService', function ($scope, $state, journalService) {
     'use strict';
+
+    function forceRequiredValidation() {
+        if ($scope.eventForm.$error.required) {
+            $scope.eventForm.$error.required.forEach(function (element) {
+                element.$setDirty();
+            });
+        }
+    }
 
     $scope.event = {
         content: '',
-        date: new Date(),
-        time: new Date()
+        dateTime: new Date()
     };
 
     $scope.datePickerSettings = {
@@ -17,12 +24,12 @@
     }
 
     $scope.createEvent = function () {
-        journalService.createEvent($scope.event).then(
-            function () {
+        forceRequiredValidation();
+
+        if ($scope.eventForm.$valid) {
+            journalService.createEvent($scope.event, function () {
                 $state.go('landing.journal');
-            },
-            function (error) {
-                alert(error);
             });
+        }
     }
 }]);

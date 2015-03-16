@@ -6,10 +6,18 @@ namespace AHM.BusinessLayer.Interfaces
 {
     public interface IJournalService
     {
-        Task<ICollection<Event>> GetAllEventsAsync(int buildingId);
+        Task<ICollection<Event>> GetAllActiveEventsAsync(int buildingId);
 
-        Task AddAsync(Event eventEntity);
+        Task<ICollection<Event>> GetEventsPerDay(int buildingId);
 
-        Task UpdateAsync(Event eventEntity);
+        Task<ICollection<Event>> GetEventsPerWeek(int buildingId);
+
+        Task<ICollection<Event>> GetEventsPerMonth(int buildingId);
+
+        Task<ICollection<Event>> GetEventsPerYear(int buildingId);
+
+        Task<ModifyDbStateResult> AddAsync(Event eventEntity);
+
+        Task<ModifyDbStateResult> UpdateAsync(Event eventEntity);
     }
 }

@@ -12,8 +12,8 @@ namespace AHM.BusinessLayer.Interfaces
 
         Task<Package> GetByIdAsync(int id);
 
-        Task AddAsync(Package package);
+        Task<ModifyDbStateResult> AddAsync(Package package);
 
-        Task UpdateAsync(Package package);
+        Task<ModifyDbStateResult> UpdateAsync(Package package);
     }
 }

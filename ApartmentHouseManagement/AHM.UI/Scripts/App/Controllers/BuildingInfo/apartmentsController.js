@@ -5,10 +5,8 @@
 
     $scope.removeApartment = function (apartment) {
         if (confirm('Are you sure you want to delete this apartment?')) {
-            buildingService.removeApartment(apartment).then(function () {
+            buildingService.removeApartment(apartment, function () {
                 $scope.apartments.splice($scope.apartments.indexOf(apartment), 1);
-            }, function (error) {
-                alert(error);
             });
         }
     }
@@ -21,9 +19,7 @@
         $state.go('landing.editApartment', {apartmentId: id});
     }
 
-    buildingService.getApartments().then(function (results) {
-        $scope.apartments = results.data;
-    }, function (error) {
-        alert(error.data.message);
+    buildingService.getApartments(function (data) {
+        $scope.apartments = data;
     });
 }]);

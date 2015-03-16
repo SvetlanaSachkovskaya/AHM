@@ -1,4 +1,7 @@
-﻿namespace AHM.Common.DomainModel
+﻿using System;
+using System.Linq;
+
+namespace AHM.Common.DomainModel
 {
     public class UtilitiesClause : Entity
     {
@@ -23,5 +26,23 @@
         public Building Building { get; set; }
 
         public int BuildingId { get; set; }
+
+
+        public override ValidationResult Validate()
+        {
+            var result = new ValidationResult();
+            if (BuildingId <= 0)
+            {
+                result.Errors.Add("Building is required");
+            }
+            if (String.IsNullOrEmpty(Name))
+            {
+                result.Errors.Add("Name is required");
+            }
+
+            result.IsValid = !result.Errors.Any();
+
+            return result;
+        }
     }
 }

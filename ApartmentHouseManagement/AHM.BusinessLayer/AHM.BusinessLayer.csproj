@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.5\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -46,8 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillPdfGenerator.cs" />
     <Compile Include="Interfaces\IApartmentService.cs" />
+    <Compile Include="Interfaces\IBillPdfGenerator.cs" />
     <Compile Include="Interfaces\IBillService.cs" />
+    <Compile Include="Interfaces\IBuildingService.cs" />
     <Compile Include="Interfaces\IInstructionsService.cs" />
     <Compile Include="Interfaces\IJournalService.cs" />
     <Compile Include="Interfaces\ILocationService.cs" />
@@ -57,7 +63,10 @@
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Interfaces\IUtilitiesClauseService.cs" />
     <Compile Include="Interfaces\IUtilitiesItemService.cs" />
+    <Compile Include="ModifyDbStateResult.cs" />
     <Compile Include="Services\ApartmentService.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\BuildingService.cs" />
     <Compile Include="Services\InstructionsService.cs" />
     <Compile Include="Services\JournalService.cs" />
     <Compile Include="Services\LocationService.cs" />

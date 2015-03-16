@@ -9,11 +9,8 @@
 
     $scope.removeOccupant = function(occupant) {
         if (confirm('Are you sure you want to delete this occupant?')) {
-            buildingService.removeOccupant(occupant).then(function() {
-                    $scope.occupants.splice($scope.occupants.indexOf(occupant), 1);
-                },
-            function(error) {
-                alert(error);
+            buildingService.removeOccupant(occupant, function() {
+                $scope.occupants.splice($scope.occupants.indexOf(occupant), 1);
             });
         }
     }
@@ -22,10 +19,7 @@
         $state.go('landing.createOccupant', { occupantId: occupant.id });
     }
 
-    buildingService.getOccupants().then(function(result) {
-        $scope.occupants = result.data;
-    },
-    function(error) {
-        alert(error);
+    buildingService.getOccupants(function(data) {
+        $scope.occupants = data;
     });
 }]);

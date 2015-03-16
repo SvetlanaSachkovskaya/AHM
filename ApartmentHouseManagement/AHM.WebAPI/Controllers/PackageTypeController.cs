@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
@@ -40,9 +41,9 @@ namespace AHM.WebAPI.Controllers
                 packageType.BuildingId = AppUser.BuildingId.Value;
             }
 
-            await _packageTypeService.AddAsync(packageType);
+            var result = await _packageTypeService.AddAsync(packageType);
 
-            return Ok(packageType);
+            return result.IsSuccessful ? (IHttpActionResult)Ok(packageType) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -54,9 +55,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _packageTypeService.UpdateAsync(packageType);
+            var result = await _packageTypeService.UpdateAsync(packageType);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(packageType) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -68,9 +69,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _packageTypeService.RemoveAsync(packageType.Id);
+            var result = await _packageTypeService.RemoveAsync(packageType.Id);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(packageType) : BadRequest(result.Errors.First());
         }
     }
 }

@@ -1,36 +1,28 @@
-﻿app.factory('instructionsService', ['$http', 'ngAuthSettings', function ($http, ngAuthSettings) {
+﻿app.factory('instructionsService', ['httpModule', function (httpModule) {
     'use strict';
 
-    var serviceBase = ngAuthSettings.apiServiceBaseUri;
-
-    var getInstructions = function () {
-        return $http.get(serviceBase + 'api/instructions/getAll').then(function (results) {
-            return results;
-        });
+    var getInstructions = function (callback) {
+        httpModule.get('api/instructions/getAll', null, callback);
     };
 
-    var getPriorities = function () {
-        return $http.get(serviceBase + 'api/instructions/getPriorities').then(function (results) {
-            return results;
-        });
+    var getOpenInstructions = function (callback) {
+        httpModule.get('api/instructions/getAllOpen', null, callback);
     };
 
-    var createInstruction = function (instruction) {
-        return $http.post(serviceBase + 'api/instructions/add', instruction).then(function (result) {
-            return result;
-        });
+    var getPriorities = function (callback) {
+        httpModule.get('api/instructions/getPriorities', null, callback);
+    };
+
+    var createInstruction = function (instruction, callback) {
+        httpModule.post('api/instructions/add', instruction, callback);
     }
 
-    var updateInstruction = function (instruction) {
-        return $http.post(serviceBase + 'api/instructions/update', instruction).then(function (result) {
-            return result;
-        });
+    var updateInstruction = function (instruction, callback) {
+        httpModule.post('api/instructions/update', instruction, callback);
     }
 
-    var getInstructionById = function (id) {
-        return $http.get(serviceBase + 'api/instructions/getById', { params: { id: id } }).then(function (result) {
-            return result;
-        });
+    var getInstructionById = function (id, callback) {
+        httpModule.get('api/instructions/getById', { id: id }, callback);
     }
 
     var self = {};
@@ -39,6 +31,7 @@
     self.updateInstruction = updateInstruction;
     self.getInstructionById = getInstructionById;
     self.getPriorities = getPriorities;
+    self.getOpenInstructions = getOpenInstructions;
 
     return self;
 }]);

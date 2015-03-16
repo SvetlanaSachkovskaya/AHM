@@ -14,10 +14,10 @@ namespace AHM.BusinessLayer.Interfaces
 
         Task<Occupant> GetApartmentOwnerAsync(int apartmentId);
 
-        Task AddAsync(Occupant occupant);
+        Task<ModifyDbStateResult> AddAsync(Occupant occupant);
 
-        Task UpdateAsync(Occupant occupant);
+        Task<ModifyDbStateResult> UpdateAsync(Occupant occupant);
 
-        Task RemoveAsync(int id);
+        Task<ModifyDbStateResult> RemoveAsync(int id);
     }
 }

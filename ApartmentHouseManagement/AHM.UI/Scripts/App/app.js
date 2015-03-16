@@ -1,4 +1,4 @@
-﻿var app = angular.module('AhmApp', ['ui.router', 'LocalStorageModule', 'angular-loading-bar', 'ui.bootstrap']);
+﻿var app = angular.module('AhmApp', ['ui.router', 'LocalStorageModule', 'angular-loading-bar', 'ui.bootstrap', 'ngPDFViewer']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -79,7 +79,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             controller: 'createInstructionController'
         })
         .state('landing.editInstruction', {
-            url: '/editInstruction',
+            url: '/editInstruction:instructionId',
             templateUrl: 'Views/Instructions/EditInstruction.html',
             controller: 'editInstructionController'
         })
@@ -117,6 +117,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/billsBoard',
             templateUrl: 'Views/Utilities/BillsBoard.html',
             controller: 'billsBoardController'
+        })
+        .state('landing.viewPdf', {
+            url: '/pdfViewer:billId',
+            templateUrl: 'Views/Utilities/BillPdfViewer.html',
+            controller: 'billPdfViewerController'
         });
 });
 
@@ -130,7 +135,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 //    }
 //]);
 
-var serviceBase = 'http://wsb-035/ahmapi/';
+//var serviceBase = 'http://wsb-035/ahmapi/';
+var serviceBase = 'http://localhost:6888/';
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: 'ngAuthApp'

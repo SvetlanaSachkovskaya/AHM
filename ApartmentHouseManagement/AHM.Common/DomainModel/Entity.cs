@@ -2,9 +2,12 @@
 
 namespace AHM.Common.DomainModel
 {
-    public class Entity
+    public abstract class Entity
     {
         [Key]
         public int Id { get; set; }
+
+
+        public abstract ValidationResult Validate();
     }
 }

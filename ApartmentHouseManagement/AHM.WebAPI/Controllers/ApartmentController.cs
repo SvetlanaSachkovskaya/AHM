@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
@@ -54,9 +55,9 @@ namespace AHM.WebAPI.Controllers
                 apartment.BuildingId = AppUser.BuildingId.Value;
             }
 
-            await _apartmentService.AddAsync(apartment.GetApartment());
+            var result = await _apartmentService.AddAsync(apartment.GetApartment());
 
-            return Ok(apartment);
+            return result.IsSuccessful ? (IHttpActionResult) Ok(apartment) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -68,9 +69,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _apartmentService.UpdateAsync(apartment.GetApartment(), apartment.OwnerId);
+            var result = await _apartmentService.UpdateAsync(apartment.GetApartment(), apartment.OwnerId);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(apartment) : BadRequest(result.Errors.First());
         }
 
         [HttpPost]
@@ -82,9 +83,9 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await _apartmentService.RemoveAsync(apartment.Id);
+            var result = await _apartmentService.RemoveAsync(apartment.Id);
 
-            return Ok();
+            return result.IsSuccessful ? (IHttpActionResult)Ok(apartment) : BadRequest(result.Errors.First());
         }
     }
 }

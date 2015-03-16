@@ -125,6 +125,22 @@
     <Compile Include="Migrations\201503090950366_AddedIsLimitedForUtilitiesClause.Designer.cs">
       <DependentUpon>201503090950366_AddedIsLimitedForUtilitiesClause.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503150820015_AddedEmailToBuilding.cs" />
+    <Compile Include="Migrations\201503150820015_AddedEmailToBuilding.Designer.cs">
+      <DependentUpon>201503150820015_AddedEmailToBuilding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503152120377_UpdatedInstructionAndLocationTables.cs" />
+    <Compile Include="Migrations\201503152120377_UpdatedInstructionAndLocationTables.Designer.cs">
+      <DependentUpon>201503152120377_UpdatedInstructionAndLocationTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503152253315_UpdatedEventsTable.cs" />
+    <Compile Include="Migrations\201503152253315_UpdatedEventsTable.Designer.cs">
+      <DependentUpon>201503152253315_UpdatedEventsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503160639453_PersonalAccountAdded.cs" />
+    <Compile Include="Migrations\201503160639453_PersonalAccountAdded.Designer.cs">
+      <DependentUpon>201503160639453_PersonalAccountAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -181,6 +197,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503090950366_AddedIsLimitedForUtilitiesClause.resx">
       <DependentUpon>201503090950366_AddedIsLimitedForUtilitiesClause.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503150820015_AddedEmailToBuilding.resx">
+      <DependentUpon>201503150820015_AddedEmailToBuilding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503152120377_UpdatedInstructionAndLocationTables.resx">
+      <DependentUpon>201503152120377_UpdatedInstructionAndLocationTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503152253315_UpdatedEventsTable.resx">
+      <DependentUpon>201503152253315_UpdatedEventsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503160639453_PersonalAccountAdded.resx">
+      <DependentUpon>201503160639453_PersonalAccountAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

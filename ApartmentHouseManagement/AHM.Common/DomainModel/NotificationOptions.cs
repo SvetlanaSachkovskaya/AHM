@@ -9,5 +9,11 @@
         public Occupant Occupant { get; set; }
 
         public int? OccupantId { get; set; }
+
+
+        public override ValidationResult Validate()
+        {
+            return new ValidationResult { IsValid = true };
+        }
     }
 }

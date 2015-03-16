@@ -1,9 +1,10 @@
-﻿<form class="col-md-8 center-block">
+﻿<form name="clauseForm" novalidate class="col-md-8 center-block">
     <p class="page-title">New clause</p>
 
-    <div class="form-group">
+    <div ng-class="{ 'has-error' : clauseForm.name.$invalid && clauseForm.name.$dirty }" class="form-group">
         <label>Name</label>
-        <input type="text" data-ng-model="utilitiesClause.name" class="form-control" />
+        <input type="text" name="name" data-ng-model="utilitiesClause.name" class="form-control" required />
+        <p ng-show="clauseForm.name.$error.required && clauseForm.name.$dirty" class="help-block">Name is required</p>
     </div>
     <div class="form-group">
         <label>Measure</label>
@@ -19,21 +20,24 @@
         <select data-ng-model="utilitiesClause.calculationType" data-ng-options="calculationType.id as calculationType.name for calculationType in calculationTypes"
                 class="form-control"></select>
     </div>
-    <div class="form-group">
+    <div ng-class="{ 'has-error' : clauseForm.subsidizedTariff.$invalid && clauseForm.subsidizedTariff.$dirty }" class="form-group">
         <label>Subsidized tariff / Rate</label>
-        <input type="text" data-ng-model="utilitiesClause.subsidizedTariff" class="form-control" />
+        <input type="text" name="subsidizedTariff" data-ng-model="utilitiesClause.subsidizedTariff" float-number class="form-control" required />
+        <p ng-show="clauseForm.subsidizedTariff.$error.required && clauseForm.subsidizedTariff.$dirty" class="help-block">Floor is required</p>
     </div>
     <div class="form-group">
         <input type="checkbox" data-ng-model="utilitiesClause.isLimited" id="isLimitedCheckBox" />
         <label for="isLimitedCheckBox">Set subsidized limit</label>
     </div>
-    <div class="form-group">
+    <div ng-class="{ 'has-error' : clauseForm.fullTariff.$invalid && clauseForm.fullTariff.$dirty }" class="form-group">
         <label>Full tariff / Rate</label>
-        <input type="text" data-ng-disabled="!utilitiesClause.isLimited" data-ng-model="utilitiesClause.fullTariff" class="form-control" />
+        <input type="text" name="fullTariff" data-ng-disabled="!utilitiesClause.isLimited" data-ng-model="utilitiesClause.fullTariff" float-number class="form-control" required />
+        <p ng-show="clauseForm.fullTariff.$error.required && clauseForm.fullTariff.$dirty" class="help-block">Floor is required</p>
     </div>
-    <div class="form-group">
+    <div ng-class="{ 'has-error' : clauseForm.limit.$invalid && clauseForm.limit.$dirty }" class="form-group">
         <label>Limit</label>
-        <input type="text" data-ng-disabled="!utilitiesClause.isLimited" data-ng-model="utilitiesClause.limitForPerson" class="form-control" />
+        <input type="text" name="limit" data-ng-disabled="!utilitiesClause.isLimited" data-ng-model="utilitiesClause.limitForPerson" float-number class="form-control" required />
+        <p ng-show="clauseForm.limit.$error.required && clauseForm.limit.$dirty" class="help-block">Floor is required</p>
     </div>
     <div class="form-group">
         <input type="checkbox" data-ng-model="utilitiesClause.isActive" id="isActiveCheckBox" />

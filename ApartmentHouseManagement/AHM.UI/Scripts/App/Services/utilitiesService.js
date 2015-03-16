@@ -1,84 +1,64 @@
-﻿app.factory('utilitiesService', ['$http', 'ngAuthSettings', function ($http, ngAuthSettings) {
+﻿app.factory('utilitiesService', ['httpModule', function (httpModule) {
     'use strict';
 
-    var serviceBase = ngAuthSettings.apiServiceBaseUri;
-
-    var getUtilitiesClauses = function () {
-        return $http.get(serviceBase + 'api/utilitiesClause/getAll').then(function (results) {
-            return results;
-        });
+    var getUtilitiesClauses = function (callback) {
+        httpModule.get('api/utilitiesClause/getAll', null, callback);
     };
 
-    var getActiveUtilitiesClauses = function () {
-        return $http.get(serviceBase + 'api/utilitiesClause/getActive').then(function (results) {
-            return results;
-        });
+    var getActiveUtilitiesClauses = function (callback) {
+        httpModule.get('api/utilitiesClause/getActive', null, callback);
     };
 
-    var addUtilitiesClause = function (utilitiesClause) {
-        return $http.post(serviceBase + 'api/utilitiesClause/add', utilitiesClause).then(function (result) {
-            return result;
-        });
+    var addUtilitiesClause = function (utilitiesClause, callback) {
+        httpModule.post('api/utilitiesClause/add', utilitiesClause, callback);
     }
 
-    var updateUtilitiesClause = function (utilitiesClause) {
-        return $http.post(serviceBase + 'api/utilitiesClause/update', utilitiesClause).then(function (result) {
-            return result;
-        });
+    var updateUtilitiesClause = function (utilitiesClause, callback) {
+        httpModule.post('api/utilitiesClause/update', utilitiesClause, callback);
     }
 
-    var getUtilitiesClauseById = function (id) {
-        return $http.get(serviceBase + 'api/utilitiesClause/getById', { params: { id: id } }).then(function (result) {
-            return result;
-        });
+    var getUtilitiesClauseById = function (id, callback) {
+        httpModule.get('api/utilitiesClause/getById', { id: id }, callback);
     }
 
-    var getBills = function (dateInterval, showPaid) {
+    var getBills = function (dateInterval, showPaid, callback) {
         if (showPaid) {
-            return $http.get(serviceBase + 'api/bill/getAll', { params: { dateInterval: dateInterval } }).then(function (results) {
-                return results;
-            });
+            httpModule.get('api/bill/getAll', { dateInterval: dateInterval }, callback);
+        } else {
+            httpModule.get('api/bill/getUnpaid', { dateInterval: dateInterval }, callback);
         }
-
-        return $http.get(serviceBase + 'api/bill/getUnpaid', { params: { dateInterval: dateInterval } }).then(function (results) {
-            return results;
-        });
     };
 
-    var getBillDateIntervals = function() {
-        return $http.get(serviceBase + 'api/bill/getBillDateIntervals').then(function (results) {
-            return results;
-        });
+    var getBillDateIntervals = function (callback) {
+        httpModule.get('api/bill/getBillDateIntervals', null, callback);
     }
 
-    var addBill = function (utilitiesBill) {
-        return $http.post(serviceBase + 'api/bill/add', utilitiesBill).then(function (result) {
-            return result;
-        });
+    var addBill = function (utilitiesBill, callback) {
+        httpModule.post('api/bill/add', utilitiesBill, callback);
     }
 
-    var updateBill = function (utilitiesBill) {
-        return $http.post(serviceBase + 'api/bill/update', utilitiesBill).then(function (result) {
-            return result;
-        });
+    var updateBill = function (utilitiesBill, callback) {
+        httpModule.post('api/bill/update', utilitiesBill, callback);
     }
 
-    var getBillById = function (id) {
-        return $http.get(serviceBase + 'api/bill/getById', { params: { id: id } }).then(function (result) {
-            return result;
-        });
+    var getBillById = function (id, callback) {
+        httpModule.get('api/bill/getById', { id: id }, callback);
     }
 
-    var getUtilitiesClauseTypes = function () {
-        return $http.get(serviceBase + 'api/utilitiesClause/getUtilitiesClauseTypes').then(function (result) {
-            return result;
-        });
+    var getBillPdfPath = function (billId, callback) {
+        httpModule.get('api/bill/getBillPdfPath', { billId: billId }, callback);
     }
 
-    var getCalculationTypes = function () {
-        return $http.get(serviceBase + 'api/utilitiesClause/getCalculationTypes').then(function (result) {
-            return result;
-        });
+    var sendEmail = function (bill, callback) {
+        httpModule.post('api/bill/sendEmail', bill, callback);
+    }
+
+    var getUtilitiesClauseTypes = function (callback) {
+        httpModule.get('api/utilitiesClause/getUtilitiesClauseTypes', null, callback);
+    }
+
+    var getCalculationTypes = function (callback) {
+        httpModule.get('api/utilitiesClause/getCalculationTypes', null, callback);
     }
 
     var self = {};
@@ -96,6 +76,8 @@
     self.addBill = addBill;
     self.updateBill = updateBill;
     self.getBillById = getBillById;
+    self.getBillPdfPath = getBillPdfPath;
+    self.sendEmail = sendEmail;
 
     return self;
 }]);

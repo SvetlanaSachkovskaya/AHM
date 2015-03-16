@@ -25,16 +25,22 @@
     <script src="Scripts/Libraries/angularjs/angular-local-storage.min.js"></script>
     <script src="Scripts/Libraries/bootstrap/bootstrap.min.js"></script>
     <script src="Scripts/Libraries/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="Scripts/Libraries/pdf/pdf.js"></script>
+    <script src="Scripts/Libraries/pdf/pdf.worker.js"></script>
+    <script src="Scripts/Libraries/pdf/ng-pdfviewer.js"></script>
     <script src="Scripts/Libraries/loading-bar/loading-bar.min.js"></script>
     <!-- Load app main script -->
     <script src="Scripts/App/app.js?v=2"></script>
     <!-- Load services -->
     <script src="Scripts/App/Services/constants.js?v=2"></script>
+    <script src="Scripts/App/Services/httpModule.js?v=2"></script>
     <script src="Scripts/App/Services/authInterceptorService.js?v=2"></script>
     <script src="Scripts/App/Services/authenticationService.js?v=2"></script>
     <script src="Scripts/App/Services/buildingService.js?v=2"></script>
     <script src="Scripts/App/Services/postService.js?v=2"></script>
     <script src="Scripts/App/Services/utilitiesService.js?v=2"></script>
+    <script src="Scripts/App/Services/instructionsService.js?v=2"></script>
+    <script src="Scripts/App/Services/journalService.js?v=2"></script>
     <!-- Load controllers -->
     <script src="Scripts/App/Controllers/indexController.js?v=2"></script>
     <script src="Scripts/App/Controllers/homeController.js?v=2"></script>
@@ -54,9 +60,17 @@
     <script src="Scripts/App/Controllers/Utilities/editBillController.js?v=2"></script>
     <script src="Scripts/App/Controllers/Utilities/billDetailsController.js?v=2"></script>
     <script src="Scripts/App/Controllers/BuildingInfo/editApartmentConroller.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Utilities/billPdfViewerController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Instructions/instructionsController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Instructions/createInstructionController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Instructions/editInstruction.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Journal/createEventController.js?v=2"></script>
+    <script src="Scripts/App/Controllers/Journal/journalController.js?v=2"></script>
     <!-- Load custom directives -->
     <script src="Scripts/App/Directives/deleteButtonDirective.js"></script>
     <script src="Scripts/App/Directives/addButtonDirective.js"></script>
     <script src="Scripts/App/Directives/datePickerDirective.js"></script>
+    <script src="Scripts/App/Directives/integerNumber.js"></script>
+    <script src="Scripts/App/Directives/floatNumber.js"></script>
 </body>
 </html>
