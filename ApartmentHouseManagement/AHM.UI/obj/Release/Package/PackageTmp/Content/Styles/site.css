@@ -20,7 +20,7 @@ body {
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
-    background-color: #f5f5f5;
+    background-color: #222;
 }
 
 .text-muted {
@@ -30,7 +30,7 @@ body {
 .form-login {
     max-width: 330px;
     padding: 0px 15px 5px 15px;
-    margin: 50px auto;
+    margin: 110px auto;
 }
 
     .form-login .form-login-heading {
@@ -59,3 +59,135 @@ body {
         border-top-right-radius: 0;
     }
 
+    .block-label {
+    display: block;
+}
+
+.bottom-margin {
+    margin-bottom: 40px;
+}
+
+.form-group {
+    vertical-align: bottom !important;
+}
+
+.create-panel {
+    background: #B2DBBF;
+    padding: 10px 20px;
+}
+
+    .create-panel a {
+        background: green;
+        color: white;
+        width: 120px;
+        margin-bottom: 3px;
+    }
+
+.page-title {
+    margin-bottom: 30px;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.submenu {
+    margin-left: 10px;
+}
+
+textarea {
+    resize: none;
+}
+
+.wrapPanel > div {
+    background: darkslateblue;
+    color: white;
+    font-size: large;
+    text-align: center;
+    width: 30%;
+    height: 100px;
+    margin: 5px;
+    float: left;
+    cursor: pointer;
+}
+
+.vertical-margin {
+    margin: 5px 0 5px 0;
+}
+
+.sent {
+    background: green !important;
+    color: white;
+}
+
+.bill {
+    border-radius: 3px;
+    background: red;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    position: relative;
+}
+
+.paid {
+    background: lightGrey !important;
+    color: black;
+}
+
+.paid-button-height {
+    height: 50px;
+}
+
+.error-alert {
+    position: fixed;
+    right: 15px;
+    bottom: 60px;
+    width: 300px;
+}
+
+.minor {
+    background: grey;
+}
+
+.normal {
+    background: green;
+}
+
+.major {
+    background: orange;
+}
+
+.critical {
+    background: red;
+}
+
+.close-button {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+}
+
+.event {
+    position: relative;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 3px;
+    background: lightblue;
+}
+
+.menu-btn {
+    width: 150px;
+    padding-top: 15px;
+    margin: 3px;
+    background: cadetblue;
+    color: white;
+    font-weight: bold;
+}
+
+.menu-btn:focus {
+    opacity: 0.7;
+    color: white;
+}
+
+.bottom-bordered {
+    border-width: 0 0 3px 0;
+    border-style: groove;
+}

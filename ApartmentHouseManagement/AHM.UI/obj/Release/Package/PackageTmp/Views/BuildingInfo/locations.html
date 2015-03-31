@@ -1,0 +1,55 @@
+﻿<div>
+    <p class="page-title">Locations</p>
+
+    <form name="locationForm" novalidate class="form-inline bottom-margin create-panel">
+        <div ng-class="{ 'has-error' : locationForm.$invalid }">
+            <p ng-show="locationForm.shortDescription.$invalid && locationForm.shortDescription.$dirty" class="help-block">Short description is required</p>
+            <p ng-show="locationForm.longDescription.$invalid && locationForm.longDescription.$dirty" class="help-block">Long description is required</p>
+        </div>
+
+        <div ng-class="{ 'has-error' : locationForm.shortDescription.$invalid && locationForm.shortDescription.$dirty }" class="form-group">
+            <label class="block-label">Short Description</label>
+            <input type="text" name="shortDescription" class="form-control" data-ng-model="newLocation.shortDescription" required />
+        </div>
+
+        <div ng-class="{ 'has-error' : locationForm.longDescription.$invalid && locationForm.longDescription.$dirty }" class="form-group">
+            <label class="block-label">Long Description</label>
+            <input type="text" name="longDescription" class="form-control" data-ng-model="newLocation.longDescription" required />
+        </div>
+
+        <div class="form-group">
+            <add-button data-ng-hide="isEditMode" action="addLocation()" text="Add"></add-button>
+            <add-button data-ng-hide="!isEditMode" action="updateLocation()" text="Save"></add-button>
+            <button class="btn btn-default" data-ng-hide="!isEditMode" data-ng-click="cancelEdition()">Cancel</button>
+        </div>
+    </form>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Short Description</th>
+                <th>Long Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="location in locations">
+            <td>
+                {{ location.shortDescription }}
+            </td>
+            <td>
+                {{ location.longDescription }}
+            </td>
+            <td>
+                <button class="btn" data-ng-click="edit(location)">Edit</button>
+                <delete-button action="removeLocation(location)"></delete-button>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot data-ng-hide="locations.length > 0">
+            <tr>
+                <td colspan="3" class="text-center">No items found</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

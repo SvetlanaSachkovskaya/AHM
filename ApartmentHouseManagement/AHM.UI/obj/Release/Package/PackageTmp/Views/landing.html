@@ -1,0 +1,61 @@
+﻿<div data-ng-controller="indexController">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="#">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="" data-ng-click="logOut()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="userMenu" class="navbar-default" data-ng-hide="!authentication.isAuthenticated" data-ng-controller="indexController">
+            <div class="btn-group">
+                <a data-ui-sref=".billsBoard" class="btn menu-btn" data-parent="#userMenu">Utilities</a>
+                <a data-ui-sref=".packagesBoard" class="btn menu-btn" data-parent="#userMenu">Post</a>
+                <a data-ui-sref=".instructions" class="btn menu-btn" data-parent="#userMenu">Instructions</a>
+                <a data-ui-sref=".journal" class="btn menu-btn" data-parent="#userMenu">Journal</a>
+                <a href="#building" class="btn menu-btn" data-parent="#userMenu">Settings</a>
+                <div class="collapse submenu" id="building">
+                    <a data-ui-sref=".apartments" class="btn" data-parent="#building">Apartments</a>
+                    <a data-ui-sref=".occupants" class="btn" data-parent="#building">Occupant</a>
+                    <a data-ui-sref=".locations" class="btn" data-parent="#building">Locations</a>
+                    <a data-ui-sref=".packageTypes" class="btn" data-parent="#building">Package Types</a>
+                    <a data-ui-sref=".utilitiesClauses" class="btn" data-parent="#building">Clauses</a>
+                </div>
+            </div>
+        </div>
+        <div class="page-header text-center bottom-bordered">
+            <h1>{{ authentication.buildingName }}</h1>
+        </div>
+        <div class="create-panel row">
+            <div class="col-md-1">
+                <label>New</label>
+                <img src="../Content/images/plus.png" />
+            </div>
+            <div class="col-md-11">
+                <a data-ui-sref=".billsBoard" class="btn">Bill</a>
+                <a data-ui-sref=".billsBoard" class="btn">Package</a>
+                <a data-ui-sref=".billsBoard" class="btn">Instruction</a>
+                <a data-ui-sref=".billsBoard" class="btn">Event</a>
+                <a data-ui-sref=".billsBoard" class="btn">Clause</a>
+                <a data-ui-sref=".billsBoard" class="btn">Apartment</a>
+                <a data-ui-sref=".billsBoard" class="btn">Occupant</a>
+                <a data-ui-sref=".billsBoard" class="btn">Package Type</a>
+                <a data-ui-sref=".billsBoard" class="btn">Location</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">&nbsp;</div>
+            <div class="col-md-10" data-ui-view=""></div>
+            <div class="col-md-1">&nbsp;</div>
+        </div>
+    </div>
+    <alert data-ng-hide="requestResult.isSuccessful" type="danger" close="closeAlert()" class="error-alert">{{requestResult.errorMessage}}</alert>
+</div>

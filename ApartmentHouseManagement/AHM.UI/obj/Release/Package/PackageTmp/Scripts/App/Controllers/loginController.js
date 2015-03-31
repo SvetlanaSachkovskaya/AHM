@@ -1,22 +1,21 @@
-﻿'use strict';
-app.controller('loginController', ['$scope', '$location', 'authenticationService', 'ngAuthSettings', function ($scope, $location, authenticationService, ngAuthSettings) {
+﻿app.controller('loginController', ['$scope', '$state', 'authenticationService',
+    function ($scope, $state, authenticationService) {
+        'use strict';
 
-    $scope.loginData = {
-        userName: "",
-        password: ""
-    };
+        $scope.loginData = {
+            userName: "",
+            password: ""
+        };
 
-    $scope.message = "";
+        $scope.message = "";
 
-    $scope.login = function () {
+        $scope.login = function () {
 
-        authenticationService.login($scope.loginData).then(function () {
-
-            $location.path('/home');
-
-        },
-         function (err) {
-             $scope.message = err.error_description;
-         });
-    };
-}]);
+            authenticationService.login($scope.loginData).then(function () {
+                $state.go('landing.home');
+            },
+             function (err) {
+                 $scope.message = err.error_description;
+             });
+        };
+    }]);

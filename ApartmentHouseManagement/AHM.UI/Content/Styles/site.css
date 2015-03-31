@@ -72,9 +72,19 @@ body {
 }
 
 .create-panel {
-    background: lightgray;
+    background: #B2DBBF;
     padding: 10px 20px;
+    margin: 0 0 60px 0;
+    border-width: 3px 0;
+    border-style: groove;
 }
+
+    .create-panel a {
+        background: green;
+        color: white;
+        width: 120px;
+        margin-bottom: 3px;
+    }
 
 .page-title {
     margin-bottom: 30px;
@@ -164,4 +174,32 @@ textarea {
     padding: 5px;
     margin: 3px;
     background: lightblue;
+}
+
+.menu-btn {
+    width: 150px;
+    padding-top: 15px;
+    margin: 3px;
+    background: cadetblue;
+    color: white;
+    font-weight: bold;
+}
+
+.menu-btn:focus {
+    opacity: 0.7;
+    color: white;
+}
+
+.plus-image {
+    width: 20px;
+}
+
+.building-name-container {
+    margin: 70px 0;
+}
+
+.filter-panel {
+    border-bottom: 1px solid #DEE3E2;
+    padding: 0 0 10px 0;
+    margin-bottom: 20px;
 }

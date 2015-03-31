@@ -13,6 +13,12 @@ namespace AHM.Common.DomainModel
 
         public decimal TotalAmount { get; set; }
 
+        public decimal PaidAmount { get; set; }
+
+        public DateTime PaidDate { get; set; }
+
+        public decimal Fine { get; set; }
+
         public bool IsPaid { get; set; }
 
         public bool IsEmailSent { get; set; }

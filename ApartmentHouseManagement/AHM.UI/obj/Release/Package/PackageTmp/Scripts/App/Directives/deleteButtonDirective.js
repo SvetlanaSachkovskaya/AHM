@@ -1,9 +1,11 @@
-﻿app.directive("deleteButton", function() {
+﻿app.directive("deleteButton", function () {
+    'use strict';
+
     return {
         restrict: 'E',
         scope: {
             action: '&'
         },
-        templateUrl: '/Views/Templates/deleteButton.html'
+        templateUrl: 'Views/Templates/deleteButton.html'
     };
 });

@@ -141,6 +141,10 @@
     <Compile Include="Migrations\201503160639453_PersonalAccountAdded.Designer.cs">
       <DependentUpon>201503160639453_PersonalAccountAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503311331505_AddedFine.cs" />
+    <Compile Include="Migrations\201503311331505_AddedFine.Designer.cs">
+      <DependentUpon>201503311331505_AddedFine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -209,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503160639453_PersonalAccountAdded.resx">
       <DependentUpon>201503160639453_PersonalAccountAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503311331505_AddedFine.resx">
+      <DependentUpon>201503311331505_AddedFine.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

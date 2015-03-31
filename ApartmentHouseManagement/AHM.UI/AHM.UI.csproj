@@ -43,6 +43,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\plus.png" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Styles\font-awesome.min.css" />
     <Content Include="Content\Styles\loading-bar.min.css" />

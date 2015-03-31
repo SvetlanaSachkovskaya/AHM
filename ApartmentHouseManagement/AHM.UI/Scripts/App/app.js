@@ -135,8 +135,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 //    }
 //]);
 
-//var serviceBase = 'http://wsb-035/ahmapi/';
-var serviceBase = 'http://localhost:6888/';
+var serviceBase = 'http://wsb-035/ahmapi/';
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: 'ngAuthApp'

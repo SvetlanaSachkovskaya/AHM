@@ -1,0 +1,39 @@
+﻿<div>
+    <add-button action="create()" text="Add new"></add-button>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Subsidized Tariff</th>
+                <th>Full Tariff</th>
+                <th>Active</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="utilitiesClause in utilitiesClauses">
+                <td>
+                    {{ utilitiesClause.name }}
+                </td>
+                <td>
+                    {{ utilitiesClause.subsidizedTariff }}
+                </td>
+                <td>
+                    {{ utilitiesClause.fullTariff }}
+                </td>
+                <td>
+                    <input type="checkbox" data-ng-model="utilitiesClause.isActive" onclick="return false" />
+                </td>
+                <td>
+                    <button class="btn" data-ng-click="edit(utilitiesClause.id)">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot data-ng-hide="utilitiesClauses.length > 0">
+            <tr>
+                <td colspan="3" class="text-center">No items found</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

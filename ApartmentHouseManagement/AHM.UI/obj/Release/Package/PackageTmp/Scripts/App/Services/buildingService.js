@@ -1,122 +1,89 @@
-﻿'use strict';
-app.factory('buildingService', ['$http', 'ngAuthSettings', function ($http, ngAuthSettings) {
+﻿app.factory('buildingService', ['httpModule', function (httpModule) {
+    'use strict';
 
-    var serviceBase = ngAuthSettings.apiServiceBaseUri;
-
-    var getApartments = function () {
-
-        return $http.get(serviceBase + 'api/apartment/getAll').then(function (results) {
-            return results;
-        });
+    var getApartments = function (callback) {
+        httpModule.get('api/apartment/getAll', null, callback);
     };
 
-    var addApartment = function (apartment) {
-
-        return $http.get(serviceBase + 'api/apartment/add', apartment).then(function (result) {
-            return result;
-        });
+    var getApartmentById = function (id, callback) {
+        httpModule.get('api/apartment/getById', { id: id }, callback);
     };
 
-    var updateApartment = function (apartment) {
-
-        return $http.get(serviceBase + 'api/apartment/update', apartment).then(function (result) {
-            return result;
-        });
+    var addApartment = function (apartment, callback) {
+        httpModule.post('api/apartment/add', apartment, callback);
     };
 
-    var removeApartment = function (apartment) {
-
-        return $http.get(serviceBase + 'api/apartment/remove', apartment).then(function (result) {
-            return result;
-        });
+    var updateApartment = function (apartment, callback) {
+        httpModule.post('api/apartment/update', apartment, callback);
     };
 
-    var getLocations = function () {
-
-        return $http.get(serviceBase + 'api/location/getAll').then(function (results) {
-            return results;
-        });
+    var removeApartment = function (apartment, callback) {
+        httpModule.post('api/apartment/remove', apartment, callback);
     };
 
-    var addLocation = function (location) {
-
-        return $http.get(serviceBase + 'api/location/add', location).then(function (result) {
-            return result;
-        });
+    var getLocations = function (callback) {
+        httpModule.get('api/location/getAll', null, callback);
     };
 
-    var updateLocation = function (location) {
-
-        return $http.get(serviceBase + 'api/location/update', location).then(function (result) {
-            return result;
-        });
-    };
-        
-    var removeLocation = function (location) {
-
-        return $http.get(serviceBase + 'api/location/remove', location).then(function (result) {
-            return result;
-        });
+    var addLocation = function (location, callback) {
+        httpModule.post('api/location/add', location, callback);
     };
 
-    var getPackageTypes = function () {
-
-        return $http.get(serviceBase + 'api/packageType/getAll').then(function (results) {
-            return results;
-        });
+    var updateLocation = function (location, callback) {
+        httpModule.post('api/location/update', location, callback);
     };
 
-    var addPackageType = function (packageType) {
-
-        return $http.get(serviceBase + 'api/packageType/add', packageType).then(function (result) {
-            return result;
-        });
+    var removeLocation = function (location, callback) {
+        httpModule.post('api/location/remove', location, callback);
     };
 
-    var updatePackageType = function (packageType) {
-
-        return $http.get(serviceBase + 'api/packageType/update', packageType).then(function (result) {
-            return result;
-        });
+    var getPackageTypes = function (callback) {
+        httpModule.get('api/packageType/getAll', null, callback);
     };
 
-    var removePackageType = function (packageType) {
-
-        return $http.get(serviceBase + 'api/packageType/remove', packageType).then(function (result) {
-            return result;
-        });
+    var addPackageType = function (packageType, callback) {
+        httpModule.post('api/packageType/add', packageType, callback);
     };
 
-    var getOccupants = function () {
-
-        return $http.get(serviceBase + 'api/occupant/getAll').then(function (results) {
-            return results;
-        });
+    var updatePackageType = function (packageType, callback) {
+        httpModule.post('api/packageType/update', packageType, callback);
     };
 
-    var addOccupant = function (occupant) {
-
-        return $http.get(serviceBase + 'api/occupant/add', occupant).then(function (result) {
-            return result;
-        });
+    var removePackageType = function (packageType, callback) {
+        httpModule.post('api/packageType/remove', packageType, callback);
     };
 
-    var updateOccupant = function (occupant) {
-
-        return $http.get(serviceBase + 'api/occupant/update', occupant).then(function (result) {
-            return result;
-        });
+    var getOccupants = function (callback) {
+        httpModule.get('api/occupant/getAll', null, callback);
     };
 
-    var removeOccupant = function (occupant) {
+    var getOccupantById = function (id, callback) {
+        httpModule.get('api/occupant/getById', {id: id}, callback);
+    };
 
-        return $http.get(serviceBase + 'api/occupant/remove', occupant).then(function (result) {
-            return result;
-        });
+    var getApartmentOwner = function (apartmentId, callback) {
+        httpModule.get('api/occupant/getApartmentOwner', {apartmentId : apartmentId}, callback);
+    };
+
+    var getOccupantsByApartmentId = function (apartmentId, callback) {
+        httpModule.get('api/occupant/getByApartmentId', { apartmentId: apartmentId }, callback);
+    };
+
+    var addOccupant = function (occupant, callback) {
+        httpModule.post('api/occupant/add', occupant, callback);
+    };
+
+    var updateOccupant = function (occupant, callback) {
+        httpModule.post('api/occupant/update', occupant, callback);
+    };
+
+    var removeOccupant = function (occupant, callback) {
+        httpModule.post('api/occupant/remove', occupant, callback);
     };
 
     var self = {};
     self.getApartments = getApartments;
+    self.getApartmentById = getApartmentById;
     self.addApartment = addApartment;
     self.updateApartment = updateApartment;
     self.removeApartment = removeApartment;
@@ -135,7 +102,9 @@ app.factory('buildingService', ['$http', 'ngAuthSettings', function ($http, ngAu
     self.addOccupant = addOccupant;
     self.updateOccupant = updateOccupant;
     self.removeOccupant = removeOccupant;
+    self.getOccupantById = getOccupantById;
+    self.getApartmentOwner = getApartmentOwner;
+    self.getOccupantsByApartmentId = getOccupantsByApartmentId;
 
     return self;
-
 }]);

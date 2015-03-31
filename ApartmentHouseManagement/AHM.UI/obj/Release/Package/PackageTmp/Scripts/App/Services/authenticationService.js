@@ -1,12 +1,12 @@
-﻿'use strict';
-app.factory('authenticationService', ['$http', '$q', 'localStorageService', 'ngAuthSettings', function ($http, $q, localStorageService, ngAuthSettings) {
+﻿app.factory('authenticationService', ['$http', '$q', 'localStorageService', 'ngAuthSettings', function ($http, $q, localStorageService, ngAuthSettings) {
+    'use strict';
 
     var serviceBase = ngAuthSettings.apiServiceBaseUri;
 
     var authentication = {
         isAuthenticated: false,
         role: '',
-        building: null,
+        buildingName: '',
         userName: ""
     };
 
@@ -20,27 +20,20 @@ app.factory('authenticationService', ['$http', '$q', 'localStorageService', 'ngA
 
     var login = function (loginData) {
         var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
-
-        if (loginData.useRefreshTokens) {
-            data = data + "&client_id=" + ngAuthSettings.clientId;
-        }
-
         var deferred = $q.defer();
 
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
-
-            localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName});
-                
             authentication.isAuthenticated = true;
             authentication.userName = loginData.userName;
 
-            $http.get(serviceBase + 'api/account/getByUsername', {params: { username: loginData.userName } } ).success(function (user) {
-                authentication.role = user.Role;
-                authentication.building = user.Building;
+            $http.get(serviceBase + 'api/account/getByUsername', { params: { username: loginData.userName } }).success(function (user) {
+                authentication.role = user.role;
+                authentication.buildingName = user.building.name;
+
+                localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName, role: user.role, buildingName: user.building.name });
+
+                deferred.resolve(response);
             });
-
-            deferred.resolve(response);
-
         }).error(function (error) {
             logOut();
             deferred.reject(error);
@@ -54,6 +47,8 @@ app.factory('authenticationService', ['$http', '$q', 'localStorageService', 'ngA
 
         authentication.isAuthenticated = false;
         authentication.userName = "";
+        authentication.buildingName = '';
+        authentication.role = null;
     };
 
     var fillAuthenticationData = function () {
@@ -61,12 +56,14 @@ app.factory('authenticationService', ['$http', '$q', 'localStorageService', 'ngA
         if (authData) {
             authentication.isAuthenticated = true;
             authentication.userName = authData.userName;
+            authentication.role = authData.role;
+            authentication.buildingName = authData.buildingName;
             authentication.useRefreshTokens = authData.useRefreshTokens;
         }
     };
 
     var self = {};
-    
+
     self.saveRegistration = saveRegistration;
     self.login = login;
     self.logOut = logOut;

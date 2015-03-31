@@ -14,43 +14,48 @@
             </div>
         </div>
     </div>
-    <div>
-        <div class="container">
-            <div class="page-header text-center">
-                <h1>{{ authentication.buildingName }}</h1>
-            </div>
-        </div>
-    </div>
-
-    <alert data-ng-hide="requestResult.isSuccessful" type="danger" close="closeAlert()" class="error-alert">{{requestResult.errorMessage}}</alert>
-</div>
-<div class="container">
-    <div class="row">
-        <div id="userMenu" class="navbar-left col-md-3" data-ng-hide="!authentication.isAuthenticated" data-ng-controller="indexController">
-            <div class="list-group">
-                <a href="#communal" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Utilities</a>
-                <div class="collapse submenu" id="communal">
-                    <a data-ui-sref=".billsBoard" class="list-group-item" data-parent="#communal">Board</a>
-                    <a data-ui-sref=".editBill" class="list-group-item" data-parent="#communal">Create</a>
-                    <a data-ui-sref=".utilitiesClauses" class="list-group-item" data-parent="#communal">Clauses</a>
-                </div>
-                <a href="#post" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Post</a>
-                <div class="collapse submenu" id="post">
-                    <a data-ui-sref=".packagesBoard" class="list-group-item" data-parent="#post">Packages board</a>
-                    <a data-ui-sref=".createPackage" class="list-group-item" data-parent="#post">Create Package</a>
-                </div>
-                <a data-ui-sref=".instructions" class="list-group-item list-group-item-success" data-parent="#userMenu">Instructions</a>
-                <a data-ui-sref=".journal" class="list-group-item list-group-item-success" data-parent="#userMenu">Journal</a>
-                <a href="#building" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#userMenu">Building</a>
+    <div class="container">
+        <div id="userMenu" class="navbar-default" data-ng-hide="!authentication.isAuthenticated" data-ng-controller="indexController">
+            <div class="btn-group">
+                <a data-ui-sref=".billsBoard" class="btn menu-btn" data-parent="#userMenu">Utilities</a>
+                <a data-ui-sref=".packagesBoard" class="btn menu-btn" data-parent="#userMenu">Post</a>
+                <a data-ui-sref=".instructions" class="btn menu-btn" data-parent="#userMenu">Instructions</a>
+                <a data-ui-sref=".journal" class="btn menu-btn" data-parent="#userMenu">Journal</a>
+                <a href="#building" class="btn menu-btn" data-parent="#userMenu">Settings</a>
                 <div class="collapse submenu" id="building">
-                    <a data-ui-sref=".apartments" class="list-group-item" data-parent="#building">Apartments</a>
-                    <a data-ui-sref=".occupants" class="list-group-item" data-parent="#building">Occupant</a>
-                    <a data-ui-sref=".locations" class="list-group-item" data-parent="#building">Locations</a>
-                    <a data-ui-sref=".packageTypes" class="list-group-item" data-parent="#building">Package Types</a>
+                    <a data-ui-sref=".apartments" class="btn" data-parent="#building">Apartments</a>
+                    <a data-ui-sref=".occupants" class="btn" data-parent="#building">Occupant</a>
+                    <a data-ui-sref=".locations" class="btn" data-parent="#building">Locations</a>
+                    <a data-ui-sref=".packageTypes" class="btn" data-parent="#building">Package Types</a>
+                    <a data-ui-sref=".utilitiesClauses" class="btn" data-parent="#building">Clauses</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-1">&nbsp;</div>
-        <div class="col-md-8" data-ui-view=""></div>
+        <div class="building-name-container text-center">
+            <h1>{{ authentication.buildingName }}</h1>
+        </div>
+        <div class="create-panel row">
+            <div class="col-md-1">
+                <label>New</label>
+                <img data-ng-src="Content/images/plus.png" class="plus-image" />
+            </div>
+            <div class="col-md-11">
+                <a data-ui-sref=".editBill" class="btn">Bill</a>
+                <a data-ui-sref=".createPackage" class="btn">Package</a>
+                <a data-ui-sref=".createInstruction" class="btn">Instruction</a>
+                <a data-ui-sref=".createEvent" class="btn">Event</a>
+                <a data-ui-sref=".editUtilitiesClause" class="btn">Clause</a>
+                <a data-ui-sref=".editApartment" class="btn">Apartment</a>
+                <a data-ui-sref=".createOccupant" class="btn">Occupant</a>
+                <!--<a class="btn">Package Type</a>
+            <a class="btn">Location</a>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">&nbsp;</div>
+            <div class="col-md-10" data-ui-view=""></div>
+            <div class="col-md-1">&nbsp;</div>
+        </div>
     </div>
+    <alert data-ng-hide="requestResult.isSuccessful" type="danger" close="closeAlert()" class="error-alert">{{requestResult.errorMessage}}</alert>
 </div>

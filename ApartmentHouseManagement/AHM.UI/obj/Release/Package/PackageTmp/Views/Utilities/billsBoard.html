@@ -1,0 +1,33 @@
+﻿<div>
+    <add-button action="create()" text="Create" class="vertical-margin"></add-button>
+
+    <div class="bottom-margin">
+        <div class="row">
+            <div class="btn-group col-md-4">
+                <label data-ng-repeat="interval in dateIntervals" class="btn btn-primary" data-ng-model="dateInterval.value"
+                       data-ng-click="setDateInterval(interval.id)" btn-radio="interval.id">{{ interval.name }}</label>
+            </div>
+
+            <div class="col-md-5">
+                <select data-ng-model="selectedApartmentId" data-ng-options="apartment.id as apartment.number for apartment in apartments"
+                        class="col-md-3 form-control"></select>
+            </div>
+
+            <div class="col-md-2">
+                <input type="checkbox" id="showPaidCheckBox" data-ng-model="showPaid" data-ng-change="refreshBoard()" />
+                <label for="showPaidCheckBox">Show paid</label>
+            </div>
+        </div>
+    </div>
+
+    <div data-ng-repeat="bill in bills | filter: filterByApartment">
+        <div data-ng-class="{sent: bill.isEmailSent, paid: bill.isPaid}" class="row vertical-margin bill">
+            <div data-ng-click="showDetails(bill.id)" class="col-md-9">
+                Apartment: {{ bill.apartment.name }}
+                <br />
+                {{ bill.date | date : 'MMMM' }}
+            </div>
+            <button data-ng-hide="bill.isPaid" data-ng-click="payBill(bill)" class="btn btn-default paid-button-height col-md-3">Paid</button>
+        </div>
+    </div>
+</div>

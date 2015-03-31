@@ -1,0 +1,55 @@
+﻿<div>
+    <p class="page-title">Package types</p>
+
+    <form name="packageTypeForm" novalidate class="form-inline bottom-margin create-panel">
+        <div ng-class="{ 'has-error' : packageTypeForm.$invalid }">
+            <p ng-show="packageTypeForm.shortDescription.$invalid && packageTypeForm.shortDescription.$dirty" class="help-block">Short description is required</p>
+            <p ng-show="packageTypeForm.longDescription.$invalid && packageTypeForm.longDescription.$dirty" class="help-block">Long description is required</p>
+        </div>
+
+        <div ng-class="{ 'has-error' : packageTypeForm.shortDescription.$invalid && packageTypeForm.shortDescription.$dirty }" class="form-group">
+            <label class="block-label">Short Description</label>
+            <input type="text" name="shortDescription" class="form-control" data-ng-model="newPackageType.shortDescription" required />
+        </div>
+
+        <div ng-class="{ 'has-error' : packageTypeForm.longDescription.$invalid && packageTypeForm.longDescription.$dirty }" class="form-group">
+            <label class="block-label">Long Description</label>
+            <input type="text" name="longDescription" class="form-control" data-ng-model="newPackageType.longDescription" required />
+        </div>
+
+        <div class="form-group">
+            <add-button data-ng-hide="isEditMode" action="addPackageType()" text="Add"></add-button>
+            <add-button data-ng-hide="!isEditMode" action="updatePackageType()" text="Save"></add-button>
+            <button class="btn btn-default" data-ng-hide="!isEditMode" data-ng-click="cancelEdition()">Cancel</button>
+        </div>
+    </form>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Short Description</th>
+                <th>Long Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="packageType in packageTypes">
+                <td>
+                    {{ packageType.shortDescription }}
+                </td>
+                <td>
+                    {{ packageType.longDescription }}
+                </td>
+                <td>
+                    <button class="btn" data-ng-click="edit(packageType)">Edit</button>
+                    <delete-button action="removePackageType(packageType)"></delete-button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot data-ng-hide="packageTypes.length > 0">
+            <tr>
+                <td colspan="3" class="text-center">No items found</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

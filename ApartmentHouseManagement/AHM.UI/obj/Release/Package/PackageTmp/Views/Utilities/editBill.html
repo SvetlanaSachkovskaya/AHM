@@ -1,0 +1,53 @@
+﻿<form name="billForm" novalidate>
+    <div ng-class="{ 'has-error' : billForm.$invalid && billForm.$dirty }">
+        <p ng-show="billForm.apartment.$invalid && billForm.apartment.$dirty" class="help-block">Apartment is required</p>
+    </div>
+    <div class="row">
+        <div ng-class="{ 'has-error' : billForm.apartment.$invalid && billForm.apartment.$dirty }" class="col-md-5">
+            <label>Apartment</label>
+            <select name="apartment" data-ng-model="bill.apartmentId" data-ng-options="apartment.id as apartment.name for apartment in apartments"
+                    class="form-control" required>
+                <option value="">Select apartment</option>
+            </select>
+        </div>
+        <div class="col-md-5">
+            <label>Mounth</label>
+            <p class="input-group">
+            <input type="text" class="form-control" datepicker-mode="'month'" datepicker-options="dateOptions" datepicker-popup="MMMM" ng-model="bill.date" is-open="opened"
+                   required close-text="Close"/>
+            <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="openDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Include</th>
+            <th>Name</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="utilitiesItem in utilitiesItems">
+            <td>
+                <input type="checkbox" data-ng-model="utilitiesItem.isChecked"/>
+            </td>
+            <td>
+                {{ utilitiesItem.utilitiesClauseName }}
+            </td>
+            <td>
+                <input type="text" data-ng-model="utilitiesItem.quantity" float-number/>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot data-ng-hide="utilitiesItems.length > 0">
+        <tr>
+            <td colspan="3" class="text-center">No items found</td>
+        </tr>
+        </tfoot>
+    </table>
+
+    <add-button action="create()" text="Create" data-ng-hide="isEditMode"></add-button>
+    <add-button action="update()" text="Save" data-ng-hide="!isEditMode"></add-button>
+</form>

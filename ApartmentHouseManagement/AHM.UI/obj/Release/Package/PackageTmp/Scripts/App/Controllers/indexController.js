@@ -1,11 +1,16 @@
-﻿'use strict';
-app.controller('indexController', ['$scope', '$location', 'authenticationService', function ($scope, $location, authenticationService) {
+﻿app.controller('indexController', ['$scope', '$state', 'authenticationService', 'httpModule', function ($scope, $state, authenticationService, httpModule) {
+    'use strict';
 
     $scope.logOut = function() {
         authenticationService.logOut();
-        $location.path('/home');
+        $state.go('login');
     };
 
     $scope.authentication = authenticationService.authentication;
 
+    $scope.requestResult = httpModule.requestResult;
+
+    $scope.closeAlert = function () {
+        $scope.requestResult.isSuccessful = true;
+    };
 }]);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace AHM.Common.DomainModel
@@ -15,7 +16,10 @@ namespace AHM.Common.DomainModel
 
         public string Number { get; set; }
 
-        public string Email { get; set; }
+        public double FinePercent { get; set; }
+
+        [Range(1, 29)]
+        public int LastPayUtilitiesDay { get; set; }
 
 
         public override ValidationResult Validate()
