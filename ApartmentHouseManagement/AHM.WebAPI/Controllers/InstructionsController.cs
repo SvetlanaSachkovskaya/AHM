@@ -8,7 +8,7 @@ using AHM.Common.Helpers;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Concierge,Worker")]
     [RoutePrefix("api/Instructions")]
     public class InstructionsController : BaseController
     {

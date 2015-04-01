@@ -17,7 +17,9 @@ namespace AHM.DataLayer.Migrations
             {
                 context.Roles.Add(new Role { Name = Roles.Admin.ToString() });
                 context.Roles.Add(new Role { Name = Roles.Concierge.ToString() });
-                context.Roles.Add(new Role { Name = Roles.Occupant.ToString() });
+                context.Roles.Add(new Role { Name = Roles.Manager.ToString() });
+                context.Roles.Add(new Role { Name = Roles.Worker.ToString() });
+                context.Roles.Add(new Role { Name = Roles.Accountant.ToString() });
             }
 
             context.SaveChanges();

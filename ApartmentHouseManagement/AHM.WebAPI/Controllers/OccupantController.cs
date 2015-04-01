@@ -18,7 +18,7 @@ namespace AHM.WebAPI.Controllers
             _occupantService = occupantService;
         }
 
-
+        [Authorize(Roles = "Manager,Concierge,Accountant")]
         [HttpGet]
         [Route("GetAll")]
         public async Task<IHttpActionResult> GetAll()
@@ -27,6 +27,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(occupants);
         }
 
+        [Authorize(Roles = "Manager,Concierge,Accountant")]
         [HttpGet]
         [Route("GetById")]
         public async Task<IHttpActionResult> GetById(int id)
@@ -35,6 +36,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(occupant);
         }
 
+        [Authorize(Roles = "Manager,Concierge,Accountant")]
         [HttpGet]
         [Route("GetByApartmentId")]
         public async Task<IHttpActionResult> GetByApartmentId(int apartmentId)
@@ -43,6 +45,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(occupants);
         }
 
+        [Authorize(Roles = "Manager,Concierge,Accountant")]
         [HttpGet]
         [Route("GetApartmentOwner")]
         public async Task<IHttpActionResult> GetApartmentOwner(int apartmentId)
@@ -51,6 +54,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(occupants);
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         [Route("Add")]
         public async Task<IHttpActionResult> Add(Occupant occupant)
@@ -65,6 +69,7 @@ namespace AHM.WebAPI.Controllers
             return result.IsSuccessful ? (IHttpActionResult)Ok(occupant) : BadRequest(result.Errors.First());
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         [Route("Update")]
         public async Task<IHttpActionResult> Update(Occupant occupant)
@@ -79,6 +84,7 @@ namespace AHM.WebAPI.Controllers
             return result.IsSuccessful ? (IHttpActionResult)Ok(occupant) : BadRequest(result.Errors.First());
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         [Route("Remove")]
         public async Task<IHttpActionResult> Remove(Occupant occupant)

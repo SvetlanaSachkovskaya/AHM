@@ -15,7 +15,7 @@ using AHM.WebAPI.Models;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Accountant")]
     [RoutePrefix("api/Bill")]
     public class BillController : BaseController
     {

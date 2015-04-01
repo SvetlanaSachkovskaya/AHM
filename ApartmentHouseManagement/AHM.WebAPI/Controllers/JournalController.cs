@@ -18,7 +18,7 @@ namespace AHM.WebAPI.Controllers
             _journalService = journalService;
         }
 
-
+        [Authorize(Roles = "Concierge,Manager")]
         [HttpGet]
         [Route("GetAllActive")]
         public async Task<IHttpActionResult> GetAllActive()
@@ -28,6 +28,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
+        [Authorize(Roles = "Concierge,Manager")]
         [HttpGet]
         [Route("GetEventsPerDay")]
         public async Task<IHttpActionResult> GetEventsPerDay()
@@ -37,6 +38,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
+        [Authorize(Roles = "Concierge,Manager")]
         [HttpGet]
         [Route("GetEventsPerWeek")]
         public async Task<IHttpActionResult> GetEventsPerWeek()
@@ -46,6 +48,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
+        [Authorize(Roles = "Concierge,Manager")]
         [HttpGet]
         [Route("GetEventsPerMonth")]
         public async Task<IHttpActionResult> GetEventsPerMonth()
@@ -55,6 +58,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
+        [Authorize(Roles = "Concierge,Manager")]
         [HttpGet]
         [Route("GetEventsPerYear")]
         public async Task<IHttpActionResult> GetEventsPerYear()
@@ -64,6 +68,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
+        [Authorize(Roles = "Concierge")]
         [HttpPost]
         [Route("Add")]
         public async Task<IHttpActionResult> Add(Event ev)
@@ -82,6 +87,7 @@ namespace AHM.WebAPI.Controllers
             return result.IsSuccessful ? (IHttpActionResult) Ok(ev) : BadRequest(result.Errors.First());
         }
 
+        [Authorize(Roles = "Concierge")]
         [HttpPost]
         [Route("Update")]
         public async Task<IHttpActionResult> Update(Event ev)
@@ -96,6 +102,7 @@ namespace AHM.WebAPI.Controllers
             return result.IsSuccessful ? (IHttpActionResult)Ok(ev) : BadRequest(result.Errors.First());
         }
 
+        [Authorize(Roles = "Concierge")]
         [HttpPost]
         [Route("Remove")]
         public async Task<IHttpActionResult> Remove(Event ev)

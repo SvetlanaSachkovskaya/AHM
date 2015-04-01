@@ -19,7 +19,7 @@ namespace AHM.WebAPI.Controllers
             _apartmentService = apartmentService;
         }
 
-
+        [Authorize(Roles = "Manager,Concierge,Accountant")]
         [HttpGet]
         [Route("GetAll")]
         public async Task<IHttpActionResult> GetAll()
@@ -31,6 +31,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(apartments);
         }
 
+        [Authorize(Roles = "Manager,Concierge,Accountant")]
         [HttpGet]
         [Route("GetById")]
         public async Task<IHttpActionResult> GetById(int id)
@@ -42,6 +43,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(apartments);
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         [Route("Add")]
         public async Task<IHttpActionResult> Add(EditApartmentModel apartment)
@@ -60,6 +62,7 @@ namespace AHM.WebAPI.Controllers
             return result.IsSuccessful ? (IHttpActionResult) Ok(apartment) : BadRequest(result.Errors.First());
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         [Route("Update")]
         public async Task<IHttpActionResult> Update(EditApartmentModel apartment)
@@ -74,6 +77,7 @@ namespace AHM.WebAPI.Controllers
             return result.IsSuccessful ? (IHttpActionResult)Ok(apartment) : BadRequest(result.Errors.First());
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost]
         [Route("Remove")]
         public async Task<IHttpActionResult> Remove(Apartment apartment)

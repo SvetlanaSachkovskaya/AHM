@@ -6,7 +6,7 @@ using AHM.Common.DomainModel;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Concierge")]
     [RoutePrefix("api/Location")]
     public class LocationController : BaseController
     {

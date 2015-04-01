@@ -74,3 +74,4 @@ D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.M
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.csproj.GenerateResource.Cache
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.dll
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.pdb
+D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DataLayer\obj\Release\AHM.DataLayer.Migrations.AddedFine.resources

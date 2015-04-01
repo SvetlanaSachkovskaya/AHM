@@ -8,7 +8,7 @@ using AHM.WebAPI.Models;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Concierge")]
     [RoutePrefix("api/Post")]
     public class PackageController : BaseController
     {

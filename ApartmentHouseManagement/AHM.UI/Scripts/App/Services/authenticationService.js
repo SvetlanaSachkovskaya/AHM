@@ -7,7 +7,7 @@
         isAuthenticated: false,
         role: '',
         buildingName: '',
-        userName: ""
+        name: ""
     };
 
     var saveRegistration = function (registration) {
@@ -24,13 +24,19 @@
 
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
             authentication.isAuthenticated = true;
-            authentication.userName = loginData.userName;
 
             $http.get(serviceBase + 'api/account/getByUsername', { params: { username: loginData.userName } }).success(function (user) {
+                authentication.name = user.firstName + ' ' + user.lastName;
                 authentication.role = user.role;
-                authentication.buildingName = user.building.name;
+                authentication.buildingName = user.buildingName;
 
-                localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName, role: user.role, buildingName: user.building.name });
+                localStorageService.set('authorizationData',
+                    {
+                        token: response.access_token,
+                        name: authentication.name,
+                        role: authentication.role,
+                        buildingName: authentication.buildingName
+                    });
 
                 deferred.resolve(response);
             });
@@ -55,12 +61,16 @@
         var authData = localStorageService.get('authorizationData');
         if (authData) {
             authentication.isAuthenticated = true;
-            authentication.userName = authData.userName;
+            authentication.name = authData.name;
             authentication.role = authData.role;
             authentication.buildingName = authData.buildingName;
             authentication.useRefreshTokens = authData.useRefreshTokens;
         }
     };
+
+    var hasPermissions = function (allowedRoles) {
+        return !allowedRoles || allowedRoles.indexOf(authentication.role) !== -1;
+    }
 
     var self = {};
 
@@ -69,6 +79,7 @@
     self.logOut = logOut;
     self.fillAuthenticationData = fillAuthenticationData;
     self.authentication = authentication;
+    self.hasPermissions = hasPermissions;
 
     return self;
 }]);

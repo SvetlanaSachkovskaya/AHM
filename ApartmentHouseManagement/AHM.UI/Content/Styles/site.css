@@ -183,6 +183,7 @@ textarea {
     background: cadetblue;
     color: white;
     font-weight: bold;
+    font-size: medium;
 }
 
 .menu-btn:focus {
@@ -195,7 +196,7 @@ textarea {
 }
 
 .building-name-container {
-    margin: 70px 0;
+    margin: 50px 0;
 }
 
 .filter-panel {

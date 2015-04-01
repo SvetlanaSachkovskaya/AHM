@@ -1,8 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
 using AHM.WebAPI.Models;
+using Microsoft.AspNet.Identity;
 
 namespace AHM.WebAPI.Controllers
 {
@@ -21,7 +24,7 @@ namespace AHM.WebAPI.Controllers
         //todo: remove
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(UserModel userModel)
+        public async Task<IHttpActionResult> Register(UserLoginModel userModel)
         {
             if (!ModelState.IsValid)
             {
@@ -41,7 +44,7 @@ namespace AHM.WebAPI.Controllers
 
             if (result.Succeeded)
             {
-                result = await AppUserManager.AddToRoleAsync(user.Id, Roles.Occupant.ToString());
+                result = await AppUserManager.AddToRoleAsync(user.Id, Roles.Worker.ToString());
             }
 
             var errorResult = GetErrorResult(result);
@@ -53,9 +56,18 @@ namespace AHM.WebAPI.Controllers
         [Route("GetByUsername")]
         public async Task<IHttpActionResult> GetByUsername(string username)
         {
-            var result = await _userService.GetByUsernameAsync(username);
-            
-            return Ok(result);
+            var user = await _userService.GetByUsernameAsync(username);
+            var roles = await AppUserManager.GetRolesAsync(user.Id);
+
+            var userModel = new AuthenticatedUserModel()
+            {
+                BuildingName = user.Building.Name,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Role = roles.FirstOrDefault()
+            };
+
+            return Ok(userModel);
         }
     }
 }

@@ -4,6 +4,8 @@
     {
         Admin = 1,
         Concierge = 2,
-        Occupant = 3
+        Manager = 3,
+        Worker = 4,
+        Accountant = 5
     }
 }

@@ -75,6 +75,7 @@
     <Content Include="Scripts\App\Controllers\UtilitiesClause\editUtilitiesClauseController.js" />
     <Content Include="Scripts\App\Controllers\Utilities\editBillController.js" />
     <Content Include="Scripts\App\Controllers\UtilitiesClause\utilitiesClausesController.js" />
+    <Content Include="Scripts\App\Directives\accessDirective.js" />
     <Content Include="Scripts\App\Directives\addButtonDirective.js" />
     <Content Include="Scripts\App\Directives\datePickerDirective.js" />
     <Content Include="Scripts\App\Directives\deleteButtonDirective.js" />

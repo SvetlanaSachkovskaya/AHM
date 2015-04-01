@@ -7,7 +7,7 @@ using AHM.Common.Helpers;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Accountant")]
     [RoutePrefix("api/UtilitiesClause")]
     public class UtilitiesClauseController : BaseController
     {
