@@ -123,6 +123,12 @@ app.config(function ($stateProvider, $urlRouterProvider, roles) {
             controller: 'editBillController',
             roles: [roles.accountant]
         })
+        .state('landing.payBill', {
+            url: '/payBill:billId',
+            templateUrl: 'Views/Utilities/PayBill.html',
+            controller: 'payBillController',
+            roles: [roles.accountant]
+        })
         .state('landing.billDetails', {
             url: '/billDetails:billId',
             templateUrl: 'Views/Utilities/BillDetails.html',

@@ -8,7 +8,7 @@ namespace AHM.DependencyInjection
 {
     public class ApplicationUserManager : UserManager<User, int>
     {
-        public ApplicationUserManager(IUserStore<User, int> store)
+        public ApplicationUserManager(ApplicationUserStore store)
             : base(store)
         {
 

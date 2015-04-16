@@ -1,11 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
 using AHM.WebAPI.Models;
-using Microsoft.AspNet.Identity;
 
 namespace AHM.WebAPI.Controllers
 {

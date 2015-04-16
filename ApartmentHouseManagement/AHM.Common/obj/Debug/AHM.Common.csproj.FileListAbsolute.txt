@@ -168,6 +168,6 @@ D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Secur
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
+D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache

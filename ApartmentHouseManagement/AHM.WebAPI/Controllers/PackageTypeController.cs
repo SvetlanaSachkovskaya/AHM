@@ -3,10 +3,11 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
+using AHM.WebAPI.Attributes;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize(Roles = "Concierge")]
+    [Authorization(Roles = new[] { Roles.Concierge })]
     [RoutePrefix("api/PackageType")]
     public class PackageTypeController : BaseController
     {

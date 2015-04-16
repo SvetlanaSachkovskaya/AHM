@@ -1,14 +1,19 @@
 ﻿using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
 using AHM.Common.Helpers;
+using AHM.DependencyInjection;
+using AHM.WebAPI.Attributes;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize(Roles = "Concierge,Worker")]
+    [Authorization(Roles = new[] { Roles.Concierge, Roles.Worker })]
     [RoutePrefix("api/Instructions")]
     public class InstructionsController : BaseController
     {
@@ -33,6 +38,10 @@ namespace AHM.WebAPI.Controllers
         [Route("GetAllOpen")]
         public async Task<IHttpActionResult> GetAllOpen()
         {
+            var roleManager = Request.GetOwinContext().GetUserManager<ApplicationRoleManager>();
+            var d = await roleManager.RoleExistsAsync("Concierge");
+            var g = AppUserManager.IsInRole(AppUser.Id, "Concierge");
+
             var instructions = await _instructionService.GetAllOpenInstructionsAsync(AppUser.BuildingId ?? 0);
             return Ok(instructions);
         }

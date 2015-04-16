@@ -11,11 +11,12 @@ using AHM.BusinessLayer.Interfaces;
 using AHM.Common;
 using AHM.Common.DomainModel;
 using AHM.Common.Helpers;
+using AHM.WebAPI.Attributes;
 using AHM.WebAPI.Models;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize(Roles = "Accountant")]
+    [Authorization(Roles = new[] { Roles.Accountant })]
     [RoutePrefix("api/Bill")]
     public class BillController : BaseController
     {
@@ -66,13 +67,22 @@ namespace AHM.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("GetById")]
-        public async Task<IHttpActionResult> GetById(int id)
+        [Route("GetFullById")]
+        public async Task<IHttpActionResult> GetFullById(int id)
         {
             var bill = await _billService.GetByIdAsync(id);
             var utilitiesItems = await _utilitiesItemService.GetByBillIdAsync(id);
 
             return Ok(new BillModel(bill, utilitiesItems.ToList()));
+        }
+
+        [HttpGet]
+        [Route("GetShortById")]
+        public async Task<IHttpActionResult> GetShortById(int id)
+        {
+            var bill = await _billService.GetByIdAsync(id);
+
+            return Ok(bill);
         }
 
         [HttpGet]
@@ -150,6 +160,21 @@ namespace AHM.WebAPI.Controllers
             }
 
             var result =  await _billService.UpdateAsync(bill.GetBill(), bill.UtilitiesItems);
+
+            return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
+        }
+
+        [HttpPost]
+        [Route("Pay")]
+        public async Task<IHttpActionResult> Pay(Bill bill)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            bill.IsPaid = true;
+            var result = await _billService.UpdateAsync(bill);
 
             return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
         }

@@ -74,6 +74,9 @@ body {
 .create-panel {
     background: #B2DBBF;
     padding: 10px 20px;
+    margin: 0 0 60px 0;
+    border-width: 3px 0;
+    border-style: groove;
 }
 
     .create-panel a {
@@ -180,6 +183,7 @@ textarea {
     background: cadetblue;
     color: white;
     font-weight: bold;
+    font-size: medium;
 }
 
 .menu-btn:focus {
@@ -187,7 +191,16 @@ textarea {
     color: white;
 }
 
-.bottom-bordered {
-    border-width: 0 0 3px 0;
-    border-style: groove;
+.plus-image {
+    width: 20px;
+}
+
+.building-name-container {
+    margin: 50px 0;
+}
+
+.filter-panel {
+    border-bottom: 1px solid #DEE3E2;
+    padding: 0 0 10px 0;
+    margin-bottom: 20px;
 }

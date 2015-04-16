@@ -66,9 +66,24 @@
             }
         }
 
+        function validate() {
+            forceRequiredValidation();
+            if (!$scope.billForm.$valid) {
+                return false;
+            }
+
+            var checkedItems = $filter('filter')($scope.utilitiesItems, { isChecked: true });
+            if (checkedItems.length <= 0) {
+                $scope.isSelectionValidationError = true;
+                return false;
+            }
+
+            return true;
+        }
+
         $scope.bill = {
             id: 0,
-            apartmentId: 0,
+            apartmentId: null,
             date: new Date(),
             utilitiesItems: []
         }
@@ -76,11 +91,10 @@
         $scope.apartments = [];
         $scope.utilitiesItems = [];
         $scope.isEditMode = false;
+        $scope.isSelectionValidationError = false;
 
         $scope.create = function () {
-            forceRequiredValidation();
-
-            if ($scope.billForm.$valid) {
+            if (validate()) {
                 $scope.bill.utilitiesItems = getCheckedItems();
                 utilitiesService.addBill($scope.bill, function () {
                     $state.go('landing.billsBoard');
@@ -89,9 +103,7 @@
         }
 
         $scope.update = function () {
-            forceRequiredValidation();
-
-            if ($scope.billForm.$valid) {
+            if (validate()) {
                 $scope.bill.utilitiesItems = getCheckedItems();
                 utilitiesService.updateBill($scope.bill, function () {
                     $state.go('landing.billsBoard');
@@ -106,6 +118,17 @@
             $scope.opened = true;
         }
 
+        $scope.checkUtilitiesItem = function(item) {
+            item.isChecked = !item.isChecked;
+            if (item.isChecked) {
+                $scope.isSelectionValidationError = false;
+            }
+        }
+
+        $scope.cancel = function() {
+            $state.go('landing.billsBoard');
+        }
+
         $scope.dateOptions = {
             minMode: 'month',
             maxMode: 'month'
@@ -114,7 +137,7 @@
         utilitiesService.getActiveUtilitiesClauses(function (typesData) {
             var types = typesData;
             if ($stateParams.billId) {
-                utilitiesService.getBillById($stateParams.billId, function (itemsData) {
+                utilitiesService.getFullBillById($stateParams.billId, function (itemsData) {
                     $scope.bill = itemsData;
                     $scope.isEditMode = true;
 

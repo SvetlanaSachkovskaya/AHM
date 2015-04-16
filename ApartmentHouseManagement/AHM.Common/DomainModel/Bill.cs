@@ -15,7 +15,7 @@ namespace AHM.Common.DomainModel
 
         public decimal PaidAmount { get; set; }
 
-        public DateTime PaidDate { get; set; }
+        public DateTime? PaidDate { get; set; }
 
         public decimal Fine { get; set; }
 
@@ -29,6 +29,11 @@ namespace AHM.Common.DomainModel
             if (ApartmentId <= 0)
             {
                 result.Errors.Add("Apartment is required");
+            }
+
+            if (PaidDate.HasValue && PaidDate.Value < Date)
+            {
+                result.Errors.Add("Paid date must be greater than create date");
             }
 
             result.IsValid = !result.Errors.Any();

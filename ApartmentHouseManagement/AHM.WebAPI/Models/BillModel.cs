@@ -21,6 +21,9 @@ namespace AHM.WebAPI.Models
             Date = bill.Date;
             TotalAmount = bill.TotalAmount;
             IsPaid = bill.IsPaid;
+            PaidAmount = bill.PaidAmount;
+            PaidDate = PaidDate;
+            Fine = Fine;
             IsEmailSent = bill.IsEmailSent;
             UtilitiesItems = items;
         }

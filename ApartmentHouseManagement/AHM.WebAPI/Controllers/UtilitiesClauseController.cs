@@ -4,10 +4,11 @@ using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
 using AHM.Common.Helpers;
+using AHM.WebAPI.Attributes;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize(Roles = "Accountant")]
+    [Authorization(Roles = new[] { Roles.Accountant })]
     [RoutePrefix("api/UtilitiesClause")]
     public class UtilitiesClauseController : BaseController
     {

@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
+using AHM.WebAPI.Attributes;
 
 namespace AHM.WebAPI.Controllers
 {
-    [Authorize]
     [RoutePrefix("api/Journal")]
     public class JournalController : BaseController
     {
@@ -18,7 +18,7 @@ namespace AHM.WebAPI.Controllers
             _journalService = journalService;
         }
 
-        [Authorize(Roles = "Concierge,Manager")]
+        [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge })]
         [HttpGet]
         [Route("GetAllActive")]
         public async Task<IHttpActionResult> GetAllActive()
@@ -28,7 +28,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
-        [Authorize(Roles = "Concierge,Manager")]
+        [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge })]
         [HttpGet]
         [Route("GetEventsPerDay")]
         public async Task<IHttpActionResult> GetEventsPerDay()
@@ -38,8 +38,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
-        [Authorize(Roles = "Concierge,Manager")]
-        [HttpGet]
+        [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge })]
         [Route("GetEventsPerWeek")]
         public async Task<IHttpActionResult> GetEventsPerWeek()
         {
@@ -48,7 +47,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
-        [Authorize(Roles = "Concierge,Manager")]
+        [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge })]
         [HttpGet]
         [Route("GetEventsPerMonth")]
         public async Task<IHttpActionResult> GetEventsPerMonth()
@@ -58,7 +57,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
-        [Authorize(Roles = "Concierge,Manager")]
+        [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge })]
         [HttpGet]
         [Route("GetEventsPerYear")]
         public async Task<IHttpActionResult> GetEventsPerYear()
@@ -68,7 +67,7 @@ namespace AHM.WebAPI.Controllers
             return Ok(events);
         }
 
-        [Authorize(Roles = "Concierge")]
+        [Authorization(Roles = new[] { Roles.Concierge })]
         [HttpPost]
         [Route("Add")]
         public async Task<IHttpActionResult> Add(Event ev)
@@ -87,7 +86,7 @@ namespace AHM.WebAPI.Controllers
             return result.IsSuccessful ? (IHttpActionResult) Ok(ev) : BadRequest(result.Errors.First());
         }
 
-        [Authorize(Roles = "Concierge")]
+        [Authorization(Roles = new[] { Roles.Concierge })]
         [HttpPost]
         [Route("Update")]
         public async Task<IHttpActionResult> Update(Event ev)
@@ -102,7 +101,7 @@ namespace AHM.WebAPI.Controllers
             return result.IsSuccessful ? (IHttpActionResult)Ok(ev) : BadRequest(result.Errors.First());
         }
 
-        [Authorize(Roles = "Concierge")]
+        [Authorization(Roles = new[] { Roles.Concierge })]
         [HttpPost]
         [Route("Remove")]
         public async Task<IHttpActionResult> Remove(Event ev)

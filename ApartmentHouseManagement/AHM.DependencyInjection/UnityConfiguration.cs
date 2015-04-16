@@ -29,10 +29,11 @@ namespace AHM.DependencyInjection
             container.RegisterType<IJournalService, JournalService>();
         }
 
-        public static void ConfigureUserManager(IAppBuilder app)
+        public static void ConfigureAuthentication(IAppBuilder app)
         {
             app.CreatePerOwinContext(AhmContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
         }
     }
 }

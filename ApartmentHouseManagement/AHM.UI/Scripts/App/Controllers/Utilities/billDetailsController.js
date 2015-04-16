@@ -23,7 +23,7 @@
         }
 
         if ($stateParams.billId) {
-            utilitiesService.getBillById($stateParams.billId, function (data) {
+            utilitiesService.getFullBillById($stateParams.billId, function (data) {
                 $scope.bill = data;
             });
         }

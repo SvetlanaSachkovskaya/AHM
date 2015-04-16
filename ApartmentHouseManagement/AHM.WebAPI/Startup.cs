@@ -32,7 +32,7 @@ namespace AHM.WebAPI
 
         private void ConfigureOAuth(IAppBuilder app)
         {
-            UnityConfiguration.ConfigureUserManager(app);
+            UnityConfiguration.ConfigureAuthentication(app);
 
             var oAuthServerOptions = new OAuthAuthorizationServerOptions
             {
