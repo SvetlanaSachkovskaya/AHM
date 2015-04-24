@@ -133,6 +133,20 @@ textarea {
     padding: 5px;
 }
 
+.bill-detail {
+    font-size: medium;
+    font-style: normal;
+}
+
+.bill-detail label {
+    font-weight: normal;
+}
+
+.bill-detail .main-label {
+    font-style: italic;
+    font-weight: bold;
+}
+
 .paid {
     background: lightGrey !important;
     color: black;
@@ -266,6 +280,15 @@ textarea {
 
 .form-control[readonly] {
     cursor: default;
-    
     background: white;
+}
+
+.pdf-container {
+    margin-top: 10px;
+    background: #97989c;
+    padding: 5px 5px 0 5px;
+}
+
+.pdf-container canvas {
+    width: 100%;
 }

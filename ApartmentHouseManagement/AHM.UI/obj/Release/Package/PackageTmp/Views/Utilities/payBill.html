@@ -1,0 +1,40 @@
+﻿<form class="form-horizontal">
+    <p class="page-title">Pay Bill</p>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">Apartment:</label>
+        <label class="col-md-6 info-label">{{ bill.apartment.name }}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Month:</label>
+        <label class="col-md-6 info-label">{{ bill.date | date: 'MMMM' }}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Amount:</label>
+        <label class="col-md-6 info-label">{{ bill.totalAmount }}</label>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Date:</label>
+        <div class="col-md-6">
+            <p class="input-group">
+                <input type="datetime" class="form-control" datepicker-popup="dd-MMMM-yyyy" data-ng-model="bill.paidDate" is-open="opened"
+                       required close-text="Close" readonly />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" data-ng-click="datePickerSettings.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Paid Amount:</label>
+        <div class="col-md-6">
+            <input type="text" data-ng-model="bill.paidAmount" float-number class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-6">
+            <button type="submit" data-ng-click="pay()" class="btn btn-default">Pay</button>
+            <button type="button" data-ng-click="cancel()" class="btn btn-default">Cancel</button>
+        </div>
+    </div>
+</form>

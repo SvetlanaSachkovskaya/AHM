@@ -38,6 +38,10 @@
             $state.go('landing.payBill', { billId: id });
         }
 
+        $scope.editBill = function (id) {
+            $state.go('landing.editBill', { billId: id });
+        }
+
         utilitiesService.getBillDateIntervals(function (data) {
             $scope.dateIntervals = data;
             $scope.dateInterval.value = $scope.dateIntervals[0].id;

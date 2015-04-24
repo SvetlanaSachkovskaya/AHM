@@ -34,13 +34,8 @@
             });
         }
 
-        $scope.payBill = function (bill) {
-            bill.isPaid = true;
-            utilitiesService.updateBill(bill, function () {
-                if (!$scope.showPaid) {
-                    $scope.bills.splice($scope.bills.indexOf(bill), 1);
-                }
-            });
+        $scope.payBill = function (id) {
+            $state.go('landing.payBill', { billId: id });
         }
 
         utilitiesService.getBillDateIntervals(function (data) {
@@ -52,7 +47,7 @@
 
         buildingService.getApartments(function (data) {
             $scope.apartments = data;
-            $scope.apartments.splice(0, 0, { id: 0, number: "All apartments" });
+            $scope.apartments.splice(0, 0, { id: 0, name: "All apartments" });
         });
     }
 ]);

@@ -122,12 +122,15 @@ textarea {
 }
 
 .bill {
-    border-radius: 3px;
-    background: red;
+    border-radius: 3px 0 0 3px;
+    background: grey;
     color: white;
     cursor: pointer;
-    padding: 5px;
     position: relative;
+}
+
+.bill > div {
+    padding: 5px;
 }
 
 .paid {
@@ -135,8 +138,9 @@ textarea {
     color: black;
 }
 
-.paid-button-height {
-    height: 50px;
+.bill-board-button {
+    height: 60px;
+    border-radius: 0;
 }
 
 .error-alert {
@@ -203,4 +207,65 @@ textarea {
     border-bottom: 1px solid #DEE3E2;
     padding: 0 0 10px 0;
     margin-bottom: 20px;
+}
+
+.info-label {
+    margin: 3px 0;
+    display: block;
+    font-size: medium;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.table-header {
+    background: gray;
+    color: white;
+}
+
+.gray-checkbox {
+    margin-left: 80px;
+}
+.gray-checkbox input[type="checkbox"] {
+     display: none;
+}
+.gray-checkbox input[type="checkbox"] + label > span {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin: -4px 4px 0 0;
+      border: 1px #2e3139 solid;
+      vertical-align: middle;
+      background: transparent left top no-repeat;
+      cursor: pointer;
+}
+.gray-checkbox input[type="checkbox"] + label > span > span {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      margin: 2px;
+      background: transparent;
+}
+.gray-checkbox input[type="checkbox"]:checked + label > span > span {
+    background: gray -15px top no-repeat;
+}
+
+
+.table-gray-checkbox input {
+    display: none;
+}
+.table-gray-checkbox div {
+    margin: 8px auto;
+    background: transparent;
+    border: solid 1px #97989c;
+    width: 15px;
+    height: 15px;
+}
+.table-gray-checkbox input:checked + div {
+    background: gray;
+}
+
+.form-control[readonly] {
+    cursor: default;
+    
+    background: white;
 }

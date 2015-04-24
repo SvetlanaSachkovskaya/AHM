@@ -6,13 +6,13 @@
 
         $scope.path = '';
 
+        $scope.cancel = function() {
+            $state.go('landing.billDetails', { billId: $stateParams.billId });
+        }
+
         if ($stateParams.billId) {
-            utilitiesService.getBillPdfPath($stateParams.billId).then(
-            function (result) {
+            utilitiesService.getBillPdfPath($stateParams.billId, function (result) {
                 $scope.path = result.data;
-            },
-            function (error) {
-                alert(error);
             });
         }
     }
