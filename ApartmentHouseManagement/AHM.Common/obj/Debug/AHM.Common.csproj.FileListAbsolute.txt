@@ -1,173 +1,27 @@
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.pdb
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.xml
-D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll
-D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.pdb
-D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.dll
-D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Diplom\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.xml
-D:\Diplom\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache
-D:\Diplom\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
-D:\Diplom\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll.config
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.pdb
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.xml
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.xml
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Owin.dll
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.xml
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.xml
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
-D:\DB\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll.config
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.pdb
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Owin.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
-C:\Users\Svetlana\Downloads\ApartmentHouseManagement\ApartmentHouseManagement\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll.config
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Owin.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll.config
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.pdb
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Owin.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll.config
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.pdb
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Owin.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll.config
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.pdb
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Owin.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll.config
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Owin.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\EntityFramework.SqlServer.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache

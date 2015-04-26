@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="Default Web Site/ahmapi" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\DB\\AHMRepo\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\DB\\AHMRepo\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Мои\ документы\\Учеба\\Диплом\\Repo\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Мои\ документы\\Учеба\\Диплом\\Repo\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp$" />
   </parameter>
   <parameter name="AhmContext-Web.config Connection String" description="" value="Data Source=(local);Initial Catalog=ApartmentHouseManagement;Integrated Security=True" tags="">
-    <parameterEntry kind="XmlFile" scope="D:\\DB\\AHMRepo\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AhmContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="D:\\Мои\ документы\\Учеба\\Диплом\\Repo\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AhmContext']/@connectionString" />
   </parameter>
 </parameters>

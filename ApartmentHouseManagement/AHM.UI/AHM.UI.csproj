@@ -104,7 +104,6 @@
     <Content Include="Scripts\Libraries\angularjs\angular-local-storage.min.js" />
     <Content Include="Scripts\Libraries\angularjs\angular-messages.js" />
     <Content Include="Scripts\Libraries\angularjs\angular-messages.min.js" />
-    <Content Include="Scripts\Libraries\angularjs\angular-mocks.js" />
     <Content Include="Scripts\Libraries\angularjs\angular-resource.js" />
     <Content Include="Scripts\Libraries\angularjs\angular-resource.min.js" />
     <Content Include="Scripts\Libraries\angularjs\angular-route.js" />
@@ -949,7 +948,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2797/</IISUrl>
+          <IISUrl>http://localhost:4559/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="AhmContext-Web.config Connection String" description="AhmContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(local);Initial Catalog=ApartmentHouseManagement;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="D:\\DB\\AHMRepo\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AhmContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="D:\\Мои\ документы\\Учеба\\Диплом\\Repo\\ApartmentHouseManagement\\AHM\.WebAPI\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AhmContext']/@connectionString" />
   </parameter>
 </parameters>

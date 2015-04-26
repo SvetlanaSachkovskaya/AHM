@@ -22,3 +22,9 @@ D:\DB\AHMRepo\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.pdb
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.UI\obj\Release\AHM.UI.csprojResolveAssemblyReference.cache
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.UI\obj\Release\AHM.UI.dll
 D:\DB\AHMRepo\ApartmentHouseManagement\AHM.UI\obj\Release\AHM.UI.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.dll.config
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.UI\obj\Release\AHM.UI.csprojResolveAssemblyReference.cache
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.UI\obj\Release\AHM.UI.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.UI\obj\Release\AHM.UI.pdb

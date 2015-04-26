@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Http;
+using System.Web.Routing;
 using AHM.DependencyInjection;
 using AHM.WebAPI;
-using AHM.WebAPI.App_Start;
 using AHM.WebAPI.Providers;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
@@ -26,6 +26,7 @@ namespace AHM.WebAPI
             ConfigureOAuth(app);
 
             WebApiConfig.Register(config);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
             app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
         }

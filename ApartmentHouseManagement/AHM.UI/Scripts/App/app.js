@@ -162,7 +162,8 @@ app.run(['$rootScope', '$state', 'authenticationService', function ($rootScope, 
     }
 ]);
 
-var serviceBase = 'http://wsb-035/ahmapi/';
+//var serviceBase = 'http://wsb-035/ahmapi/';
+var serviceBase = 'http://localhost/ahmapi/';
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: 'ngAuthApp'

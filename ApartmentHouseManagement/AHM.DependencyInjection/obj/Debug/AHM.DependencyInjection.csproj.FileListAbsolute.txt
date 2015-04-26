@@ -1,128 +1,35 @@
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.pdb
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Owin.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Newtonsoft.Json.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.pdb
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.pdb
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.xml
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.csprojResolveAssemblyReference.cache
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.pdb
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.dll
-D:\Мои документы\Учеба\Диплом\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.pdb
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.pdb
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Owin.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Newtonsoft.Json.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.pdb
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.pdb
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.pdb
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.xml
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.csprojResolveAssemblyReference.cache
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.dll
-D:\DB\ApartmentHouseManagementv13\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.pdb
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.csprojResolveAssemblyReference.cache
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.pdb
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Owin.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\itextsharp.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Newtonsoft.Json.dll
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.pdb
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.pdb
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.pdb
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\itextsharp.xml
-D:\Мои документы\Учеба\Диплом\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.pdb
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.pdb
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Owin.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\itextsharp.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Newtonsoft.Json.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.pdb
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.pdb
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.pdb
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\itextsharp.xml
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.csprojResolveAssemblyReference.cache
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.dll
-D:\DB\AHMRepo\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DependencyInjection.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Owin.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\itextsharp.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Newtonsoft.Json.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.BusinessLayer.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.Common.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\AHM.DataLayer.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Owin.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Web.Http.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\itextsharp.xml
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.csprojResolveAssemblyReference.cache
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\obj\Debug\AHM.DependencyInjection.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Net.Http.Formatting.dll
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DependencyInjection\bin\Debug\System.Net.Http.Formatting.xml
