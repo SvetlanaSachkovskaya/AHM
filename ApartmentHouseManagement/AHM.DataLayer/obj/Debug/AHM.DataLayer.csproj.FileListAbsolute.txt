@@ -45,3 +45,4 @@ D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManageme
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csproj.GenerateResource.Cache
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.dll
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.pdb
+D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedPasswordFields.resources

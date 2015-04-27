@@ -3,8 +3,10 @@ using System.Linq;
 
 namespace AHM.Common.DomainModel
 {
-    public class UtilitiesClause : Entity
+    public class UtilitiesClause : IEntity
     {
+        public int Id { get; set; }
+
         public UtilitiesClauseType UtilitiesClauseType { get; set; }
 
         public string Measure { get; set; }
@@ -28,7 +30,7 @@ namespace AHM.Common.DomainModel
         public int BuildingId { get; set; }
 
 
-        public override ValidationResult Validate()
+        public ValidationResult Validate()
         {
             var result = new ValidationResult();
             if (BuildingId <= 0)

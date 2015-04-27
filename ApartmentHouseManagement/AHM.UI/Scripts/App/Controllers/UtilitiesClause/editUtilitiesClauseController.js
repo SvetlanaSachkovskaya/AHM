@@ -47,6 +47,10 @@
             }
         }
 
+        $scope.cancel = function () {
+            $state.go('landing.utilitiesClauses');
+        }
+
         utilitiesService.getUtilitiesClauseTypes(function (data) {
             $scope.utilitiesClauseTypes = data;
             $scope.utilitiesClauseType = $scope.utilitiesClauseTypes[0].id;

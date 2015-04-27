@@ -46,7 +46,7 @@
                     {{ utilitiesItem.utilitiesClauseName }}
                 </td>
                 <td class="col-md-4">
-                    <input type="text" data-ng-model="utilitiesItem.quantity" float-number class="form-control" />
+                    <input type="text" data-ng-disabled="!utilitiesItem.isChecked" data-ng-model="utilitiesItem.quantity" float-number class="form-control" />
                 </td>
             </tr>
         </tbody>

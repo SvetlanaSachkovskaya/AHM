@@ -2,11 +2,18 @@
 
 namespace AHM.WebAPI.Models
 {
-    public class UserLoginModel
+    public class RegisterUserModel
     {
         [Required]
         [Display(Name = "User name")]
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        [Required]
         public string UserName { get; set; }
+
+        public int RoleId { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

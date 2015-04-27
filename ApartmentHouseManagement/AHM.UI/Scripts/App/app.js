@@ -146,7 +146,32 @@ app.config(function ($stateProvider, $urlRouterProvider, roles) {
             templateUrl: 'Views/Utilities/BillPdfViewer.html',
             controller: 'billPdfViewerController',
             roles: [roles.accountant]
-        });
+        })
+        .state('landing.buildings', {
+            url: '/buildings',
+            templateUrl: 'Views/Admin/Buildings.html',
+            controller: 'buildingsController',
+            roles: [roles.admin]
+        })
+        .state('landing.editBuilding', {
+            url: '/editBuilding',
+            templateUrl: 'Views/Admin/EditBuilding.html',
+            controller: 'editBuildingController',
+            roles: [roles.admin]
+        })
+        .state('landing.users', {
+            url: '/users',
+            templateUrl: 'Views/Utilities/Users.html',
+            controller: 'usersController',
+            roles: [roles.admin]
+        })
+        .state('landing.editUser', {
+            url: '/editUser',
+            templateUrl: 'Views/Utilities/EditUser.html',
+            controller: 'editUserController',
+            roles: [roles.admin]
+        })
+    ;
 });
 
 app.run(['$rootScope', '$state', 'authenticationService', function ($rootScope, $state, authenticationService) {

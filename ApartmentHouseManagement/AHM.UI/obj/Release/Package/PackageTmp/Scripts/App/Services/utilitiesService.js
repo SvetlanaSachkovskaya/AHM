@@ -41,8 +41,16 @@
         httpModule.post('api/bill/update', utilitiesBill, callback);
     }
 
-    var getBillById = function (id, callback) {
-        httpModule.get('api/bill/getById', { id: id }, callback);
+    var payBill = function (utilitiesBill, callback) {
+        httpModule.post('api/bill/pay', utilitiesBill, callback);
+    }
+
+    var getFullBillById = function (id, callback) {
+        httpModule.get('api/bill/getFullById', { id: id }, callback);
+    }
+
+    var getShortBillById = function (id, callback) {
+        httpModule.get('api/bill/getShortById', { id: id }, callback);
     }
 
     var getBillPdfPath = function (billId, callback) {
@@ -75,7 +83,9 @@
     self.getBills = getBills;
     self.addBill = addBill;
     self.updateBill = updateBill;
-    self.getBillById = getBillById;
+    self.payBill = payBill;
+    self.getFullBillById = getFullBillById;
+    self.getShortBillById = getShortBillById;
     self.getBillPdfPath = getBillPdfPath;
     self.sendEmail = sendEmail;
 

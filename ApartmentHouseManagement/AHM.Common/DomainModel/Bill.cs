@@ -3,8 +3,10 @@ using System.Linq;
 
 namespace AHM.Common.DomainModel
 {
-    public class Bill : Entity
+    public class Bill : IEntity
     {
+        public int Id { get; set; }
+
         public Apartment Apartment { get; set; }
 
         public int ApartmentId { get; set; }
@@ -23,7 +25,7 @@ namespace AHM.Common.DomainModel
 
         public bool IsEmailSent { get; set; }
 
-        public override ValidationResult Validate()
+        public ValidationResult Validate()
         {
             var result = new ValidationResult();
             if (ApartmentId <= 0)

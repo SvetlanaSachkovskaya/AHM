@@ -3,8 +3,10 @@ using System.Linq;
 
 namespace AHM.Common.DomainModel
 {
-    public class Instruction : Entity
+    public class Instruction : IEntity
     {
+        public int Id { get; set; }
+
         public Building Building { get; set; }
 
         public int BuildingId { get; set; }
@@ -24,7 +26,7 @@ namespace AHM.Common.DomainModel
         public Priority Priority { get; set; }
 
 
-        public override ValidationResult Validate()
+        public ValidationResult Validate()
         {
             var result = new ValidationResult();
             if (BuildingId <= 0)

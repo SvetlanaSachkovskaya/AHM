@@ -96,8 +96,8 @@
         $scope.create = function () {
             if (validate()) {
                 $scope.bill.utilitiesItems = getCheckedItems();
-                utilitiesService.addBill($scope.bill, function () {
-                    $state.go('landing.billsBoard');
+                utilitiesService.addBill($scope.bill, function (data) {
+                    $state.go('landing.billDetails', { billId: data.id });
                 });
             }
         }
@@ -106,7 +106,7 @@
             if (validate()) {
                 $scope.bill.utilitiesItems = getCheckedItems();
                 utilitiesService.updateBill($scope.bill, function () {
-                    $state.go('landing.billsBoard');
+                    $state.go('landing.billDetails', { billId: $stateParams.billId });
                 });
             }
         }

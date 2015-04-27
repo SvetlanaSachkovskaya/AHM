@@ -1,7 +1,9 @@
 ﻿namespace AHM.Common.DomainModel
 {
-    public class NotificationOptions : Entity
+    public class NotificationOptions : IEntity
     {
+        public int Id { get; set; }
+
         public bool IsOpenNotificationSent { get; set; }
 
         public bool ShouldNotifyAllOccupants { get; set; }
@@ -11,7 +13,7 @@
         public int? OccupantId { get; set; }
 
 
-        public override ValidationResult Validate()
+        public ValidationResult Validate()
         {
             return new ValidationResult { IsValid = true };
         }

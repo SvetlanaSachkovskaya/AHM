@@ -2,8 +2,10 @@
 
 namespace AHM.Common.DomainModel
 {
-    public class UtilitiesItem : Entity
+    public class UtilitiesItem : IEntity
     {
+        public int Id { get; set; }
+
         public UtilitiesClause UtilitiesClause { get; set; }
 
         public int UtilitiesClauseId { get; set; }
@@ -19,7 +21,7 @@ namespace AHM.Common.DomainModel
         public decimal AmountByFullTariff { get; set; }
 
 
-        public override ValidationResult Validate()
+        public ValidationResult Validate()
         {
             var result = new ValidationResult();
             if (UtilitiesClauseId <= 0)

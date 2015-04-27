@@ -16,7 +16,7 @@ namespace AHM.BusinessLayer.Services
         }
 
 
-        protected async Task<ModifyDbStateResult> AddEntityAsync<TEntity>(TEntity entity, string errorMessage, Func<Task> action) where TEntity: Entity
+        protected async Task<ModifyDbStateResult> AddEntityAsync<TEntity>(TEntity entity, string errorMessage, Func<Task> action) where TEntity: IEntity
         {
             var validationResult = entity.Validate();
             if (!validationResult.IsValid)
@@ -38,7 +38,7 @@ namespace AHM.BusinessLayer.Services
             return creationResult;
         }
 
-        protected async Task<ModifyDbStateResult> UpdateEntityAsync<TEntity>(TEntity entity, string errorMessage, Func<Task> action) where TEntity : Entity
+        protected async Task<ModifyDbStateResult> UpdateEntityAsync<TEntity>(TEntity entity, string errorMessage, Func<Task> action) where TEntity : IEntity
         {
             var validationResult = entity.Validate();
             if (!validationResult.IsValid)

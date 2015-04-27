@@ -4,8 +4,10 @@ using System.Linq;
 
 namespace AHM.Common.DomainModel
 {
-    public class Occupant : Entity
+    public class Occupant : IEntity
     {
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(100)]
         public string Name { get; set; }
@@ -23,7 +25,7 @@ namespace AHM.Common.DomainModel
         public int ApartmentId { get; set; }
 
 
-        public override ValidationResult Validate()
+        public ValidationResult Validate()
         {
             var result = new ValidationResult();
             if (ApartmentId <= 0)

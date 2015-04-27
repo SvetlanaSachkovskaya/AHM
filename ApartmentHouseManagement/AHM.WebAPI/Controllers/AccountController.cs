@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
+using AHM.WebAPI.Attributes;
 using AHM.WebAPI.Models;
 
 namespace AHM.WebAPI.Controllers
@@ -19,10 +20,9 @@ namespace AHM.WebAPI.Controllers
         }
 
 
-        //todo: remove
-        [AllowAnonymous]
-        [Route("Register")]
-        public async Task<IHttpActionResult> Register(UserLoginModel userModel)
+        [Authorization(Roles = new []{Roles.Admin})]
+        [Route("RegisterUser")]
+        public async Task<IHttpActionResult> RegisterUser(RegisterUserModel registerUserModel)
         {
             if (!ModelState.IsValid)
             {
@@ -31,23 +31,47 @@ namespace AHM.WebAPI.Controllers
 
             var user = new User
             {
-                UserName = userModel.UserName,
-                Email = "test@test.com",
-                EmailConfirmed = true,
-                FirstName = userModel.UserName,
-                LastName = "Test"
+                UserName = registerUserModel.UserName,
+                FirstName = registerUserModel.UserName,
+                LastName = registerUserModel.LastName,
+                Password = registerUserModel.Password
             };
 
-            var result = await AppUserManager.CreateAsync(user, userModel.Password);
+            var creationResult = await _userService.AddUserAsync(user, registerUserModel.RoleId);
 
-            if (result.Succeeded)
+            return creationResult.IsSuccessful ? (IHttpActionResult)Ok(user) : BadRequest(creationResult.Errors.First());
+        }
+
+        [Authorization(Roles = new[] { Roles.Admin })]
+        [Route("UpdateUser")]
+        public async Task<IHttpActionResult> UpdateUser(RegisterUserModel registerUserModel)
+        {
+            if (!ModelState.IsValid)
             {
-                result = await AppUserManager.AddToRoleAsync(user.Id, Roles.Worker.ToString());
+                return BadRequest(ModelState);
             }
 
-            var errorResult = GetErrorResult(result);
+            var user = new User
+            {
+                UserName = registerUserModel.UserName,
+                FirstName = registerUserModel.UserName,
+                LastName = registerUserModel.LastName,
+                Password = registerUserModel.Password
+            };
 
-            return errorResult ?? Ok();
+            var updateResult = await _userService.UpdateUserAsync(user, registerUserModel.RoleId);
+
+            return updateResult.IsSuccessful ? (IHttpActionResult)Ok(user) : BadRequest(updateResult.Errors.First());
+        }
+
+        [Authorization(Roles = new[] { Roles.Admin })]
+        [Route("GetRoles")]
+        public async Task<IHttpActionResult> GetRoles()
+        {
+            
+            var roles = await _userService.GetRolesAsync();
+
+            return Ok(roles);
         }
 
         [HttpGet]
@@ -56,7 +80,6 @@ namespace AHM.WebAPI.Controllers
         {
             var user = await _userService.GetByUsernameAsync(username);
             var roles = await AppUserManager.GetRolesAsync(user.Id);
-
             var userModel = new AuthenticatedUserModel()
             {
                 BuildingName = user.Building.Name,

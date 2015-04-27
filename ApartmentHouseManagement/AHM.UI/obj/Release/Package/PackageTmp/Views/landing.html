@@ -24,7 +24,7 @@
                 <a data-ui-sref=".journal" access="{{ roles.concierge + ',' +  roles.manager}}" class="btn menu-btn" data-parent="#userMenu">Journal</a>
                 <a data-ui-sref=".apartments" access="{{ roles.manager }}" class="btn menu-btn" data-parent="#userMenu">Apartments</a>
                 <a data-ui-sref=".occupants" access="{{ roles.manager }}" class="btn menu-btn" data-parent="#userMenu">Occupants</a>
-                <div class="btn-group" dropdown>
+                <div class="btn-group" access="{{ roles.concierge }}" dropdown>
                     <button type="button" class="btn menu-btn dropdown-toggle" dropdown-toggle ng-disabled="disabled">
                         Settings <span class="caret"></span>
                     </button>

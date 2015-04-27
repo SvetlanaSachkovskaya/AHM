@@ -24,4 +24,3 @@ D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManageme
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache

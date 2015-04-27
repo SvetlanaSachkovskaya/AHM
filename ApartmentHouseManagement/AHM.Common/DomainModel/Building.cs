@@ -4,8 +4,10 @@ using System.Linq;
 
 namespace AHM.Common.DomainModel
 {
-    public class Building : Entity
+    public class Building : IEntity
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public string State { get; set; }
@@ -22,7 +24,7 @@ namespace AHM.Common.DomainModel
         public int LastPayUtilitiesDay { get; set; }
 
 
-        public override ValidationResult Validate()
+        public ValidationResult Validate()
         {
             var result = new ValidationResult();
             if (String.IsNullOrEmpty(Name))

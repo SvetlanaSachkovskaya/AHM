@@ -1,7 +1,11 @@
 ﻿<form name="billForm" novalidate>
-    <div ng-class="{ 'has-error' : billForm.$invalid && billForm.$dirty }">
+    <p class="page-title">New Bill</p>
+
+    <div ng-class="{ 'has-error' : isSelectionValidationError || (billForm.$invalid && billForm.$dirty) }">
         <p ng-show="billForm.apartment.$invalid && billForm.apartment.$dirty" class="help-block">Apartment is required</p>
+        <p ng-show="isSelectionValidationError" class="help-block">At least one item must be selected</p>
     </div>
+
     <div class="row">
         <div ng-class="{ 'has-error' : billForm.apartment.$invalid && billForm.apartment.$dirty }" class="col-md-5">
             <label>Apartment</label>
@@ -10,44 +14,52 @@
                 <option value="">Select apartment</option>
             </select>
         </div>
+
         <div class="col-md-5">
             <label>Mounth</label>
             <p class="input-group">
-            <input type="text" class="form-control" datepicker-mode="'month'" datepicker-options="dateOptions" datepicker-popup="MMMM" ng-model="bill.date" is-open="opened"
-                   required close-text="Close"/>
+            <input type="text" class="form-control" datepicker-mode="'month'" datepicker-options="dateOptions" datepicker-popup="MMMM yyyy" ng-model="bill.date" is-open="opened"
+                   required close-text="Close" readonly />
             <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="openDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
+                <button type="button" class="btn btn-default" ng-click="openDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
         </div>
     </div>
-    <table class="table table-hover">
+
+    <table class="table table-hover table-bordered">
         <thead>
-        <tr>
-            <th>Include</th>
-            <th>Name</th>
-            <th>Quantity</th>
-        </tr>
+            <tr class="table-header">
+                <th class="text-center">Include</th>
+                <th>Name</th>
+                <th>Quantity</th>
+            </tr>
         </thead>
         <tbody>
-        <tr data-ng-repeat="utilitiesItem in utilitiesItems">
-            <td>
-                <input type="checkbox" data-ng-model="utilitiesItem.isChecked"/>
-            </td>
-            <td>
-                {{ utilitiesItem.utilitiesClauseName }}
-            </td>
-            <td>
-                <input type="text" data-ng-model="utilitiesItem.quantity" float-number/>
-            </td>
-        </tr>
+            <tr data-ng-repeat="utilitiesItem in utilitiesItems" data-ng-class="{ success: utilitiesItem.isChecked }">
+                <td data-ng-click="checkUtilitiesItem(utilitiesItem)" class="text-center col-md-2">
+                    <div class="table-gray-checkbox">
+                        <input type="checkbox" data-ng-model="utilitiesItem.isChecked" />
+                        <div></div>
+                    </div>
+                </td>
+                <td data-ng-click="checkUtilitiesItem(utilitiesItem)" class="col-md-6">
+                    {{ utilitiesItem.utilitiesClauseName }}
+                </td>
+                <td class="col-md-4">
+                    <input type="text" data-ng-model="utilitiesItem.quantity" float-number class="form-control" />
+                </td>
+            </tr>
         </tbody>
         <tfoot data-ng-hide="utilitiesItems.length > 0">
-        <tr>
-            <td colspan="3" class="text-center">No items found</td>
-        </tr>
+            <tr>
+                <td colspan="3" class="text-center">No items found</td>
+            </tr>
         </tfoot>
     </table>
-
-    <add-button action="create()" text="Create" data-ng-hide="isEditMode"></add-button>
-    <add-button action="update()" text="Save" data-ng-hide="!isEditMode"></add-button>
+    
+    <div class="pull-right">
+        <add-button action="create()" text="Create" data-ng-hide="isEditMode"></add-button>
+        <add-button action="update()" text="Save" data-ng-hide="!isEditMode"></add-button>
+        <button data-ng-click="cancel()" class="btn btn-default">Cancel</button>
+    </div>
 </form>

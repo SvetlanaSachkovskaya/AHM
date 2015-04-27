@@ -3,8 +3,10 @@ using System.Linq;
 
 namespace AHM.Common.DomainModel
 {
-    public class Package : Entity
+    public class Package : IEntity
     {
+        public int Id { get; set; }
+
         public DateTime OpenDate { get; set; }
 
         public DateTime? CloseDate { get; set; }
@@ -42,7 +44,7 @@ namespace AHM.Common.DomainModel
         public int PackageTypeId { get; set; }
 
 
-        public override ValidationResult Validate()
+        public ValidationResult Validate()
         {
             var result = new ValidationResult();
             if (OpenedByEmployeeId <= 0)

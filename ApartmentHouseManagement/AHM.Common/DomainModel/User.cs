@@ -5,7 +5,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace AHM.Common.DomainModel
 {
-    public class User : IdentityUser<int, UserLogin, UserRole, UserClaim>
+    public class User : IdentityUser<int, UserLogin, UserRole, UserClaim>, IEntity
     {
         public Building Building { get; set; }
 
@@ -18,6 +18,14 @@ namespace AHM.Common.DomainModel
         [Required]
         [MaxLength(100)]
         public string LastName { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public string Password { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public string Salt { get; set; }
 
 
         public ValidationResult Validate()
