@@ -206,6 +206,7 @@
     <Compile Include="Controllers\UtilitiesClauseController.cs" />
     <Compile Include="Models\AuthenticatedUserModel.cs" />
     <Compile Include="Models\BillModel.cs" />
+    <Compile Include="Models\EditBuildingModel.cs" />
     <Compile Include="Models\CreatePackageModel.cs" />
     <Compile Include="Models\EditApartmentModel.cs" />
     <Compile Include="Models\UserLoginModel.cs" />
@@ -217,7 +218,6 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="favicon.ico" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />

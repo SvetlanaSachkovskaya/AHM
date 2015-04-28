@@ -39,8 +39,12 @@
         }
     }
 
-    if ($stateParams.buildingId) {
-        adminService.getBuildingById($stateParams.buildingId, function (data) {
+    $scope.cancel = function () {
+        $state.go('landing.buildings');
+    }
+
+    if ($stateParams.id) {
+        adminService.getBuildingById($stateParams.id, function (data) {
             $scope.building = data;
             $scope.isEditMode = true;
         });

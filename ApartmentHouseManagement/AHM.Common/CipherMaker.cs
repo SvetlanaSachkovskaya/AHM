@@ -40,7 +40,6 @@ namespace AHM.Common
 			return cipherText;
 		}
 
-
 		public static string Decrypt(string encryptedText, string salt)
 		{
 			if (string.IsNullOrWhiteSpace(salt))
@@ -66,5 +65,12 @@ namespace AHM.Common
 			var plainText = Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
 			return plainText;
 		}
+
+        public static bool EqualsPasswords(string originalEncryptedPassword, string enteredPassword, string salt)
+        {
+            var originalPassword = Decrypt(originalEncryptedPassword, salt);
+            var result = originalPassword.Equals(enteredPassword, StringComparison.Ordinal);
+            return result;
+        }
 	}
 }

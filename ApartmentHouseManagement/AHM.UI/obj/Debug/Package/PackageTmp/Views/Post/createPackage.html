@@ -1,0 +1,47 @@
+﻿<div class="row">
+    <form name="packageForm" novalidate class="col-md-8">
+        <p class="page-title">Create package</p>
+
+        <div ng-class="{ 'has-error' : packageForm.apartment.$invalid && packageForm.apartment.$dirty }" class="form-group">
+            <label>Apartment</label>
+            <select name="apartment" data-ng-options="apartment.id as apartment.number for apartment in apartments" data-ng-model="package.apartmentId"
+                    ng-change="setOccupants()" required class="form-control">
+                <option value="">Select apartment</option>
+            </select>
+            <p ng-show="packageForm.apartment.$invalid" class="help-block">Apartment is required</p>
+        </div>
+
+        <div ng-class="{ 'has-error' : packageForm.type.$invalid && packageForm.type.$dirty }" class="form-group">
+            <label>Type</label>
+            <select name="type" data-ng-options="type.id as type.longDescription for type in packageTypes" data-ng-model="package.packageTypeId" required
+                    class="form-control">
+                <option value="">Select Type</option>
+            </select>
+            <p ng-show="packageForm.type.$invalid && packageForm.type.$dirty" class="help-block">Type is required</p>
+        </div>
+
+        <div ng-class="{ 'has-error' : packageForm.location.$invalid && packageForm.location.$dirty }" class="form-group">
+            <label>Location</label>
+            <select name="location" data-ng-options="location.id as location.longDescription for location in locations" data-ng-model="package.locationId"
+                    required class="form-control">
+                <option value="">Select location</option>
+            </select>
+            <p ng-show="packageForm.location.$invalid && packageForm.location.$dirty" class="help-block">Long description is required</p>
+        </div>
+
+        <div class="form-group">
+            <label>Occupant</label>
+            <select data-ng-options="occupant.id as occupant.name for occupant in occupants" data-ng-model="package.occupantId"
+                    class="form-control">
+                <option value="">All</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Comment</label>
+            <textarea data-ng-model="package.openComment" rows="3" class="form-control"></textarea>
+        </div>
+
+        <add-button action="create()" text="Create" class="pull-right"></add-button>
+    </form>
+</div>

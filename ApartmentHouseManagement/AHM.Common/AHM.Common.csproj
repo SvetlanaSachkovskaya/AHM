@@ -78,9 +78,9 @@
     <Compile Include="DomainModel\Apartment.cs" />
     <Compile Include="DomainModel\Building.cs" />
     <Compile Include="DomainModel\CalculationType.cs" />
-    <Compile Include="DomainModel\IEntity.cs" />
     <Compile Include="DomainModel\Event.cs" />
     <Compile Include="DomainModel\IdentificationSettings.cs" />
+    <Compile Include="DomainModel\IEntity.cs" />
     <Compile Include="DomainModel\Instruction.cs" />
     <Compile Include="DomainModel\Location.cs" />
     <Compile Include="DomainModel\NotificationOptions.cs" />

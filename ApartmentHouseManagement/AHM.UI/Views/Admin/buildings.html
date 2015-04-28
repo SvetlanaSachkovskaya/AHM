@@ -1,11 +1,29 @@
 ﻿<div>
-    <add-button action="addBuilding()" text="Create new building"></add-button>
-
-    <div data-ng-repeat="building in buildings">
-        <div data-ng-click="edit(building.id)">
-            <label>{{ building.name }}</label>
-            <br />
-            <label>{{ building.number }} {{ building.street }}, {{ building.city }}, {{ building.state }}</label>
-        </div>
-    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="table-header">
+                <th>Name</th>
+                <th>Address</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="building in buildings">
+                <td class="bold">
+                    {{ building.name }}
+                </td>
+                <td>
+                    {{ building.number }} {{ building.street }}, {{ building.city }}, {{ building.state }}
+                </td>
+                <td>
+                    <button class="btn center-block" data-ng-click="edit(building.id)">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot data-ng-hide="buildings.length > 0">
+            <tr>
+                <td colspan="3" class="text-center">No items found</td>
+            </tr>
+        </tfoot>
+    </table>
 </div>

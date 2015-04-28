@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Routing;
+using AHM.BusinessLayer.Interfaces;
 using AHM.DependencyInjection;
 using AHM.WebAPI;
 using AHM.WebAPI.Providers;
@@ -21,9 +22,11 @@ namespace AHM.WebAPI
 
             var container = new UnityContainer();
             UnityConfiguration.Run(container);
-            config.DependencyResolver = new UnityResolver(container);
 
-            ConfigureOAuth(app);
+            var unityResolver = new UnityResolver(container);
+            config.DependencyResolver = unityResolver;
+
+            ConfigureOAuth(app, unityResolver);
 
             WebApiConfig.Register(config);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -31,7 +34,7 @@ namespace AHM.WebAPI
             app.UseWebApi(config);
         }
 
-        private void ConfigureOAuth(IAppBuilder app)
+        private void ConfigureOAuth(IAppBuilder app, UnityResolver resolver)
         {
             UnityConfiguration.ConfigureAuthentication(app);
 
@@ -40,7 +43,7 @@ namespace AHM.WebAPI
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new AuthorizationServerProvider()
+                Provider = new AuthorizationServerProvider((IUserService)resolver.GetService(typeof(IUserService)))
             };
 
             app.UseOAuthAuthorizationServer(oAuthServerOptions);

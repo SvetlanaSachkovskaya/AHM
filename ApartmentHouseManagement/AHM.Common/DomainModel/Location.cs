@@ -8,7 +8,7 @@ namespace AHM.Common.DomainModel
         public int Id { get; set; }
 
         public Building Building { get; set; }
-
+        
         public int BuildingId { get; set; }
 
         public string LongDescription { get; set; }

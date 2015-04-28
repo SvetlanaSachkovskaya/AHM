@@ -15,3 +15,20 @@ D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManageme
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.csprojResolveAssemblyReference.cache
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.dll
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.pdb
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.BusinessLayer.dll
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.BusinessLayer.pdb
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.Common.dll
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.DataLayer.dll
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\itextsharp.dll
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\EntityFramework.dll
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.Common.pdb
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\AHM.DataLayer.pdb
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\itextsharp.xml
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\bin\Debug\EntityFramework.xml
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.csprojResolveAssemblyReference.cache
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.dll
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.BusinessLayer\obj\Debug\AHM.BusinessLayer.pdb

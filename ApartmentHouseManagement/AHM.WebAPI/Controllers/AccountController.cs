@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
@@ -68,7 +69,6 @@ namespace AHM.WebAPI.Controllers
         [Route("GetRoles")]
         public async Task<IHttpActionResult> GetRoles()
         {
-            
             var roles = await _userService.GetRolesAsync();
 
             return Ok(roles);
@@ -82,13 +82,22 @@ namespace AHM.WebAPI.Controllers
             var roles = await AppUserManager.GetRolesAsync(user.Id);
             var userModel = new AuthenticatedUserModel()
             {
-                BuildingName = user.Building.Name,
+                BuildingName = user.Building != null ? user.Building.Name : String.Empty,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Role = roles.FirstOrDefault()
             };
 
             return Ok(userModel);
+        }
+
+        [HttpGet]
+        [Route("GetUserById")]
+        public async Task<IHttpActionResult> GetUserById(int id)
+        {
+            var user = await _userService.GetUserByIdAsync(id);
+
+            return Ok(user);
         }
     }
 }

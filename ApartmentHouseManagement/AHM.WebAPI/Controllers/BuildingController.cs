@@ -4,11 +4,12 @@ using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
 using AHM.WebAPI.Attributes;
+using AHM.WebAPI.Models;
 
 namespace AHM.WebAPI.Controllers
 {
     [Authorization(Roles = new[] { Roles.Admin })]
-    [Route("api/Building")]
+    [RoutePrefix("api/Building")]
     public class BuildingController : BaseController
     {
         private readonly IBuildingService _buildingService;
@@ -40,14 +41,14 @@ namespace AHM.WebAPI.Controllers
         
         [HttpPost]
         [Route("AddBuilding")]
-        public async Task<IHttpActionResult> AddBuilding(Building building)
+        public async Task<IHttpActionResult> AddBuilding(EditBuildingModel building)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _buildingService.AddAsync(building);
+            var result = await _buildingService.AddAsync(building.GetBuilding());
 
             return result.IsSuccessful ? (IHttpActionResult)Ok(building) : BadRequest(result.Errors.First());
         }

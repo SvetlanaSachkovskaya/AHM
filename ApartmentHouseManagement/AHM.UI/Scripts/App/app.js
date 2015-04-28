@@ -154,20 +154,20 @@ app.config(function ($stateProvider, $urlRouterProvider, roles) {
             roles: [roles.admin]
         })
         .state('landing.editBuilding', {
-            url: '/editBuilding',
+            url: '/editBuilding:id',
             templateUrl: 'Views/Admin/EditBuilding.html',
             controller: 'editBuildingController',
             roles: [roles.admin]
         })
         .state('landing.users', {
             url: '/users',
-            templateUrl: 'Views/Utilities/Users.html',
+            templateUrl: 'Views/Admin/Users.html',
             controller: 'usersController',
             roles: [roles.admin]
         })
         .state('landing.editUser', {
             url: '/editUser',
-            templateUrl: 'Views/Utilities/EditUser.html',
+            templateUrl: 'Views/Admin/EditUser.html',
             controller: 'editUserController',
             roles: [roles.admin]
         })

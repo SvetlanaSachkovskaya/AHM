@@ -29,6 +29,19 @@ namespace AHM.BusinessLayer.Services
             return await _unitOfWork.GetRepository<Role>().GetAllAsync();
         }
 
+        public async Task<User> GetUserAsync(string username, string password)
+        {
+            var user =
+                await _unitOfWork.UserRepository.GetByUsernameAsync(username);
+
+            return user != null && CipherMaker.EqualsPasswords(user.Password, password, user.Salt) ? user : null;
+        }
+
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            return await _unitOfWork.UserRepository.GetByIdAsync(id);
+        }
+
         public async Task<ModifyDbStateResult> AddUserAsync(User user, int roleId)
         {
             user.Salt = Guid.NewGuid().ToString();

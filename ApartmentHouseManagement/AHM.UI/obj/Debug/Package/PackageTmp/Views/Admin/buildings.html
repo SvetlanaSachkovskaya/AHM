@@ -1,0 +1,11 @@
+﻿<div>
+    <add-button action="addBuilding()" text="Create new building"></add-button>
+
+    <div data-ng-repeat="building in buildings">
+        <div data-ng-click="edit(building.id)">
+            <label>{{ building.name }}</label>
+            <br />
+            <label>{{ building.number }} {{ building.street }}, {{ building.city }}, {{ building.state }}</label>
+        </div>
+    </div>
+</div>

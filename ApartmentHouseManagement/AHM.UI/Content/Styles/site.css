@@ -292,3 +292,17 @@ textarea {
 .pdf-container canvas {
     width: 100%;
 }
+
+.building-container {
+    background: mediumpurple;
+    color: white;
+    padding: 10px;
+}
+
+.building-container label {
+    font-weight: normal;
+}
+
+.bold {
+    font-weight: bold;
+}

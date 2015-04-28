@@ -10,6 +10,10 @@ namespace AHM.BusinessLayer.Interfaces
 
         Task<ICollection<Role>> GetRolesAsync();
 
+        Task<User> GetUserAsync(string username, string password);
+
+        Task<User> GetUserByIdAsync(int id);
+
         Task<ModifyDbStateResult> AddUserAsync(User user, int roleId);
 
         Task<ModifyDbStateResult> UpdateUserAsync(User user, int roleId);

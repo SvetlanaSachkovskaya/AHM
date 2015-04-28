@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
+using AHM.BusinessLayer.Interfaces;
 using AHM.DependencyInjection;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.OAuth;
@@ -8,6 +9,13 @@ namespace AHM.WebAPI.Providers
 {
     public class AuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
+        private readonly IUserService _userService;
+
+        public AuthorizationServerProvider(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             context.Validated();
@@ -17,8 +25,7 @@ namespace AHM.WebAPI.Providers
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
-            var user = await userManager.FindAsync(context.UserName, context.Password);
+            var user = await _userService.GetUserAsync(context.UserName, context.Password);
 
             if (user == null)
             {
