@@ -42,6 +42,11 @@ namespace AHM.BusinessLayer.Services
             return await _unitOfWork.UserRepository.GetByIdAsync(id);
         }
 
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        {
+            return await _unitOfWork.UserRepository.GetAllAsync();
+        }
+
         public async Task<ModifyDbStateResult> AddUserAsync(User user, int roleId)
         {
             user.Salt = Guid.NewGuid().ToString();

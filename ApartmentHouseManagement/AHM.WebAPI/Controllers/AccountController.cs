@@ -80,7 +80,7 @@ namespace AHM.WebAPI.Controllers
         {
             var user = await _userService.GetByUsernameAsync(username);
             var roles = await AppUserManager.GetRolesAsync(user.Id);
-            var userModel = new AuthenticatedUserModel()
+            var userModel = new AuthenticatedUserModel
             {
                 BuildingName = user.Building != null ? user.Building.Name : String.Empty,
                 FirstName = user.FirstName,
@@ -96,6 +96,15 @@ namespace AHM.WebAPI.Controllers
         public async Task<IHttpActionResult> GetUserById(int id)
         {
             var user = await _userService.GetUserByIdAsync(id);
+
+            return Ok(user);
+        }
+
+        [HttpGet]
+        [Route("GetAllUsers")]
+        public async Task<IHttpActionResult> GetAllUsers()
+        {
+            var user = await _userService.GetAllUsersAsync();
 
             return Ok(user);
         }

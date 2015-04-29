@@ -14,6 +14,8 @@ namespace AHM.BusinessLayer.Interfaces
 
         Task<User> GetUserByIdAsync(int id);
 
+        Task<IEnumerable<User>> GetAllUsersAsync();
+
         Task<ModifyDbStateResult> AddUserAsync(User user, int roleId);
 
         Task<ModifyDbStateResult> UpdateUserAsync(User user, int roleId);

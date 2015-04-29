@@ -17,8 +17,8 @@
         httpModule.post('api/building/updateBuilding', building, callback);
     }
 
-    var getUsersByBuildingId = function (id, callback) {
-        httpModule.get('api/account/getUsersByBuildingId', id, callback);
+    var getAllUsers = function (callback) {
+        httpModule.get('api/account/getAllUsers', null, callback);
     }
 
     var getUserById = function (id, callback) {
@@ -43,8 +43,8 @@
     self.getBuildingById = getBuildingById;
     self.addBuilding = addBuilding;
     self.updateBuilding = updateBuilding;
-    self.getUsersByBuildingId = getUsersByBuildingId;
     self.getUserById = getUserById;
+    self.getAllUsers = getAllUsers;
     self.registerUser = registerUser;
     self.updateUser = updateUser;
     self.getRoles = getRoles;

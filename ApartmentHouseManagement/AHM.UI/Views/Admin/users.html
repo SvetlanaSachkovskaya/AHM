@@ -1,11 +1,19 @@
-﻿<div>
-    <add-button action="addUser()" text="Create user"></add-button>
+﻿<div class="row filter-panel">
+    <div class="col-md-4">
+        <label>Building</label>
+        <select data-ng-options="building.id as building.name for building in buildings" data-ng-model="search.buildingId"
+                class="form-control">
+            <option value="">No Building</option>
+        </select>
+    </div>
+</div>
 
-    <div data-ng-repeat="user in users">
+<div>
+    <div data-ng-repeat="user in users | filter:search">
         <div data-ng-click="edit(user.id)">
             <label>{{ user.firstName }} {{ user.lastName }}</label>
             <br />
-            <label>{{ user.buildingName }}</label>
+            <label>{{ user.username }}</label>
             <br />
             <label>{{ user.role }}</label>
         </div>
