@@ -3,9 +3,12 @@
 
     $scope.users = [];
     $scope.buildings = [];
+    $scope.search = {
+        buildingId: null
+    };
 
     $scope.lockUser = function (user) {
-        if (confirm('Are you sure you want to delete this user?')) {
+        if (confirm('Are you sure you want to lock this user?')) {
             adminService.removeUser(user, function () {
                 $scope.users.splice($scope.users.indexOf(user), 1);
             });

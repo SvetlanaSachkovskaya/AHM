@@ -91,6 +91,7 @@ D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Mi
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedFine.resources
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.NullablePaidDate.resources
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.AddedPasswordFields.resources
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.Migrations.UpdatedBill.resources
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.csproj.GenerateResource.Cache
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.dll
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.DataLayer\obj\Debug\AHM.DataLayer.pdb

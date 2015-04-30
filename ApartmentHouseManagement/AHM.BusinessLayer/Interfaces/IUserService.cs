@@ -12,12 +12,12 @@ namespace AHM.BusinessLayer.Interfaces
 
         Task<User> GetUserAsync(string username, string password);
 
-        Task<User> GetUserByIdAsync(int id);
+        Task<UserModel> GetUserByIdAsync(int id);
 
-        Task<IEnumerable<User>> GetAllUsersAsync();
+        Task<IEnumerable<UserModel>> GetAllUsersAsync();
 
         Task<ModifyDbStateResult> AddUserAsync(User user, int roleId);
 
-        Task<ModifyDbStateResult> UpdateUserAsync(User user, int roleId);
+        Task<ModifyDbStateResult> UpdateUserAsync(UserModel userModel);
     }
 }

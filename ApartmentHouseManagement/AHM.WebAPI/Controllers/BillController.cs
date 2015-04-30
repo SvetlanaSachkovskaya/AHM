@@ -1,9 +1,6 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -23,19 +20,16 @@ namespace AHM.WebAPI.Controllers
         private readonly IBillService _billService;
         private readonly IUtilitiesItemService _utilitiesItemService;
         private readonly IBillPdfGenerator _billPdfGenerator;
-        private readonly IOccupantService _occupantService;
 
 
         public BillController(
             IBillService billService, 
             IUtilitiesItemService utilitiesItemService,
-            IBillPdfGenerator billPdfGenerator,
-            IOccupantService occupantService)
+            IBillPdfGenerator billPdfGenerator)
         {
             _billService = billService;
             _utilitiesItemService = utilitiesItemService;
             _billPdfGenerator = billPdfGenerator;
-            _occupantService = occupantService;
         }
 
 
@@ -89,14 +83,10 @@ namespace AHM.WebAPI.Controllers
         [Route("GetBillPdfPath")]
         public async Task<IHttpActionResult> GetBillPdfPath(int billId)
         {
-            var directoryRelativePath = ConfigurationManager.AppSettings["BillsDirectory"];
-            var directory = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, directoryRelativePath);
-            var fileName = await _billPdfGenerator.GenerateAsync(billId, directory);
+            var fileName = await _billPdfGenerator.GenerateAsync(billId, GetPdfFolderPath());
 
             var fileRelativePath = ConfigurationManager.AppSettings["BillsDirectory"] + @"/" + fileName;
-            var url = String.Format("{0}/{1}/{2}", HttpContext.Current.Request.Url.Authority, directoryRelativePath,
-                fileName);
-            return Ok(url);
+            return Ok(fileRelativePath);
         }
 
         [HttpPost]
@@ -107,32 +97,13 @@ namespace AHM.WebAPI.Controllers
             var username = ConfigurationManager.AppSettings["Username"];
             var password = ConfigurationManager.AppSettings["Password"];
 
-            var directoryRelativePath = ConfigurationManager.AppSettings["BillsDirectory"];
-            var directory = Path.Combine(HttpContext.Current.Request.PhysicalApplicationPath, directoryRelativePath);
-            var filePath = await _billPdfGenerator.GenerateAsync(bill.Id, directory);
+            var pdfFolder = GetPdfFolderPath();
+            var fileName = await _billPdfGenerator.GenerateAsync(bill.Id, pdfFolder);
+            var filePath = Path.Combine(pdfFolder, fileName);
 
-            var owner = await _occupantService.GetApartmentOwnerAsync(bill.ApartmentId);
+            var result = await _billService.SendEmailAsync(bill, email, username, password, filePath);
 
-            var mail = new MailMessage(email, owner.Email);
-            var client = new SmtpClient
-            {
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                Timeout = 10000,
-                Credentials = new NetworkCredential(username, password)
-            };
-
-            mail.Subject = "Utilities bill";
-            mail.Attachments.Add(new Attachment(filePath));
-            client.Send(mail);
-
-            bill.IsEmailSent = true;
-            var result = await _billService.UpdateAsync(bill);
-
-            return result.IsSuccessful ? (IHttpActionResult) Ok() : BadRequest(result.Errors.First());
+            return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
         }
         
         [HttpPost]
@@ -173,10 +144,16 @@ namespace AHM.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            bill.IsPaid = true;
-            var result = await _billService.UpdateAsync(bill);
+            var result = await _billService.PayBillAsync(bill);
 
             return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
+        }
+
+        private string GetPdfFolderPath()
+        {
+            var directoryRelativePath = ConfigurationManager.AppSettings["BillsDirectory"];
+            var uiProjectPhysicalPath = Path.Combine(Directory.GetParent(HttpContext.Current.Request.PhysicalApplicationPath).Parent.FullName, "AHM.UI");
+            return Path.Combine(uiProjectPhysicalPath, directoryRelativePath);
         }
     }
 }

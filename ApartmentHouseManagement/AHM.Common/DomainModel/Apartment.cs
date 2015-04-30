@@ -21,6 +21,8 @@ namespace AHM.Common.DomainModel
 
         public string PersonalAccount { get; set; }
 
+        public decimal EscrowBalance { get; set; }
+
 
         public ValidationResult Validate()
         {

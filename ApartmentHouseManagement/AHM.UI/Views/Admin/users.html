@@ -8,14 +8,34 @@
     </div>
 </div>
 
-<div>
-    <div data-ng-repeat="user in users | filter:search">
-        <div data-ng-click="edit(user.id)">
-            <label>{{ user.firstName }} {{ user.lastName }}</label>
-            <br />
-            <label>{{ user.username }}</label>
-            <br />
-            <label>{{ user.role }}</label>
-        </div>
-    </div>
-</div>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="table-header">
+            <th>Name</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="user in users | filter:search">
+            <td>
+                {{ user.name }}
+            </td>
+            <td>
+                {{ user.username }}
+            </td>
+            <td>
+                {{ user.role }}
+            </td>
+            <td>
+                <button class="btn center-block" data-ng-click="edit(user.id)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot data-ng-hide="users.length > 0">
+        <tr>
+            <td colspan="3" class="text-center">No items found</td>
+        </tr>
+    </tfoot>
+</table>

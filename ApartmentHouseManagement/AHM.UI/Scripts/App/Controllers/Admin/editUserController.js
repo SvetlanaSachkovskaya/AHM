@@ -15,7 +15,7 @@
         username: '',
         password: '',
         roleId: null,
-        buildingId: null,
+        buildingId: null
     };
 
     $scope.roles = [];
@@ -37,7 +37,7 @@
     $scope.save = function () {
         forceRequiredValidation();
 
-        if ($scope.buildingForm.$valid) {
+        if ($scope.userForm.$valid) {
             adminService.updateUser($scope.user, function () {
                 $state.go('landing.users');
             });

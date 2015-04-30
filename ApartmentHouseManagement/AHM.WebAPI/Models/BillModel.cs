@@ -19,8 +19,8 @@ namespace AHM.WebAPI.Models
             ApartmentId = bill.ApartmentId;
             Apartment = bill.Apartment;
             Date = bill.Date;
-            TotalAmount = bill.TotalAmount;
-            IsPaid = bill.IsPaid;
+            CalculatedAmount = bill.CalculatedAmount;
+            IsActive = bill.IsActive;
             PaidAmount = bill.PaidAmount;
             PaidDate = PaidDate;
             Fine = Fine;
@@ -37,8 +37,8 @@ namespace AHM.WebAPI.Models
                 ApartmentId = ApartmentId,
                 Date = Date,
                 IsEmailSent = IsEmailSent,
-                IsPaid = IsPaid,
-                TotalAmount = TotalAmount
+                IsActive = IsActive,
+                CalculatedAmount = CalculatedAmount
             };
         }
     }

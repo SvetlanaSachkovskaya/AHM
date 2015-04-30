@@ -13,7 +13,7 @@ namespace AHM.Common.DomainModel
 
         public DateTime Date { get; set; }
 
-        public decimal TotalAmount { get; set; }
+        public decimal CalculatedAmount { get; set; }
 
         public decimal PaidAmount { get; set; }
 
@@ -21,7 +21,9 @@ namespace AHM.Common.DomainModel
 
         public decimal Fine { get; set; }
 
-        public bool IsPaid { get; set; }
+        public decimal CarryOver { get; set; }
+
+        public bool IsActive { get; set; }
 
         public bool IsEmailSent { get; set; }
 

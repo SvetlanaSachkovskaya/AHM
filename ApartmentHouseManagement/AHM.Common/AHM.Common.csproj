@@ -90,6 +90,7 @@
     <Compile Include="DomainModel\Priority.cs" />
     <Compile Include="DomainModel\Role.cs" />
     <Compile Include="DomainModel\Roles.cs" />
+    <Compile Include="DomainModel\UserModel.cs" />
     <Compile Include="DomainModel\UtilitiesItem.cs" />
     <Compile Include="DomainModel\UtilitiesClause.cs" />
     <Compile Include="DomainModel\UtilitiesClauseType.cs" />

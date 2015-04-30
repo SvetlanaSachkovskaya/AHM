@@ -209,6 +209,7 @@
     <Compile Include="Models\EditBuildingModel.cs" />
     <Compile Include="Models\CreatePackageModel.cs" />
     <Compile Include="Models\EditApartmentModel.cs" />
+    <Compile Include="Models\ShortUserModel.cs" />
     <Compile Include="Models\UserLoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\AuthorizationServerProvider.cs" />

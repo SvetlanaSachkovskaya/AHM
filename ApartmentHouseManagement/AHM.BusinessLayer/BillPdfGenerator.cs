@@ -114,7 +114,7 @@ namespace AHM.BusinessLayer
             pdfDocument.Close();
             fileStream.Close();
 
-            return filePath;
+            return fileName;
         }
 
 

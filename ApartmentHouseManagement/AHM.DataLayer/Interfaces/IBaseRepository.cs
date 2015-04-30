@@ -25,6 +25,7 @@ namespace AHM.DataLayer.Interfaces
 
         void Delete(int key);
 
+        void DeleteRange(IEnumerable<int> keys);
 
         Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter);
     }

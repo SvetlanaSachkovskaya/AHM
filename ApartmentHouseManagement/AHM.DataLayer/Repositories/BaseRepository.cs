@@ -90,6 +90,19 @@ namespace AHM.DataLayer.Repositories
             _dbSet.Remove(entityToDelete);
         }
 
+        public virtual void DeleteRange(IEnumerable<int> keys)
+        {
+            foreach (var key in keys)
+            {
+                var entityToDelete = _dbSet.Find(key);
+                if (Context.Entry(entityToDelete).State == EntityState.Detached)
+                {
+                    _dbSet.Attach(entityToDelete);
+                }
+                _dbSet.Remove(entityToDelete);
+            }
+        }
+
         public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter)
         {
             IQueryable<TEntity> query = _dbSet;

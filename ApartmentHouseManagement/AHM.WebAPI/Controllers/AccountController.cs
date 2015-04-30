@@ -21,7 +21,7 @@ namespace AHM.WebAPI.Controllers
         }
 
 
-        [Authorization(Roles = new []{Roles.Admin})]
+        [Authorization(Roles = new[] { Roles.Admin })]
         [Route("RegisterUser")]
         public async Task<IHttpActionResult> RegisterUser(RegisterUserModel registerUserModel)
         {
@@ -35,7 +35,8 @@ namespace AHM.WebAPI.Controllers
                 UserName = registerUserModel.UserName,
                 FirstName = registerUserModel.UserName,
                 LastName = registerUserModel.LastName,
-                Password = registerUserModel.Password
+                Password = registerUserModel.Password,
+                BuildingId = registerUserModel.BuildingId
             };
 
             var creationResult = await _userService.AddUserAsync(user, registerUserModel.RoleId);
@@ -45,24 +46,16 @@ namespace AHM.WebAPI.Controllers
 
         [Authorization(Roles = new[] { Roles.Admin })]
         [Route("UpdateUser")]
-        public async Task<IHttpActionResult> UpdateUser(RegisterUserModel registerUserModel)
+        public async Task<IHttpActionResult> UpdateUser(UserModel userModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = new User
-            {
-                UserName = registerUserModel.UserName,
-                FirstName = registerUserModel.UserName,
-                LastName = registerUserModel.LastName,
-                Password = registerUserModel.Password
-            };
+            var updateResult = await _userService.UpdateUserAsync(userModel);
 
-            var updateResult = await _userService.UpdateUserAsync(user, registerUserModel.RoleId);
-
-            return updateResult.IsSuccessful ? (IHttpActionResult)Ok(user) : BadRequest(updateResult.Errors.First());
+            return updateResult.IsSuccessful ? (IHttpActionResult)Ok(userModel) : BadRequest(updateResult.Errors.First());
         }
 
         [Authorization(Roles = new[] { Roles.Admin })]
@@ -106,7 +99,7 @@ namespace AHM.WebAPI.Controllers
         {
             var user = await _userService.GetAllUsersAsync();
 
-            return Ok(user);
+            return Ok(user.Select(u => new ShortUserModel(u)));
         }
     }
 }

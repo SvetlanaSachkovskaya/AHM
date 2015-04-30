@@ -11,6 +11,7 @@ namespace AHM.DataLayer
     public class UnitOfWork : IUnitOfWork
     {
         private IUserRepository _userRepository;
+        private IBillRepository _billRepository;
 
         private bool _disposed;
 
@@ -23,6 +24,14 @@ namespace AHM.DataLayer
             get
             {
                 return _userRepository ?? (_userRepository = new UserRepository(_context));
+            }
+        }
+
+        public IBillRepository BillRepository
+        {
+            get
+            {
+                return _billRepository ?? (_billRepository = new BillRepository(_context));
             }
         }
 
@@ -57,7 +66,7 @@ namespace AHM.DataLayer
             }
             else if (typeof(TEntity) == typeof(Bill))
             {
-                repository = new BillRepository(_context) as BaseRepository<TEntity>;
+                repository = BillRepository as BaseRepository<TEntity>;
             }
             else if (typeof(TEntity) == typeof(UtilitiesItem))
             {

@@ -166,7 +166,7 @@ app.config(function ($stateProvider, $urlRouterProvider, roles) {
             roles: [roles.admin]
         })
         .state('landing.editUser', {
-            url: '/editUser',
+            url: '/editUser:id',
             templateUrl: 'Views/Admin/EditUser.html',
             controller: 'editUserController',
             roles: [roles.admin]

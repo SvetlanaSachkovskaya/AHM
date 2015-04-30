@@ -24,9 +24,6 @@ D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManageme
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
 D:\Мои документы\Учеба\Диплом\Repo\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache
-D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
-D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll.config
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.dll
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\bin\Debug\AHM.Common.pdb
@@ -51,3 +48,5 @@ D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Secu
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
+D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb

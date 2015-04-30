@@ -22,7 +22,7 @@
     }
 
     var getUserById = function (id, callback) {
-        httpModule.get('api/account/getUserById', id, callback);
+        httpModule.get('api/account/getUserById', { id: id }, callback);
     }
 
     var registerUser = function (user, callback) {

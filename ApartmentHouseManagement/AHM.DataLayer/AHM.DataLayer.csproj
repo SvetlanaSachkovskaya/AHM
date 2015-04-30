@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="AhmContext.cs" />
     <Compile Include="Interfaces\IBaseRepository.cs" />
+    <Compile Include="Interfaces\IBillRepository.cs" />
     <Compile Include="Interfaces\IPackageRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
@@ -152,6 +153,10 @@
     <Compile Include="Migrations\201504261540460_AddedPasswordFields.cs" />
     <Compile Include="Migrations\201504261540460_AddedPasswordFields.Designer.cs">
       <DependentUpon>201504261540460_AddedPasswordFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504301319316_UpdatedBill.cs" />
+    <Compile Include="Migrations\201504301319316_UpdatedBill.Designer.cs">
+      <DependentUpon>201504301319316_UpdatedBill.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -231,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504261540460_AddedPasswordFields.resx">
       <DependentUpon>201504261540460_AddedPasswordFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504301319316_UpdatedBill.resx">
+      <DependentUpon>201504301319316_UpdatedBill.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -37,14 +37,16 @@ namespace AHM.BusinessLayer.Services
             return user != null && CipherMaker.EqualsPasswords(user.Password, password, user.Salt) ? user : null;
         }
 
-        public async Task<User> GetUserByIdAsync(int id)
+        public async Task<UserModel> GetUserByIdAsync(int id)
         {
-            return await _unitOfWork.UserRepository.GetByIdAsync(id);
+            var user = await _unitOfWork.UserRepository.GetUserByIdAsync(id);
+            user.Password = CipherMaker.Decrypt(user.Password, user.Salt);
+            return user;
         }
 
-        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        public async Task<IEnumerable<UserModel>> GetAllUsersAsync()
         {
-            return await _unitOfWork.UserRepository.GetAllAsync();
+            return await _unitOfWork.UserRepository.GetAllUsersAsync();
         }
 
         public async Task<ModifyDbStateResult> AddUserAsync(User user, int roleId)
@@ -62,15 +64,29 @@ namespace AHM.BusinessLayer.Services
             return creationResult;
         }
 
-        public async Task<ModifyDbStateResult> UpdateUserAsync(User user, int roleId)
+        public async Task<ModifyDbStateResult> UpdateUserAsync(UserModel userModel)
         {
-            user.Salt = Guid.NewGuid().ToString();
-            user.Password = CipherMaker.Encrypt(user.Password, user.Salt);
+            var user = await UnitOfWork.UserRepository.GetByIdAsync(userModel.Id);
+
+            user.FirstName = userModel.FirstName;
+            user.LastName = userModel.LastName;
+            user.UserName = userModel.Username;
+            user.Password = CipherMaker.Encrypt(userModel.Password, user.Salt);
+            user.BuildingId = userModel.BuildingId;
+            user.LockoutEnabled = userModel.IsLocked;
 
             var updateResult = await UpdateEntityAsync(user, "Failed to update user", async () =>
             {
                 _unitOfWork.UserRepository.Update(user);
-                _unitOfWork.GetRepository<UserRole>().Add(new UserRole { RoleId = roleId, UserId = user.Id });
+
+                var userRole =
+                    await _unitOfWork.GetRepository<UserRole>().GetEntityAsync(ur => ur.UserId == userModel.Id);
+                if (userModel.RoleId != userRole.RoleId)
+                {
+                    userRole.RoleId = userModel.RoleId;
+                    _unitOfWork.GetRepository<UserRole>().Update(userRole);
+                }
+                
                 await UnitOfWork.SaveAsync();
             });
 
