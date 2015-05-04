@@ -20,10 +20,11 @@ namespace AHM.WebAPI.Models
             Apartment = bill.Apartment;
             Date = bill.Date;
             CalculatedAmount = bill.CalculatedAmount;
-            IsActive = bill.IsActive;
+            IsClosed = bill.IsClosed;
             PaidAmount = bill.PaidAmount;
-            PaidDate = PaidDate;
-            Fine = Fine;
+            PaidDate = bill.PaidDate;
+            Fine = bill.Fine;
+            CarryOver = bill.CarryOver;
             IsEmailSent = bill.IsEmailSent;
             UtilitiesItems = items;
         }
@@ -37,7 +38,7 @@ namespace AHM.WebAPI.Models
                 ApartmentId = ApartmentId,
                 Date = Date,
                 IsEmailSent = IsEmailSent,
-                IsActive = IsActive,
+                IsClosed = IsClosed,
                 CalculatedAmount = CalculatedAmount
             };
         }

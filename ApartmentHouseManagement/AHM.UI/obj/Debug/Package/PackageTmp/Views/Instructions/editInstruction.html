@@ -1,0 +1,36 @@
+﻿<div class="row">
+    <form novalidate name="instructionForm" class="col-md-8 center-block">
+        <p class="page-title">{{ instruction.title }}</p>
+
+        <div class="form-group">
+            <label>Content</label>
+            <textarea data-ng-model="instruction.content" rows="4" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Execution Date</label>
+            <p class="input-group">
+                <input type="datetime" class="form-control" datepicker-popup="dd-MMMM-yyyy" data-ng-model="instruction.executionDate" is-open="opened"
+                       required close-text="Close" readonly />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="datePickerSettings.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+
+        <div class="form-group">
+            <label>Priority</label>
+            <select data-ng-model="instruction.priority" data-ng-options="priority.id as priority.name for priority in priorities"
+                    required class="form-control"></select>
+        </div>
+
+        <div class="form-group">
+            <input type="checkbox" id="isClosedCheckBox" data-ng-model="instruction.isClosed" />
+            <label for="isClosedCheckBox">Close</label>
+        </div>
+
+        <div class="pull-right">
+            <add-button action="saveInstruction()" text="Save"></add-button>
+        </div>
+    </form>
+</div>

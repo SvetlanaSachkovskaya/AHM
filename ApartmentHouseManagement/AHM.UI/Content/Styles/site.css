@@ -306,3 +306,7 @@ textarea {
 .bold {
     font-weight: bold;
 }
+
+.tools-width {
+    width: 150px;
+}

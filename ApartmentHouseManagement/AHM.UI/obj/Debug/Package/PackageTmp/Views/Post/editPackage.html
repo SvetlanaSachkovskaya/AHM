@@ -1,0 +1,41 @@
+﻿<form>
+    <h2 class="page-title">Edit package</h2>
+
+    <div class="form-group">
+        <label>Apartment</label>
+        <input type="text" data-ng-model="package.apartment.number" class="form-control" disabled />
+    </div>
+
+    <div class="form-group">
+        <label>Type</label>
+        <input type="text" data-ng-model="package.packageType.longDescription" class="form-control" disabled />
+    </div>
+
+    <div class="form-group">
+        <label>Occupant</label>
+        <input type="text" data-ng-model="notification" class="form-control" disabled />
+    </div>
+
+    <div class="form-group">
+        <label>Open Comment</label>
+        <textarea data-ng-model="package.openComment" rows="3" disabled class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Location</label>
+        <select data-ng-options="location.id as location.longDescription for location in locations" data-ng-model="package.locationId"
+                class="form-control" required></select>
+    </div>
+
+    <div class="form-group">
+        <label>Close Comment</label>
+        <textarea data-ng-model="closeComment" rows="3" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <input type="checkbox" ng-model="package.isClosed" id="isOpen" />
+        <label for="isOpen">Close</label>
+    </div>
+
+    <add-button action="save()" text="Save"></add-button>
+</form>

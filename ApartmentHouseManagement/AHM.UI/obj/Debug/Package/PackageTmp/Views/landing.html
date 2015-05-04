@@ -1,0 +1,69 @@
+﻿<div data-ng-controller="indexController">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="#">Welcome {{authentication.name}}</a></li>
+                    <li data-ng-hide="!authentication.isAuthenticated"><a href="" data-ng-click="logOut()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="userMenu" class="navbar-default" data-ng-hide="!authentication.isAuthenticated" data-ng-controller="indexController">
+            <div class="btn-group">
+                <a data-ui-sref=".billsBoard" access="{{ roles.accountant }}" class="btn menu-btn" data-parent="#userMenu">Utilities</a>
+                <a data-ui-sref=".utilitiesClauses" access="{{ roles.accountant }}" class="btn menu-btn" data-parent="#userMenu">Clauses</a>
+                <a data-ui-sref=".packagesBoard" access="{{ roles.concierge }}" class="btn menu-btn" data-parent="#userMenu">Post</a>
+                <a data-ui-sref=".instructions" access="{{ roles.concierge + ',' +  roles.worker }}" class="btn menu-btn" data-parent="#userMenu">Instructions</a>
+                <a data-ui-sref=".journal" access="{{ roles.concierge + ',' +  roles.manager}}" class="btn menu-btn" data-parent="#userMenu">Journal</a>
+                <a data-ui-sref=".apartments" access="{{ roles.manager }}" class="btn menu-btn" data-parent="#userMenu">Apartments</a>
+                <a data-ui-sref=".occupants" access="{{ roles.manager }}" class="btn menu-btn" data-parent="#userMenu">Occupants</a>
+                <a data-ui-sref=".buildings" access="{{ roles.admin }}" class="btn menu-btn" data-parent="#userMenu">Buildings</a>
+                <a data-ui-sref=".users" access="{{ roles.admin }}" class="btn menu-btn" data-parent="#userMenu">Users</a>
+                <div class="btn-group" access="{{ roles.concierge }}" dropdown>
+                    <button type="button" class="btn menu-btn dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+                        Settings <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a data-ui-sref=".locations" data-parent="#building">Locations</a></li>
+                        <li><a data-ui-sref=".packageTypes" data-parent="#building">Package Types</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="building-name-container text-center">
+            <h1>{{ authentication.buildingName }}</h1>
+        </div>
+        <div class="create-panel row">
+            <div class="col-md-1">
+                <label>New</label>
+                <img data-ng-src="Content/images/plus.png" class="plus-image" />
+            </div>
+            <div class="col-md-11">
+                <a data-ui-sref=".editBill" access="{{ roles.accountant }}" class="btn">Bill</a>
+                <a data-ui-sref=".createPackage" access="{{ roles.concierge }}" class="btn">Package</a>
+                <a data-ui-sref=".createInstruction" access="{{ roles.concierge + ',' +  roles.worker }}" class="btn">Instruction</a>
+                <a data-ui-sref=".createEvent" access="{{ roles.concierge }}" class="btn">Event</a>
+                <a data-ui-sref=".editUtilitiesClause" access="{{ roles.accountant }}" class="btn">Clause</a>
+                <a data-ui-sref=".editApartment" access="{{ roles.manager }}" class="btn">Apartment</a>
+                <a data-ui-sref=".createOccupant" access="{{ roles.manager }}" class="btn">Occupant</a>
+                <a data-ui-sref=".editBuilding" access="{{ roles.admin }}" class="btn">Building</a>
+                <a data-ui-sref=".editUser" access="{{ roles.admin }}" class="btn">User</a>
+                <!--<a class="btn">Package Type</a>
+            <a class="btn">Location</a>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">&nbsp;</div>
+            <div class="col-md-10" data-ui-view=""></div>
+            <div class="col-md-1">&nbsp;</div>
+        </div>
+    </div>
+    <alert data-ng-hide="requestResult.isSuccessful" type="danger" close="closeAlert()" class="error-alert">{{requestResult.errorMessage}}</alert>
+</div>

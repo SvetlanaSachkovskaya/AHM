@@ -23,7 +23,7 @@ namespace AHM.Common.DomainModel
 
         public decimal CarryOver { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsClosed { get; set; }
 
         public bool IsEmailSent { get; set; }
 

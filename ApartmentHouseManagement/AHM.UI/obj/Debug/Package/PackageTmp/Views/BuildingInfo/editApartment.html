@@ -1,0 +1,42 @@
+﻿<div class="row">
+    <form name="apartmentForm" novalidate class="col-md-8 center-block">
+        <p class="page-title">New apartment</p>
+
+        <div ng-class="{ 'has-error' : apartmentForm.floor.$invalid}" class="form-group">
+            <label>Floor</label>
+            <input type="text" name="floor" data-ng-model="apartment.floor" integer-number required class="form-control" />
+            <p ng-show="apartmentForm.floor.$error.required" class="help-block">Floor is required</p>
+        </div>
+
+        <div ng-class="{ 'has-error' : apartmentForm.number.$invalid && apartmentForm.number.$dirty }" class="form-group">
+            <label>Number</label>
+            <input type="text" name="number" data-ng-model="apartment.number" class="form-control" required />
+            <p ng-show="apartmentForm.number.$invalid && apartmentForm.number.$dirty " class="help-block">Number is required</p>
+        </div>
+
+        <div ng-class="{ 'has-error' : apartmentForm.square.$invalid }" class="form-group">
+            <label>Square</label>
+            <input name="square" data-ng-model="apartment.square" required float-number class="form-control"/>
+            <p ng-show="apartmentForm.square.$error.required" class="help-block">Square is required</p>
+        </div>
+
+        <div ng-class="{ 'has-error' : apartmentForm.account.$invalid  && apartmentForm.account.$dirty }" class="form-group">
+            <label>Personal account</label>
+            <input type="text" name="account" data-ng-model="apartment.personalAccount" required class="form-control" />
+            <p ng-show="apartmentForm.account.$error.required && apartmentForm.account.$dirty" class="help-block">Personal account is required</p>
+        </div>
+
+        <div data-ng-hide="!isEditMode" class="form-group">
+            <label>Owner</label>
+            <select data-ng-model="apartment.ownerId" data-ng-options="occupant.id as occupant.name for occupant in occupants"
+                    class="form-control">
+                <option value="">Select owner</option>
+            </select>
+        </div>
+
+        <div class="pull-right">
+            <add-button data-ng-hide="isEditMode" action="create()" text="Create"></add-button>
+            <add-button data-ng-hide="!isEditMode" action="save()" text="Save"></add-button>
+        </div>
+    </form>
+</div>

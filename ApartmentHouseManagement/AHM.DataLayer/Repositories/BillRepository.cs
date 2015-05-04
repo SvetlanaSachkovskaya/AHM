@@ -29,7 +29,7 @@ namespace AHM.DataLayer.Repositories
 
         public async Task<Bill> GetLastBillAsync(int apartmentId)
         {
-            return await GetQuery(b => b.ApartmentId == apartmentId).OrderByDescending(b => b.Date).FirstOrDefaultAsync();
+            return await GetQuery(b => b.ApartmentId == apartmentId, bill => bill.Apartment.Building).OrderByDescending(b => b.Date).FirstOrDefaultAsync();
         }
     }
 }

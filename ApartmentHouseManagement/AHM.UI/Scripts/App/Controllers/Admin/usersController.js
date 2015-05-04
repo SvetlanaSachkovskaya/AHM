@@ -1,4 +1,4 @@
-﻿app.controller('usersController', ['$scope', '$state', '$filter', 'adminService', function ($scope, $state, $filter, adminService) {
+﻿app.controller('usersController', ['$scope', '$state', '$stateParams', '$filter', 'adminService', function ($scope, $state, $stateParams, $filter, adminService) {
     'use strict';
 
     $scope.users = [];
@@ -20,6 +20,9 @@
     }
 
     adminService.getAllBuildings(function (data) {
+        if ($stateParams.buildingId) {
+            $scope.search.buildingId = parseInt($stateParams.buildingId);
+        }
         $scope.buildings = data;
     });
 

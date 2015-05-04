@@ -18,7 +18,6 @@ namespace AHM.WebAPI.Controllers
             _occupantService = occupantService;
         }
 
-        [Authorize(Roles = "Manager,Concierge,Accountant")]
         [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge, Roles.Accountant })]
         [HttpGet]
         [Route("GetAll")]

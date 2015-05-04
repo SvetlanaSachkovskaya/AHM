@@ -158,6 +158,10 @@
     <Compile Include="Migrations\201504301319316_UpdatedBill.Designer.cs">
       <DependentUpon>201504301319316_UpdatedBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505041515390_UpdatedBillsTable.cs" />
+    <Compile Include="Migrations\201505041515390_UpdatedBillsTable.Designer.cs">
+      <DependentUpon>201505041515390_UpdatedBillsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -239,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504301319316_UpdatedBill.resx">
       <DependentUpon>201504301319316_UpdatedBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505041515390_UpdatedBillsTable.resx">
+      <DependentUpon>201505041515390_UpdatedBillsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

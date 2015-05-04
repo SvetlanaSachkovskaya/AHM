@@ -40,6 +40,10 @@
         }
     }
 
+    $scope.cancel = function () {
+        $state.go('landing.apartments');
+    }
+
     if ($stateParams.apartmentId) {
         buildingService.getApartmentById($stateParams.apartmentId, function (data) {
             $scope.apartment = data;

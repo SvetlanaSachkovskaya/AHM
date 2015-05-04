@@ -23,13 +23,14 @@
     $scope.buildings = [];
 
     $scope.isEditMode = false;
+    $scope.adminId = 0;
 
     $scope.create = function () {
         forceRequiredValidation();
 
         if ($scope.userForm.$valid) {
             adminService.registerUser($scope.user, function () {
-                $state.go('landing.users');
+                $state.go('landing.users', { buildingId: $scope.user.buildingId });
             });
         }
     }
@@ -39,7 +40,7 @@
 
         if ($scope.userForm.$valid) {
             adminService.updateUser($scope.user, function () {
-                $state.go('landing.users');
+                $state.go('landing.users', { buildingId: $scope.user.buildingId });
             });
         }
     }
@@ -57,6 +58,11 @@
 
     adminService.getRoles(function (data) {
         $scope.roles = data;
+
+        var admin = $filter('filter')($scope.roles, { name: 'Admin' });
+        if (admin && admin.length > 0) {
+            $scope.adminId = admin[0].id;
+        }
     });
 
     adminService.getAllBuildings(function (data) {

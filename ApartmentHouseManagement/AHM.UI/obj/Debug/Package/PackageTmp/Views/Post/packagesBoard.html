@@ -1,0 +1,19 @@
+﻿<div class="row filter-panel">
+    <div class="col-md-4">
+        <select data-ng-options="location.id as location.longDescription for location in locations" data-ng-model="locationId"
+                class="form-control"></select>
+    </div>
+    <div class="col-md-4">
+        <select data-ng-options="type.id as type.longDescription for type in packageTypes" data-ng-model="packageTypeId"
+                class="form-control"></select>
+    </div>
+</div>
+
+<div class="wrapPanel" data-ng-repeat="package in packages | filter: filterPackages">
+    <div data-ng-click="edit(package.id)">
+        <div>{{ package.apartment.number }}</div>
+        <div>{{ package.packageType.shortDescription }}</div>
+        <div>{{ package.notificationOptions.occupant.firstName + ' ' +  package.notificationOptions.occupant.lastName}}</div>
+        <div>{{ package.location.shortDescription }}</div>
+    </div>
+</div>

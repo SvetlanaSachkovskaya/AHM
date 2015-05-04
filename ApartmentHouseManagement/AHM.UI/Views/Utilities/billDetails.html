@@ -12,17 +12,13 @@
                 <label class="control-label main-label">{{ bill.apartment.name }}</label>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label">Status :</label>
-                <label class="control-label main-label">{{ bill.isPaid ? "Paid" : "Pending" }}</label>
-            </div>
-            <div class="form-group">
                 <label class="col-md-4 control-label">Email sent :</label>
                 <label class="control-label main-label">{{ bill.isEmailSent ? "Yes" : "No" }}</label>
             </div>
         </form>
 
         <div class="col-md-4">
-            <button data-ng-hide="bill.isPaid" data-ng-click="edit()" class="btn btn-link">Edit</button>
+            <button data-ng-hide="bill.isClosed" data-ng-click="edit()" class="btn btn-link">Edit</button>
             <button data-ng-click="sendEmail()" class="btn btn-link">Send email</button>
             <button data-ng-click="viewPdf()" class="btn btn-link">View PDF</button>
         </div>
@@ -69,6 +65,28 @@
                 </td>
             </tr>
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="7" class="bold text-right">Sum:</td>
+                <td>{{ bill.calculatedAmount }}</td>
+            </tr>
+            <tr>
+                <td colspan="7" class="bold text-right">Carry over:</td>
+                <td>{{ bill.carryOver }}</td>
+            </tr>
+            <tr>
+                <td colspan="7" class="bold text-right">Fine:</td>
+                <td>{{ bill.fine }}</td>
+            </tr>
+            <tr>
+                <td colspan="7" class="bold text-right">Totals:</td>
+                <td>{{ bill.calculatedAmount + bill.carryOver + bill.fine }}</td>
+            </tr>
+            <tr data-ng-show="bill.isClosed">
+                <td colspan="7" class="bold text-right">Paid amount:</td>
+                <td>{{ bill.paidAmount }}</td>
+            </tr>
+        </tfoot>
     </table>
     
     <button data-ng-click="cancel()" class="btn btn-default pull-right">Cancel</button>

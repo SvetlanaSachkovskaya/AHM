@@ -41,6 +41,10 @@
         }
     }
 
+    $scope.cancel = function () {
+        $state.go('landing.occupants');
+    }
+
     $scope.datePickerSettings = {
         today: function () {
             $scope.dateOfBirth = new Date();

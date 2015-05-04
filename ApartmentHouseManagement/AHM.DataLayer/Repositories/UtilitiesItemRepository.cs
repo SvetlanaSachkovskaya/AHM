@@ -31,7 +31,7 @@ namespace AHM.DataLayer.Repositories
         {
             if (utilitiesItem.UtilitiesClause != null && utilitiesItem.UtilitiesClause.Id > 0)
             {
-                utilitiesItem.UtilitiesClause = Context.Set<UtilitiesClause>().Find(utilitiesItem.UtilitiesClause.Id);
+                utilitiesItem.UtilitiesClause = Context.Set<UtilitiesClause>().Find(utilitiesItem.UtilitiesClauseId);
                 utilitiesItem.UtilitiesClauseId = utilitiesItem.UtilitiesClause.Id;
             }
             if (utilitiesItem.Bill != null && utilitiesItem.Bill.Id > 0)

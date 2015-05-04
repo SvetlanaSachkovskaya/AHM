@@ -1,19 +1,27 @@
 ﻿<div>
     <p class="page-title">Occupants</p>
+    
+    <div class="row filter-panel">
+        <div class="col-md-4">
+            <label>Apartment</label>
+            <select data-ng-options="apartment.id as apartment.name for apartment in apartments" data-ng-model="apartmentId"
+                    class="form-control">
+                <option value="">All apartments</option>
+            </select>
+        </div>
+    </div>
 
-    <add-button action="addOccupant()" text="Add New"></add-button>
-
-    <table class="table table-striped table-hover">
-        <thead>
+    <table class="table table-bordered table-hover">
+        <thead class="table-header">
             <tr>
                 <th>Apartment</th>
                 <th>Name</th>
                 <th>Email</th>
-                <td></td>
+                <th class="tools-width"></th>
             </tr>
         </thead>
         <tbody>
-        <tr data-ng-repeat="occupant in occupants">
+        <tr data-ng-repeat="occupant in occupants | filter:filterOccupants">
             <td>
                 {{ occupant.apartment.number }}
             </td>
@@ -31,7 +39,7 @@
         </tbody>
         <tfoot data-ng-hide="occupants.length > 0">
             <tr>
-                <td colspan="3" class="text-center">No items found</td>
+                <td colspan="4" class="text-center">No items found</td>
             </tr>
         </tfoot>
     </table>

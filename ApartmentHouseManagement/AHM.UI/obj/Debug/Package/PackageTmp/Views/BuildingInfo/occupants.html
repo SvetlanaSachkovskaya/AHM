@@ -1,0 +1,38 @@
+﻿<div>
+    <p class="page-title">Occupants</p>
+
+    <add-button action="addOccupant()" text="Add New"></add-button>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Apartment</th>
+                <th>Name</th>
+                <th>Email</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="occupant in occupants">
+            <td>
+                {{ occupant.apartment.number }}
+            </td>
+            <td>
+                {{ occupant.name }}
+            </td>
+            <td>
+                {{ occupant.email }}
+            </td>
+            <td>
+                <button class="btn" data-ng-click="edit(occupant)">Edit</button>
+                <delete-button action="removeOccupant(occupant)"></delete-button>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot data-ng-hide="occupants.length > 0">
+            <tr>
+                <td colspan="3" class="text-center">No items found</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

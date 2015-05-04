@@ -1,0 +1,37 @@
+﻿<div>
+    <p class="page-title">Bills</p>
+    <div class="bottom-margin filter-panel">
+        <div class="row">
+            <div class="btn-group col-md-4">
+                <label data-ng-repeat="interval in dateIntervals" class="btn btn-primary" data-ng-model="dateInterval.value"
+                       data-ng-click="setDateInterval(interval.id)" btn-radio="interval.id">{{ interval.name }}</label>
+            </div>
+
+            <div class="col-md-5">
+                <select data-ng-model="selectedApartmentId" data-ng-options="apartment.id as apartment.name for apartment in apartments"
+                        class="col-md-3 form-control"></select>
+            </div>
+
+            <div class="col-md-2">
+                <input type="checkbox" id="showPaidCheckBox" data-ng-model="showPaid" data-ng-change="refreshBoard()" />
+                <label for="showPaidCheckBox">Show paid</label>
+            </div>
+        </div>
+    </div>
+
+    <div data-ng-repeat="bill in bills | filter: filterByApartment" data-ng-class="{sent: bill.isEmailSent, paid: bill.isPaid}" class="row vertical-margin bill">
+        <div data-ng-click="showDetails(bill.id)" class="col-md-8">
+            <div class="row">
+                <label class="col-md-6">Apartment: {{ bill.apartment.name }}</label>
+                <label class="col-md-6">Total: {{ bill.totalAmount }}</label>
+            </div>
+            <div class="row">
+                <label class="col-md-6">Month: {{ bill.date | date : 'MMMM' }}</label>
+                <label data-ng-hide="bill.isPaid" class="col-md-6">Fine: {{ bill.fine }}</label>
+                <label data-ng-show="bill.isPaid" class="col-md-6">Paid amount: {{ bill.paidAmount }}</label>
+            </div>
+        </div>
+        <button data-ng-hide="bill.isPaid" data-ng-click="editBill(bill.id)" class="btn btn-warning bill-board-button col-md-2">Edit</button>
+        <button data-ng-hide="bill.isPaid" data-ng-click="payBill(bill.id)" class="btn btn-success bill-board-button col-md-2">Pay</button>
+    </div>
+</div>

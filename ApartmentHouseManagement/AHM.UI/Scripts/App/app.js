@@ -160,7 +160,7 @@ app.config(function ($stateProvider, $urlRouterProvider, roles) {
             roles: [roles.admin]
         })
         .state('landing.users', {
-            url: '/users',
+            url: '/users:buildingId',
             templateUrl: 'Views/Admin/Users.html',
             controller: 'usersController',
             roles: [roles.admin]

@@ -19,7 +19,7 @@ namespace AHM.BusinessLayer.Services
         }
 
 
-        public async Task<ICollection<Bill>> GetAllBillsAsync(int buildingId, BillDateInteval dateInteval, bool? isActive = null)
+        public async Task<ICollection<Bill>> GetAllBillsAsync(int buildingId, BillDateInteval dateInteval, bool? isClosed = null)
         {
             switch (dateInteval)
             {
@@ -30,7 +30,7 @@ namespace AHM.BusinessLayer.Services
                                 .GetAllAsync(
                                     b =>
                                         b.Date.Month == DateTime.Now.Month && b.Date.Year == DateTime.Now.Year &&
-                                        (!isActive.HasValue || b.IsActive == isActive.Value));
+                                        (!isClosed.HasValue || b.IsClosed == isClosed.Value));
                 case BillDateInteval.Year:
                     return
                         await
@@ -38,13 +38,13 @@ namespace AHM.BusinessLayer.Services
                                 .GetAllAsync(
                                     b =>
                                         b.Date.Year == DateTime.Now.Year &&
-                                        (!isActive.HasValue || b.IsActive == isActive.Value));
+                                        (!isClosed.HasValue || b.IsClosed == isClosed.Value));
                 case BillDateInteval.All:
                     return
                         await
                             UnitOfWork.GetRepository<Bill>()
                                 .GetAllAsync(
-                                    b => (!isActive.HasValue || b.IsActive == isActive.Value));
+                                    b => (!isClosed.HasValue || b.IsClosed == isClosed.Value));
                 default:
                     throw new ArgumentOutOfRangeException("dateInteval");
             }
@@ -104,7 +104,7 @@ namespace AHM.BusinessLayer.Services
 
                 if (bill.PaidAmount >= fullAmount)
                 {
-                    bill.IsActive = false;
+                    bill.IsClosed = true;
                     var overpay = bill.PaidAmount - fullAmount;
                     if (overpay > 0)
                     {
@@ -207,16 +207,18 @@ namespace AHM.BusinessLayer.Services
 
         private async Task SaveNewBill(Bill bill)
         {
-            var apartment = await UnitOfWork.GetRepository<Apartment>().GetByIdAsync(bill.ApartmentId);
-
             var lastBill = await UnitOfWork.BillRepository.GetLastBillAsync(bill.ApartmentId);
-            var deadline = new DateTime(lastBill.Date.Year, lastBill.Date.Month, apartment.Building.LastPayUtilitiesDay);
+            if (lastBill != null)
+            {
+                var apartment = await UnitOfWork.GetRepository<Apartment>().GetByIdAsync(bill.ApartmentId);
+                var deadline = new DateTime(lastBill.Date.Year, lastBill.Date.Month, apartment.Building.LastPayUtilitiesDay);
 
-            bill.CarryOver = lastBill.CalculatedAmount + lastBill.CarryOver + lastBill.Fine - lastBill.PaidAmount;
-            bill.Fine = bill.CarryOver * (decimal)apartment.Building.FinePercent * (DateTime.Now - deadline).Days;
+                bill.CarryOver = lastBill.CalculatedAmount + lastBill.CarryOver + lastBill.Fine - lastBill.PaidAmount;
+                bill.Fine = bill.CarryOver * (decimal)apartment.Building.FinePercent * (DateTime.Now - deadline).Days;
 
-            lastBill.IsActive = false;
-            UnitOfWork.BillRepository.Update(lastBill);
+                lastBill.IsClosed = true;
+                UnitOfWork.BillRepository.Update(lastBill);
+            }
 
             UnitOfWork.BillRepository.Add(bill);
             await UnitOfWork.SaveAsync();
@@ -239,6 +241,7 @@ namespace AHM.BusinessLayer.Services
 
                 if (utilitiesItem.Id > 0)
                 {
+                    utilitiesItem.UtilitiesClause = null;
                     UnitOfWork.GetRepository<UtilitiesItem>().Update(utilitiesItem);
                 }
                 else
