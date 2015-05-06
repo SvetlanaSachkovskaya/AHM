@@ -1,7 +1,7 @@
 ﻿<div>
     <p class="page-title">Package types</p>
 
-    <form name="packageTypeForm" novalidate class="form-inline bottom-margin create-panel">
+    <form name="packageTypeForm" novalidate class="form-inline bottom-margin create-form-panel">
         <div ng-class="{ 'has-error' : packageTypeForm.$invalid }">
             <p ng-show="packageTypeForm.shortDescription.$invalid && packageTypeForm.shortDescription.$dirty" class="help-block">Short description is required</p>
             <p ng-show="packageTypeForm.longDescription.$invalid && packageTypeForm.longDescription.$dirty" class="help-block">Long description is required</p>
@@ -24,12 +24,12 @@
         </div>
     </form>
 
-    <table class="table table-striped table-hover">
-        <thead>
+    <table class="table table-bordered table-hover">
+        <thead class="table-header">
             <tr>
                 <th>Short Description</th>
                 <th>Long Description</th>
-                <th></th>
+                <th class="tools-width"></th>
             </tr>
         </thead>
         <tbody>

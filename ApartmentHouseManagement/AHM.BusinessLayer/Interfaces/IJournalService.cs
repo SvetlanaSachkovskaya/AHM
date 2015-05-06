@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AHM.Common.DomainModel;
 
@@ -8,13 +9,7 @@ namespace AHM.BusinessLayer.Interfaces
     {
         Task<ICollection<Event>> GetAllActiveEventsAsync(int buildingId);
 
-        Task<ICollection<Event>> GetEventsPerDay(int buildingId);
-
-        Task<ICollection<Event>> GetEventsPerWeek(int buildingId);
-
-        Task<ICollection<Event>> GetEventsPerMonth(int buildingId);
-
-        Task<ICollection<Event>> GetEventsPerYear(int buildingId);
+        Task<ICollection<Event>> GetEventsByDate(DateTime date, int buildingId);
 
         Task<ModifyDbStateResult> AddAsync(Event eventEntity);
 

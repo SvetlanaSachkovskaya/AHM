@@ -20,6 +20,10 @@
             });
         }
 
+        $scope.cancel = function () {
+            $state.go('landing.instructions');
+        }
+
         if ($stateParams.instructionId) {
             instructionsService.getInstructionById($stateParams.instructionId, function (data) {
                 $scope.instruction = data;

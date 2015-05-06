@@ -17,20 +17,8 @@
         httpModule.get('api/journal/getById', id, callback);
     }
 
-    var getEventsPerDay = function (callback) {
-        httpModule.get('api/journal/getEventsPerDay', null, callback);
-    }
-
-    var getEventsPerWeek = function (callback) {
-        httpModule.get('api/journal/getEventsPerWeek', null, callback);
-    }
-
-    var getEventsPerMonth = function (callback) {
-        httpModule.get('api/journal/getEventsPerMonth', null, callback);
-    }
-
-    var getEventsPerYear = function (callback) {
-        httpModule.get('api/journal/getEventsPerYear', null, callback);
+    var getEventsByDate = function (date, callback) {
+        httpModule.get('api/journal/getEventsBydate', { date: date}, callback);
     }
 
     var self = {};
@@ -39,10 +27,7 @@
     self.createEvent = createEvent;
     self.updateEvent = updateEvent;
     self.getEventById = getEventById;
-    self.getEventsPerDay = getEventsPerDay;
-    self.getEventsPerWeek = getEventsPerWeek;
-    self.getEventsPerMonth = getEventsPerMonth;
-    self.getEventsPerYear = getEventsPerYear;
+    self.getEventsByDate = getEventsByDate;
 
     return self;
 

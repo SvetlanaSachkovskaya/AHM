@@ -31,5 +31,20 @@ namespace AHM.DataLayer.Repositories
         {
             return await GetQuery(b => b.ApartmentId == apartmentId, bill => bill.Apartment.Building).OrderByDescending(b => b.Date).FirstOrDefaultAsync();
         }
+
+        public override void Update(Bill bill)
+        {
+            AttachDependencies(bill);
+            base.Update(bill);
+        }
+
+
+        private void AttachDependencies(Bill bill)
+        {
+            if (bill.ApartmentId > 0)
+            {
+                bill.Apartment = Context.Set<Apartment>().Find(bill.ApartmentId);
+            }
+        }
     }
 }

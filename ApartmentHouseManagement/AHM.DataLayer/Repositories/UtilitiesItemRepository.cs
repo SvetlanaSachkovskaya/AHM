@@ -29,15 +29,13 @@ namespace AHM.DataLayer.Repositories
 
         private void AttachDependencies(UtilitiesItem utilitiesItem)
         {
-            if (utilitiesItem.UtilitiesClause != null && utilitiesItem.UtilitiesClause.Id > 0)
+            if (utilitiesItem.UtilitiesClauseId > 0)
             {
                 utilitiesItem.UtilitiesClause = Context.Set<UtilitiesClause>().Find(utilitiesItem.UtilitiesClauseId);
-                utilitiesItem.UtilitiesClauseId = utilitiesItem.UtilitiesClause.Id;
             }
-            if (utilitiesItem.Bill != null && utilitiesItem.Bill.Id > 0)
+            if (utilitiesItem.BillId > 0)
             {
-                utilitiesItem.Bill = Context.Set<Bill>().Find(utilitiesItem.Bill.Id);
-                utilitiesItem.BillId = utilitiesItem.Bill.Id;
+                utilitiesItem.Bill = Context.Set<Bill>().Find(utilitiesItem.BillId);
             }
         }
     }

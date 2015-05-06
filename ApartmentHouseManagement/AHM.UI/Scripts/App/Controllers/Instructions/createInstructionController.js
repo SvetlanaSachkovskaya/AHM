@@ -38,6 +38,10 @@
         }
     }
 
+    $scope.cancel = function () {
+        $state.go('landing.instructions');
+    }
+
     instructionsService.getPriorities(function (data) {
         $scope.priorities = data;
     });

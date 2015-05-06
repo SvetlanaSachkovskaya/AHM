@@ -90,6 +90,7 @@ namespace AHM.BusinessLayer.Services
                 bill.CalculatedAmount = utilitiesItems.Sum(i => (i.SubsidezedAmount + i.AmountByFullTariff));
 
                 UnitOfWork.GetRepository<Bill>().Update(bill);
+
                 await UnitOfWork.SaveAsync();
             });
 
@@ -241,7 +242,6 @@ namespace AHM.BusinessLayer.Services
 
                 if (utilitiesItem.Id > 0)
                 {
-                    utilitiesItem.UtilitiesClause = null;
                     UnitOfWork.GetRepository<UtilitiesItem>().Update(utilitiesItem);
                 }
                 else

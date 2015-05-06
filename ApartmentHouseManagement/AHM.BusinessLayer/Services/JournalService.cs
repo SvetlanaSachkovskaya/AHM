@@ -21,36 +21,12 @@ namespace AHM.BusinessLayer.Services
             return await UnitOfWork.GetRepository<Event>().GetAllAsync(e => e.BuildingId == buildingId && !e.IsRemoved);
         }
 
-        public async Task<ICollection<Event>> GetEventsPerDay(int buildingId)
+        public async Task<ICollection<Event>> GetEventsByDate(DateTime date, int buildingId)
         {
             var events = await
                 UnitOfWork.GetRepository<Event>()
                     .GetAllAsync(e => e.BuildingId == buildingId && !e.IsRemoved);
-            return events.Where(e => e.DateTime.Date == DateTime.Now.Date).ToList();
-        }
-
-        public async Task<ICollection<Event>> GetEventsPerWeek(int buildingId)
-        {
-            var events = await
-                UnitOfWork.GetRepository<Event>()
-                    .GetAllAsync(e => e.BuildingId == buildingId && !e.IsRemoved);
-            return events.Where(e => e.DateTime.Date <= DateTime.Now && e.DateTime.Date > DateTime.Now.AddDays(-7)).ToList();
-        }
-
-        public async Task<ICollection<Event>> GetEventsPerMonth(int buildingId)
-        {
-            return
-                await
-                    UnitOfWork.GetRepository<Event>()
-                        .GetAllAsync(e => e.BuildingId == buildingId && !e.IsRemoved && e.DateTime.Month == DateTime.Now.Month);
-        }
-
-        public async Task<ICollection<Event>> GetEventsPerYear(int buildingId)
-        {
-            return
-                await
-                    UnitOfWork.GetRepository<Event>()
-                        .GetAllAsync(e => e.BuildingId == buildingId && !e.IsRemoved && e.DateTime.Year == DateTime.Now.Year);
+            return events.Where(e => e.DateTime.Date == date.Date).OrderByDescending(e => e.DateTime).ToList();
         }
 
         public async Task<ModifyDbStateResult> AddAsync(Event eventEntity)

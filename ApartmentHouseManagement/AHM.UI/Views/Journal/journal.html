@@ -1,16 +1,18 @@
-﻿<div>
-    <div class="vertical-margin">
-        <div class="btn-group">
-            <label data-ng-repeat="interval in timeIntervals" class="btn btn-primary" data-ng-model="timeInterval.value"
-                   btn-radio="interval.id">{{ interval.name }}</label>
-        </div>
+﻿<div class="col-md-9 col-md-offset-1">
+    <div class="vertical-margin medium-width">
+        <label>Execution Date</label>
+        <p class="input-group">
+            <input type="datetime" class="form-control" datepicker-popup="dd-MMMM-yyyy" data-ng-model="filterDate" data-ng-change="filter()" is-open="opened"
+                   required close-text="Close" readonly />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerSettings.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </p>
     </div>
 
     <div data-ng-repeat="ev in events">
         <div class="row event">
             <div class="col-md-2">
-                {{ev.dateTime | date:'MM/dd/yyyy'}}
-                <br/>
                 {{ev.dateTime | date: 'HH:mm'}}
             </div>
             <div class="col-md-9">
@@ -20,4 +22,6 @@
             <button data-ng-click="removeEvent(ev)" class="btn close-button btn-default">x</button>
         </div>
     </div>
+    
+    <div data-ng-hide="events.length > 0" class="text-center">No items found</div>
 </div>

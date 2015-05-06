@@ -5,19 +5,18 @@
         $scope.events = data;
     }
 
-    $scope.timeIntervals = [
-        { id: 1, name: 'Day' },
-        { id: 2, name: 'Week' },
-        { id: 3, name: 'Month' },
-        { id: 4, name: 'Year' },
-        { id: 5, name: 'All' }
-    ];
+    $scope.datePickerSettings = {
+        open: function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
 
-    $scope.timeInterval = {
-        value: $scope.timeIntervals[0].id
-    };
+            $scope.opened = true;
+        }
+    }
 
     $scope.events = [];
+
+    $scope.filterDate = new Date();
 
     $scope.removeEvent = function (event) {
         if (confirm("Are you sure that you want to delete this event?")) {
@@ -29,26 +28,9 @@
         }
     }
 
-    $scope.createEvent = function () {
-        $state.go('landing.createEvent');
+    $scope.filter = function () {
+        journalService.getEventsByDate($scope.filterDate, resultCallback);
     }
 
-    $scope.$watch('timeInterval.value', function(newValue) {
-        switch (newValue) {
-        case 1:
-            journalService.getEventsPerDay(resultCallback);
-            break;
-        case 2:
-            journalService.getEventsPerWeek(resultCallback);
-            break;
-        case 3:
-            journalService.getEventsPerMonth(resultCallback);
-            break;
-        case 4:
-            journalService.getEventsPerYear(resultCallback);
-            break;
-        default:
-            journalService.getAllActiveEvents(resultCallback);
-        }
-    });
+    $scope.filter();
 }]);

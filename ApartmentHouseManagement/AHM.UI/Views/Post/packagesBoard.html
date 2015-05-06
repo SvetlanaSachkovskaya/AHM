@@ -1,4 +1,6 @@
-﻿<div class="row filter-panel">
+﻿<p class="page-title">Post</p>
+
+<div class="row filter-panel">
     <div class="col-md-4">
         <select data-ng-options="location.id as location.longDescription for location in locations" data-ng-model="locationId"
                 class="form-control"></select>
@@ -11,9 +13,21 @@
 
 <div class="wrapPanel" data-ng-repeat="package in packages | filter: filterPackages">
     <div data-ng-click="edit(package.id)">
-        <div>{{ package.apartment.number }}</div>
-        <div>{{ package.packageType.shortDescription }}</div>
-        <div>{{ package.notificationOptions.occupant.firstName + ' ' +  package.notificationOptions.occupant.lastName}}</div>
-        <div>{{ package.location.shortDescription }}</div>
+        <table>
+            <tr>
+                <td class="text-right">Apartment:&nbsp;</td>
+                <td class="text-left">{{ package.apartment.name }}</td>
+            </tr>
+            <tr>
+                <td class="text-right">Type:&nbsp;</td>
+                <td class="text-left">{{ package.packageType.shortDescription }}</td>
+            </tr>
+            <tr>
+                <td class="text-right">Location:&nbsp;</td>
+                <td class="text-left">{{ package.location.shortDescription }}</td>
+            </tr>
+        </table>
     </div>
 </div>
+
+<div data-ng-hide="packages.length > 0" class="text-center">No items found</div>

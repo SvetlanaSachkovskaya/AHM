@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div data-ng-repeat="bill in bills | filter: filterByApartment" data-ng-class="{sent: bill.isEmailSent, paid: bill.isClosed}" class="row vertical-margin bill">
+    <div data-ng-repeat="bill in bills | filter: filterByApartment" data-ng-class="{sent: bill.isEmailSent, paid: bill.isClosed}" class="row vertical-margin rounded-container">
         <div data-ng-click="showDetails(bill.id)" class="col-md-8">
             <div class="row">
                 <label class="col-md-6">Apartment: {{ bill.apartment.name }}</label>

@@ -13,6 +13,10 @@
             });
         };
 
+        $scope.cancel = function () {
+            $state.go('landing.packagesBoard');
+        }
+
         postService.getPackageById($stateParams.packageId, function (data) {
             $scope.package = data;
             if ($scope.package.notificationOptions.shouldNotifyAllOccupants) {

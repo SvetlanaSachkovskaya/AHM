@@ -11,9 +11,9 @@
         }
 
         $scope.package = {
-            packageTypeId: 0,
-            locationId: 0,
-            apartmentId: 0,
+            packageTypeId: null,
+            locationId: null,
+            apartmentId: null,
             occupantId: null,
             shouldNotifyAll: false,
             openComment: '',
@@ -48,6 +48,10 @@
                     $scope.occupants.push({ name: "None", id: 0 });
                 });
             }
+        }
+
+        $scope.cancel = function() {
+            $state.go('landing.packagesBoard');
         }
 
         buildingService.getPackageTypes(function (data) {

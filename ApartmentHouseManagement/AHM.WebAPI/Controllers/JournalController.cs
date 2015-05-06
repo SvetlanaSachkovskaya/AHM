@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
 using AHM.WebAPI.Attributes;
+using AHM.WebAPI.Models;
 
 namespace AHM.WebAPI.Controllers
 {
@@ -30,39 +32,10 @@ namespace AHM.WebAPI.Controllers
 
         [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge })]
         [HttpGet]
-        [Route("GetEventsPerDay")]
-        public async Task<IHttpActionResult> GetEventsPerDay()
+        [Route("GetEventsByDate")]
+        public async Task<IHttpActionResult> GetEventsPerDay(DateTime date)
         {
-            var events = await _journalService.GetEventsPerDay(AppUser.BuildingId ?? 0);
-
-            return Ok(events);
-        }
-
-        [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge })]
-        [Route("GetEventsPerWeek")]
-        public async Task<IHttpActionResult> GetEventsPerWeek()
-        {
-            var events = await _journalService.GetEventsPerWeek(AppUser.BuildingId ?? 0);
-
-            return Ok(events);
-        }
-
-        [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge })]
-        [HttpGet]
-        [Route("GetEventsPerMonth")]
-        public async Task<IHttpActionResult> GetEventsPerMonth()
-        {
-            var events = await _journalService.GetEventsPerMonth(AppUser.BuildingId ?? 0);
-
-            return Ok(events);
-        }
-
-        [Authorization(Roles = new[] { Roles.Manager, Roles.Concierge })]
-        [HttpGet]
-        [Route("GetEventsPerYear")]
-        public async Task<IHttpActionResult> GetEventsPerYear()
-        {
-            var events = await _journalService.GetEventsPerYear(AppUser.BuildingId ?? 0);
+            var events = await _journalService.GetEventsByDate(date, AppUser.BuildingId ?? 0);
 
             return Ok(events);
         }
@@ -70,20 +43,22 @@ namespace AHM.WebAPI.Controllers
         [Authorization(Roles = new[] { Roles.Concierge })]
         [HttpPost]
         [Route("Add")]
-        public async Task<IHttpActionResult> Add(Event ev)
+        public async Task<IHttpActionResult> Add(EventModel eventModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            var newEvent = eventModel.GetEvent();
             if (AppUser.BuildingId.HasValue)
             {
-                ev.BuildingId = AppUser.BuildingId.Value;
+                newEvent.BuildingId = AppUser.BuildingId.Value;
             }
 
-            var result = await _journalService.AddAsync(ev);
+            var result = await _journalService.AddAsync(newEvent);
 
-            return result.IsSuccessful ? (IHttpActionResult) Ok(ev) : BadRequest(result.Errors.First());
+            return result.IsSuccessful ? (IHttpActionResult)Ok(newEvent) : BadRequest(result.Errors.First());
         }
 
         [Authorization(Roles = new[] { Roles.Concierge })]
