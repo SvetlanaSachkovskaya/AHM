@@ -105,7 +105,7 @@ textarea {
     color: white;
     font-size: large;
     text-align: center;
-    width: 30%;
+    width: 20%;
     height: 100px;
     padding: 10px 20px;
     margin: 5px;
@@ -165,8 +165,12 @@ textarea {
     width: 300px;
 }
 
+.closed {
+    background: grey !important;
+}
+
 .minor {
-    background: grey;
+    background: darkseagreen;
 }
 
 .normal {

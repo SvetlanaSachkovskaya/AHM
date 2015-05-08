@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
@@ -14,14 +16,14 @@ namespace AHM.BusinessLayer.Services
         }
 
 
-        public async Task<ICollection<Instruction>> GetAllInstructionsAsync(int buildingId)
+        public async Task<ICollection<Instruction>> GetInstructionsByDateAsync(int buildingId, DateTime date, bool onlyOpen = false)
         {
-            return await UnitOfWork.GetRepository<Instruction>().GetAllAsync(l => l.BuildingId == buildingId);
-        }
+            var instructions =
+                await
+                    UnitOfWork.GetRepository<Instruction>()
+                        .GetAllAsync(l => l.BuildingId == buildingId && (!onlyOpen || !l.IsClosed));
 
-        public async Task<ICollection<Instruction>> GetAllOpenInstructionsAsync(int buildingId)
-        {
-            return await UnitOfWork.GetRepository<Instruction>().GetAllAsync(i => i.BuildingId == buildingId && !i.IsClosed );
+            return instructions.Where(i => i.ExecutionDate.Date == date.Date).ToList();
         }
 
         public async Task<Instruction> GetByIdAsync(int id)
@@ -45,6 +47,17 @@ namespace AHM.BusinessLayer.Services
             var updatingResult = await UpdateEntityAsync(instruction, "Failed to update Instruction", async () =>
             {
                 UnitOfWork.GetRepository<Instruction>().Update(instruction);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updatingResult;
+        }
+
+        public async Task<ModifyDbStateResult> RemoveAsync(Instruction instruction)
+        {
+            var updatingResult = await UpdateEntityAsync(instruction, "Failed to remove Instruction", async () =>
+            {
+                UnitOfWork.GetRepository<Instruction>().Delete(instruction.Id);
                 await UnitOfWork.SaveAsync();
             });
 

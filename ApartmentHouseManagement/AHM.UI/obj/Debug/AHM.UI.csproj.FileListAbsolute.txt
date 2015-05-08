@@ -39,4 +39,3 @@ D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.dll
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.UI\bin\AHM.UI.pdb
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.dll
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.pdb
-D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.UI\obj\Debug\AHM.UI.csprojResolveAssemblyReference.cache

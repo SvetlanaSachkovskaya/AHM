@@ -1,13 +1,12 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
-using AHM.Common;
 using AHM.Common.DomainModel;
-using AHM.Common.Helpers;
 using AHM.WebAPI.Attributes;
 using AHM.WebAPI.Models;
 
@@ -34,30 +33,30 @@ namespace AHM.WebAPI.Controllers
 
 
         [HttpGet]
-        [Route("GetAll")]
-        public async Task<IHttpActionResult> GetAll(int dateInterval)
+        [Route("GetAllBills")]
+        public async Task<IHttpActionResult> GetAllBills(bool showOnlyUnpaid)
         {
-            var bills = await _billService.GetAllBillsAsync(AppUser.BuildingId ?? 0, (BillDateInteval) dateInterval);
+            var bills = await _billService.GetAllBillsAsync(AppUser.BuildingId ?? 0, showOnlyUnpaid);
 
             return Ok(bills.OrderByDescending(b => b.Date));
         }
 
         [HttpGet]
-        [Route("GetUnpaid")]
-        public async Task<IHttpActionResult> GetUnpaid(int dateInterval)
+        [Route("GetBillsByDate")]
+        public async Task<IHttpActionResult> GetBillsByDate(DateTime date)
         {
-            var bills = await _billService.GetAllBillsAsync(AppUser.BuildingId ?? 0, (BillDateInteval)dateInterval, false);
+            var bills = await _billService.GetBillsByDateAsync(AppUser.BuildingId ?? 0, date);
 
             return Ok(bills.OrderByDescending(b => b.Date));
         }
 
         [HttpGet]
-        [Route("GetBillDateIntervals")]
-        public async Task<IHttpActionResult> GetBillDateIntervals()
+        [Route("GetUnpaidBillsByDate")]
+        public async Task<IHttpActionResult> GetUnpaidBillsByDate(DateTime date)
         {
-            var dateIntervals = new EnumCollection<BillDateInteval>();
+            var bills = await _billService.GetBillsByDateAsync(AppUser.BuildingId ?? 0, date, true);
 
-            return Ok(dateIntervals);
+            return Ok(bills.OrderByDescending(b => b.Date));
         }
 
         [HttpGet]

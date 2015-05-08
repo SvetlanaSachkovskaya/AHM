@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using AHM.Common;
 using AHM.Common.DomainModel;
 
 namespace AHM.BusinessLayer.Interfaces
 {
     public interface IBillService
     {
-        Task<ICollection<Bill>> GetAllBillsAsync(int buildingId, BillDateInteval dateInteval, bool? isPaid = null);
+        Task<ICollection<Bill>> GetAllBillsAsync(int buildingId, bool onlyOpen = false);
+
+        Task<ICollection<Bill>> GetBillsByDateAsync(int buildingId, DateTime date, bool onlyOpen = false);
 
         Task<Bill> GetByIdAsync(int id);
 

@@ -5,33 +5,43 @@
         $scope.bills = [];
         $scope.apartments = [];
 
-        $scope.dateInterval = { value: 0 };
-        $scope.dateIntervals = [];
-
-        $scope.selectedApartmentId = 0;
-        $scope.showPaid = false;
-
-        $scope.create = function () {
-            $state.go('landing.editBill');
+        $scope.dateFilterTypes = {
+            all: 'all',
+            month: 'month'
         }
+
+        $scope.dateFilter = $scope.dateFilterTypes.all;
+        $scope.selectedDate = new Date();
+
+        $scope.selectedApartmentId = null;
+        $scope.showPaid = false;
 
         $scope.showDetails = function (id) {
             $state.go('landing.billDetails', { billId: id });
         }
 
-        $scope.setDateInterval = function(intervalId) {
-            $scope.dateInterval.value = intervalId;
+        $scope.filterByDate = function (dateFilter) {
+            $scope.dateFilter = dateFilter;
             $scope.refreshBoard();
         }
 
         $scope.filterByApartment = function (element) {
-            return $scope.selectedApartmentId === 0 || element.apartmentId === $scope.selectedApartmentId ? true : false;
+            return $scope.selectedApartmentId === null || element.apartmentId === $scope.selectedApartmentId ? true : false;
         };
 
         $scope.refreshBoard = function () {
-            utilitiesService.getBills($scope.dateInterval.value, $scope.showPaid, function (data) {
-                $scope.bills = data;
-            });
+            switch ($scope.dateFilter) {
+                case $scope.dateFilterTypes.all:
+                    utilitiesService.getAllBills($scope.showPaid, function (data) {
+                        $scope.bills = data;
+                    });
+                    break;
+                case $scope.dateFilterTypes.month:
+                    utilitiesService.getBillsByDate($scope.showPaid, $scope.selectedDate, function (data) {
+                        $scope.bills = data;
+                    });
+                    break;
+            }
         }
 
         $scope.payBill = function (id) {
@@ -42,16 +52,22 @@
             $state.go('landing.editBill', { billId: id });
         }
 
-        utilitiesService.getBillDateIntervals(function (data) {
-            $scope.dateIntervals = data;
-            $scope.dateInterval.value = $scope.dateIntervals[0].id;
+        $scope.openDatePicker = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
 
-            $scope.refreshBoard();
-        });
+            $scope.opened = true;
+        }
+
+        $scope.dateOptions = {
+            minMode: 'month',
+            maxMode: 'month'
+        };
 
         buildingService.getApartments(function (data) {
             $scope.apartments = data;
-            $scope.apartments.splice(0, 0, { id: 0, name: "All apartments" });
+
+            $scope.refreshBoard();
         });
     }
 ]);

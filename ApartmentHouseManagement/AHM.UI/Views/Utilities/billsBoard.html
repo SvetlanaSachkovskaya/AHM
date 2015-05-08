@@ -2,14 +2,28 @@
     <p class="page-title">Bills</p>
     <div class="bottom-margin filter-panel">
         <div class="row">
-            <div class="btn-group col-md-4">
-                <label data-ng-repeat="interval in dateIntervals" class="btn btn-primary" data-ng-model="dateInterval.value"
-                       data-ng-click="setDateInterval(interval.id)" btn-radio="interval.id">{{ interval.name }}</label>
+            <div class="btn-group col-md-2">
+                <label class="btn btn-primary" data-ng-model="dateFilter" data-ng-click="filterByDate(dateFilterTypes.all)" btn-radio="dateFilterTypes.all">All</label>
+                <label class="btn btn-primary" data-ng-model="dateFilter" data-ng-click="filterByDate(dateFilterTypes.month)" btn-radio="dateFilterTypes.month">Month</label>
+            </div>
+            
+            <div class="col-md-4">
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-mode="'month'" datepicker-options="dateOptions" datepicker-popup="MMMM yyyy" data-ng-model="selectedDate" is-open="opened"
+                           data-ng-change="refreshBoard()" required close-text="Close" readonly />
+                    <span class="input-group-btn">
+                        <button type="button" data-ng-disabled="dateFilter == dateFilterTypes.all" data-ng-click="openDatePicker($event)" class="btn btn-default">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </button>
+                    </span>
+                </p>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <select data-ng-model="selectedApartmentId" data-ng-options="apartment.id as apartment.name for apartment in apartments"
-                        class="col-md-3 form-control"></select>
+                        class="col-md-3 form-control">
+                    <option value="">All apartments</option>
+                </select>
             </div>
 
             <div class="col-md-2">

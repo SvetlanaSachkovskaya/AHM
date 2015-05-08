@@ -1,15 +1,12 @@
-﻿using System.Linq;
-using System.Net.Http;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common.DomainModel;
 using AHM.Common.Helpers;
-using AHM.DependencyInjection;
 using AHM.WebAPI.Attributes;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 
 namespace AHM.WebAPI.Controllers
 {
@@ -27,23 +24,19 @@ namespace AHM.WebAPI.Controllers
 
 
         [HttpGet]
-        [Route("GetAll")]
-        public async Task<IHttpActionResult> GetAll()
+        [Route("GetAllInstructionsByDate")]
+        public async Task<IHttpActionResult> GetAllInstructionsByDate(DateTime date)
         {
-            var instructions = await _instructionService.GetAllInstructionsAsync(AppUser.BuildingId ?? 0);
-            return Ok(instructions);
+            var instructions = await _instructionService.GetInstructionsByDateAsync(AppUser.BuildingId ?? 0, date, false);
+            return Ok(instructions.OrderByDescending(i => i.Priority));
         }
 
         [HttpGet]
-        [Route("GetAllOpen")]
-        public async Task<IHttpActionResult> GetAllOpen()
+        [Route("GetAllOpenInstructionsByDate")]
+        public async Task<IHttpActionResult> GetAllOpenInstructionsByDate(DateTime date)
         {
-            var roleManager = Request.GetOwinContext().GetUserManager<ApplicationRoleManager>();
-            var d = await roleManager.RoleExistsAsync("Concierge");
-            var g = AppUserManager.IsInRole(AppUser.Id, "Concierge");
-
-            var instructions = await _instructionService.GetAllOpenInstructionsAsync(AppUser.BuildingId ?? 0);
-            return Ok(instructions);
+            var instructions = await _instructionService.GetInstructionsByDateAsync(AppUser.BuildingId ?? 0, date, true);
+            return Ok(instructions.OrderByDescending(i => i.Priority));
         }
 
         [HttpGet]
@@ -92,6 +85,15 @@ namespace AHM.WebAPI.Controllers
             }
 
             var result = await _instructionService.UpdateAsync(instruction);
+
+            return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
+        }
+
+        [HttpPost]
+        [Route("Remove")]
+        public async Task<IHttpActionResult> Remove(Instruction instruction)
+        {
+            var result = await _instructionService.RemoveAsync(instruction);
 
             return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
         }

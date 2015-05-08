@@ -38,6 +38,17 @@ namespace AHM.DataLayer.Repositories
             base.Update(bill);
         }
 
+        public void DeleteOldUtilitiesItems(IEnumerable<UtilitiesItem> newUtilitiesItems, int billId)
+        {
+            var utilitiesItemsBeforeUpdate = Context.UtilitiesItems.Where(i => i.BillId == billId).ToList();
+            var removedUtilitiesItems =
+                utilitiesItemsBeforeUpdate.Where(i => newUtilitiesItems.FirstOrDefault(it => it.Id == i.Id) == null);
+
+            foreach (var removedUtilitiesItem in removedUtilitiesItems)
+            {
+                Delete(removedUtilitiesItem.Id);
+            }
+        }
 
         private void AttachDependencies(Bill bill)
         {

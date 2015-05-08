@@ -3,17 +3,37 @@
 
     $scope.instructions = [];
 
-    $scope.orderByOptions = [{ id: 'executionDate', name: 'Date' }, { id: '-priority', name: 'Priority' }];
-    $scope.orderBy = {
-        value: $scope.orderByOptions[0].id
+    $scope.filterDate = new Date();
+    $scope.showCompleted = false;
+
+    $scope.openDatePicker = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.opened = true;
     };
-    
+
+    $scope.filter = function() {
+        instructionsService.getInstructionsByDate($scope.filterDate, $scope.showCompleted, function (data) {
+            $scope.instructions = data;
+        });
+    }
 
     $scope.closeInstruction = function (instruction) {
-        instruction.isClosed = true;
-        instructionsService.updateInstruction(instruction, function () {
-            $scope.instructions.splice($scope.instructions.indexOf(instruction), 1);
-        });
+        if (confirm('Are you sure you want to close this instruction?')) {
+            instruction.isClosed = true;
+            instructionsService.updateInstruction(instruction, function () {
+                $scope.instructions.splice($scope.instructions.indexOf(instruction), 1);
+            });
+        }
+    }
+
+    $scope.removeInstruction = function (instruction) {
+        if (confirm('Are you sure you want to remove this instruction?')) {
+            instructionsService.removeInstruction(instruction, function () {
+                $scope.instructions.splice($scope.instructions.indexOf(instruction), 1);
+            });
+        }
     }
 
     $scope.createInstruction = function () {
@@ -24,7 +44,5 @@
         $state.go('landing.editInstruction', {instructionId : instructionId});
     }
 
-    instructionsService.getOpenInstructions (function (data) {
-        $scope.instructions = data;
-    });
+    $scope.filter();
 }]);

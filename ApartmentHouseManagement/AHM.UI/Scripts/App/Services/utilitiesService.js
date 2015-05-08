@@ -21,17 +21,17 @@
         httpModule.get('api/utilitiesClause/getById', { id: id }, callback);
     }
 
-    var getBills = function (dateInterval, showPaid, callback) {
-        if (showPaid) {
-            httpModule.get('api/bill/getAll', { dateInterval: dateInterval }, callback);
-        } else {
-            httpModule.get('api/bill/getUnpaid', { dateInterval: dateInterval }, callback);
-        }
+    var getAllBills = function (showPaid, callback) {
+        httpModule.get('api/bill/getAllBills', { showOnlyUnpaid: !showPaid }, callback);
     };
 
-    var getBillDateIntervals = function (callback) {
-        httpModule.get('api/bill/getBillDateIntervals', null, callback);
-    }
+    var getBillsByDate = function (showPaid, date, callback) {
+        if (showPaid) {
+            httpModule.get('api/bill/GetBillsByDate', { date: date }, callback);
+        } else {
+            httpModule.get('api/bill/GetUnpaidBillsByDate', { date: date }, callback);
+        }
+    };
 
     var addBill = function (utilitiesBill, callback) {
         httpModule.post('api/bill/add', utilitiesBill, callback);
@@ -78,9 +78,9 @@
     self.getUtilitiesClauseById = getUtilitiesClauseById;
     self.getUtilitiesClauseTypes = getUtilitiesClauseTypes;
     self.getCalculationTypes = getCalculationTypes;
-    self.getBillDateIntervals = getBillDateIntervals;
 
-    self.getBills = getBills;
+    self.getAllBills = getAllBills;
+    self.getBillsByDate = getBillsByDate;
     self.addBill = addBill;
     self.updateBill = updateBill;
     self.payBill = payBill;

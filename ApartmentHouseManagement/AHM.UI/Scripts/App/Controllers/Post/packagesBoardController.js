@@ -6,8 +6,9 @@
         $scope.packageTypes = [];
         $scope.locations = [];
 
-        $scope.locationId = allOption.value;
-        $scope.packageTypeId = allOption.value;
+        $scope.locationId = null;
+        $scope.packageTypeId = null;
+        $scope.apartmentId = null;
 
         $scope.edit = function (packageId) {
             $state.go('landing.editPackage', { packageId: packageId });
@@ -18,8 +19,9 @@
         }
 
         $scope.filterPackages = function (element) {
-            return ($scope.packageTypeId === 0 || element.packageTypeId === $scope.packageTypeId) &&
-                ($scope.locationId === 0 || element.locationId === $scope.locationId) ?
+            return ($scope.packageTypeId === null || element.packageTypeId === $scope.packageTypeId) &&
+                ($scope.locationId === null || element.locationId === $scope.locationId) &&
+                ($scope.apartmentId === null || element.apartmentId === $scope.apartmentId) ?
                 true :
                 false;
         }
@@ -30,17 +32,13 @@
 
         buildingService.getPackageTypes(function (data) {
             $scope.packageTypes = data;
-            $scope.packageTypes.splice(0, 0, {
-                longDescription: "All types",
-                id: allOption.value
-            });
         });
 
         buildingService.getLocations(function (data) {
             $scope.locations = data;
-            $scope.locations.splice(0, 0, {
-                longDescription: "All locations",
-                id: allOption.value
-            });
+        });
+
+        buildingService.getApartments(function (data) {
+            $scope.apartments = data;
         });
     }]);

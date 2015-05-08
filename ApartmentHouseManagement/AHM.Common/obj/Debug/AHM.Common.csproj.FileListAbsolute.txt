@@ -50,4 +50,3 @@ D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\bin\Debug\Microsoft.Owin.Secu
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\bin\Debug\Newtonsoft.Json.xml
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.dll
 D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.pdb
-D:\DB\Repo\AHM\ApartmentHouseManagement\AHM.Common\obj\Debug\AHM.Common.csprojResolveAssemblyReference.cache

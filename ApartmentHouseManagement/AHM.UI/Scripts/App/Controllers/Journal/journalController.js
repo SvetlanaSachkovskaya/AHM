@@ -1,20 +1,20 @@
-﻿app.controller('journalController', ['$scope', '$state', 'journalService', function ($scope, $state, journalService) {
+﻿app.controller('journalController', ['$scope', '$state', 'journalService', 'roles', function ($scope, $state, journalService, roles) {
     'use strict';
 
     function resultCallback(data) {
         $scope.events = data;
     }
 
-    $scope.datePickerSettings = {
-        open: function ($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
+    $scope.openDatePicker = function ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
 
-            $scope.opened = true;
-        }
+        $scope.opened = true;
     }
 
     $scope.events = [];
+
+    $scope.roles = roles;
 
     $scope.filterDate = new Date();
 

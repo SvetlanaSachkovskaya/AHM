@@ -11,8 +11,8 @@
         }
 
         if ($stateParams.billId) {
-            utilitiesService.getBillPdfPath($stateParams.billId, function (result) {
-                $scope.path = result.data;
+            utilitiesService.getBillPdfPath($stateParams.billId, function (data) {
+                $scope.path = data;
             });
         }
     }

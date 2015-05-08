@@ -3,11 +3,21 @@
 <div class="row filter-panel">
     <div class="col-md-4">
         <select data-ng-options="location.id as location.longDescription for location in locations" data-ng-model="locationId"
-                class="form-control"></select>
+                class="form-control">
+            <option value="">All Locations</option>
+        </select>
     </div>
     <div class="col-md-4">
         <select data-ng-options="type.id as type.longDescription for type in packageTypes" data-ng-model="packageTypeId"
-                class="form-control"></select>
+                class="form-control">
+            <option value="">All Types</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <select data-ng-options="apartment.id as apartment.number for apartment in apartments" data-ng-model="apartmentId"
+                class="form-control">
+            <option value="">All Apartments</option>
+        </select>
     </div>
 </div>
 
@@ -16,7 +26,7 @@
         <table>
             <tr>
                 <td class="text-right">Apartment:&nbsp;</td>
-                <td class="text-left">{{ package.apartment.name }}</td>
+                <td class="text-left">{{ package.apartment.number }}</td>
             </tr>
             <tr>
                 <td class="text-right">Type:&nbsp;</td>

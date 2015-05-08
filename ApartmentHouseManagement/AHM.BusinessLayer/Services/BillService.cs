@@ -19,35 +19,30 @@ namespace AHM.BusinessLayer.Services
         }
 
 
-        public async Task<ICollection<Bill>> GetAllBillsAsync(int buildingId, BillDateInteval dateInteval, bool? isClosed = null)
+        public async Task<ICollection<Bill>> GetAllBillsAsync(int buildingId, bool onlyOpen = false)
         {
-            switch (dateInteval)
-            {
-                case BillDateInteval.Mounth:
-                    return
-                        await
-                            UnitOfWork.GetRepository<Bill>()
-                                .GetAllAsync(
-                                    b =>
-                                        b.Date.Month == DateTime.Now.Month && b.Date.Year == DateTime.Now.Year &&
-                                        (!isClosed.HasValue || b.IsClosed == isClosed.Value));
-                case BillDateInteval.Year:
-                    return
-                        await
-                            UnitOfWork.GetRepository<Bill>()
-                                .GetAllAsync(
-                                    b =>
-                                        b.Date.Year == DateTime.Now.Year &&
-                                        (!isClosed.HasValue || b.IsClosed == isClosed.Value));
-                case BillDateInteval.All:
-                    return
-                        await
-                            UnitOfWork.GetRepository<Bill>()
-                                .GetAllAsync(
-                                    b => (!isClosed.HasValue || b.IsClosed == isClosed.Value));
-                default:
-                    throw new ArgumentOutOfRangeException("dateInteval");
-            }
+            var bills =
+                await
+                    UnitOfWork.GetRepository<Bill>()
+                        .GetAllAsync(
+                            b =>
+                                b.Apartment.BuildingId == buildingId &&
+                                (!onlyOpen || !b.IsClosed));
+
+            return bills;
+        }
+
+        public async Task<ICollection<Bill>> GetBillsByDateAsync(int buildingId, DateTime date, bool onlyOpen = false)
+        {
+            var bills =
+                await
+                    UnitOfWork.GetRepository<Bill>()
+                        .GetAllAsync(
+                            b =>
+                                b.Apartment.BuildingId == buildingId &&
+                                (!onlyOpen || !b.IsClosed));
+
+            return bills.Where(b => b.Date.Month == date.Month && date.Date.Year == date.Year).ToList();
         }
 
         public async Task<Bill> GetByIdAsync(int id)
@@ -227,12 +222,7 @@ namespace AHM.BusinessLayer.Services
 
         private async Task UpdateUtilitiesItems(List<UtilitiesItem> utilitiesItems, Bill bill)
         {
-            var utilitiesItemsBeforeUpdate =
-                        await UnitOfWork.GetRepository<UtilitiesItem>().GetAllAsync(i => i.BillId == bill.Id);
-
-            var removedUtilitiesItems =
-                utilitiesItemsBeforeUpdate.Where(i => utilitiesItems.Find(it => it.Id == i.Id) == null);
-            UnitOfWork.GetRepository<UtilitiesItem>().DeleteRange(removedUtilitiesItems.Select(i => i.Id));
+            UnitOfWork.BillRepository.DeleteOldUtilitiesItems(utilitiesItems, bill.Id);
 
             var occupants = await UnitOfWork.GetRepository<Occupant>().GetAllAsync(o => o.ApartmentId == bill.ApartmentId);
             var occupantsCount = occupants.Count();
