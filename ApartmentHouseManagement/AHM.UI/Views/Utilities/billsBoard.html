@@ -28,7 +28,7 @@
 
             <div class="col-md-2">
                 <input type="checkbox" id="showPaidCheckBox" data-ng-model="showPaid" data-ng-change="refreshBoard()" />
-                <label for="showPaidCheckBox">Show paid</label>
+                <label for="showPaidCheckBox">Show closed</label>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
         <div data-ng-click="showDetails(bill.id)" class="col-md-8">
             <div class="row">
                 <label class="col-md-6">Apartment: {{ bill.apartment.name }}</label>
-                <label class="col-md-6">Total: {{ bill.totalAmount }}</label>
+                <label class="col-md-6">Amount: {{ bill.calculatedAmount + bill.carryOver }}</label>
             </div>
             <div class="row">
                 <label class="col-md-6">Month: {{ bill.date | date : 'MMMM' }}</label>
