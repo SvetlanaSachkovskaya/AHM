@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
+using AHM.Common;
 using AHM.Common.DomainModel;
 using AHM.WebAPI.Attributes;
 
@@ -61,7 +62,7 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
 
             var result = await _occupantService.AddAsync(occupant);
@@ -76,7 +77,7 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
 
             var result = await _occupantService.UpdateAsync(occupant);
@@ -91,7 +92,13 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
+            }
+
+            var inUse = await _occupantService.InUseAsync(occupant.Id);
+            if (inUse)
+            {
+                return BadRequest(ValidationMessages.OccupantInUse);
             }
 
             var result = await _occupantService.RemoveAsync(occupant.Id);

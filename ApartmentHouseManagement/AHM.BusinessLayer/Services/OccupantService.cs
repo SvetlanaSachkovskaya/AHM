@@ -37,7 +37,7 @@ namespace AHM.BusinessLayer.Services
 
         public async Task<IEnumerable<Occupant>> GetOccupantsByApartmentIdAsync(int apartmentId)
         {
-            return await UnitOfWork.GetRepository<Occupant>().GetAllAsync(o => o.ApartmentId == apartmentId);
+            return await UnitOfWork.GetRepository<Occupant>().GetAllAsync(o => o.ApartmentId == apartmentId && o.IsActive);
         }
 
         public async Task<ModifyDbStateResult> AddAsync(Occupant occupant)
@@ -81,6 +81,12 @@ namespace AHM.BusinessLayer.Services
             });
 
             return result;
+        }
+
+        public async Task<bool> InUseAsync(int id)
+        {
+            var inUse = await UnitOfWork.GetRepository<NotificationOptions>().AnyAsync(p => p.OccupantId == id);
+            return inUse;
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AHM.BusinessLayer.Interfaces;
+using AHM.Common;
 using AHM.Common.DomainModel;
 using AHM.DataLayer.Interfaces;
 
@@ -8,9 +10,11 @@ namespace AHM.BusinessLayer.Services
 {
     public class PackageService : BaseService, IPackageService
     {
-        public PackageService(IUnitOfWork unitOfWork) : base(unitOfWork)
-        {
+        private readonly IEmailSender _emailSender;
 
+        public PackageService(IUnitOfWork unitOfWork, IEmailSender emailSender) : base(unitOfWork)
+        {
+            _emailSender = emailSender;
         }
 
 
@@ -42,6 +46,8 @@ namespace AHM.BusinessLayer.Services
             {
                 UnitOfWork.GetRepository<Package>().Add(package);
                 await UnitOfWork.SaveAsync();
+
+                await NotifyOccupants(package.Id);
             });
 
             return creationResult;
@@ -56,6 +62,35 @@ namespace AHM.BusinessLayer.Services
             });
 
             return updatingResult;
+        }
+
+        private async Task NotifyOccupants(int pacakgeId)
+        {
+            var package = await UnitOfWork.GetRepository<Package>().GetByIdAsync(pacakgeId);
+
+            if (package.NotificationOptions.ShouldNotifyAllOccupants)
+            {
+                var occupants =
+                    await
+                        UnitOfWork.GetRepository<Occupant>()
+                            .GetAllAsync(o => o.ApartmentId == package.ApartmentId && o.IsActive);
+                foreach (var occupant in occupants)
+                {
+                    if (!String.IsNullOrEmpty(occupant.Email))
+                    {
+                        _emailSender.Send(occupant.Email, Constants.PostEmailSubject,
+                            String.Format(Constants.PostEmailMessage, package.PackageType.LongDescription));
+                    }
+                }
+            }
+            else if (package.NotificationOptions.Occupant != null)
+            {
+                if (!String.IsNullOrEmpty(package.NotificationOptions.Occupant.Email))
+                {
+                    _emailSender.Send(package.NotificationOptions.Occupant.Email, Constants.PostEmailSubject,
+                        String.Format(Constants.PostEmailMessage, package.PackageType.LongDescription));
+                }
+            }
         }
     }
 }

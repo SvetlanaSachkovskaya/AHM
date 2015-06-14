@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
+using AHM.Common;
 using AHM.Common.DomainModel;
 using AHM.WebAPI.Attributes;
 using AHM.WebAPI.Models;
@@ -50,7 +51,7 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
             if (AppUser.BuildingId.HasValue)
             {
@@ -69,7 +70,7 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
 
             var result = await _apartmentService.UpdateAsync(apartment.GetApartment(), apartment.OwnerId);
@@ -84,7 +85,13 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
+            }
+
+            var inUse = await _apartmentService.InUseAsync(apartment.Id);
+            if (inUse)
+            {
+                return BadRequest(ValidationMessages.ApartmentInUse);
             }
 
             var result = await _apartmentService.RemoveAsync(apartment.Id);

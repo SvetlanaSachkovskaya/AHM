@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
+using AHM.Common;
 using AHM.Common.DomainModel;
 using AHM.WebAPI.Attributes;
 
@@ -35,7 +36,7 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
             if (AppUser.BuildingId.HasValue)
             {
@@ -53,7 +54,7 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
 
             var result = await _locationService.UpdateAsync(location);
@@ -67,7 +68,13 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
+            }
+
+            var inUse = await _locationService.InUseAsync(location.Id);
+            if (inUse)
+            {
+                return BadRequest(ValidationMessages.LocationInUse);
             }
 
             var result = await _locationService.RemoveAsync(location.Id);

@@ -46,6 +46,22 @@ namespace AHM.BusinessLayer.Services
             return updatingResult;
         }
 
+        public async Task<ModifyDbStateResult> UpdateUtilitiesSettingsAsync(int lastPayDay, double finePercent, int buidingId)
+        {
+            var building = await UnitOfWork.GetRepository<Building>().GetByIdAsync(buidingId);
+
+            var updatingResult = await UpdateEntityAsync(building, "Failed to update utilities settings", async () =>
+            {
+                building.LastPayUtilitiesDay = lastPayDay;
+                building.FinePercent = finePercent;
+
+                UnitOfWork.GetRepository<Building>().Update(building);
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updatingResult;
+        }
+
         public async Task<ModifyDbStateResult> RemoveAsync(int id)
         {
             var result = await RemoveEntityAsync(id, "Failed to remove Building", async () =>

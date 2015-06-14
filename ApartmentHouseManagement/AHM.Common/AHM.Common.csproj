@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="BillDateInteval.cs" />
     <Compile Include="CipherMaker.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="DomainModel\Apartment.cs" />
     <Compile Include="DomainModel\Building.cs" />
     <Compile Include="DomainModel\CalculationType.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Helpers\EnumCollection.cs" />
     <Compile Include="Helpers\EnumItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationMessages.cs" />
     <Compile Include="ValidationResult.cs" />
   </ItemGroup>
   <ItemGroup>

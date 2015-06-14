@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
         <label class="col-md-2 control-label">Amount:</label>
-        <label class="col-md-6 info-label">{{ bill.totalAmount }}</label>
+        <label class="col-md-6 info-label">{{ bill.calculatedAmount + bill.carryOver + bill.fine }}</label>
     </div>
     <div class="form-group">
         <label class="col-md-2 control-label">Date:</label>
@@ -33,7 +33,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-6">
-            <button type="submit" data-ng-click="pay()" class="btn btn-default">Pay</button>
+            <add-button action="pay()" text="Pay"></add-button>
             <button type="button" data-ng-click="cancel()" class="btn btn-default">Cancel</button>
         </div>
     </div>

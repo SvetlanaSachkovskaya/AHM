@@ -92,15 +92,11 @@ namespace AHM.WebAPI.Controllers
         [Route("SendEmail")]
         public async Task<IHttpActionResult> SendEmail(Bill bill)
         {
-            var email = ConfigurationManager.AppSettings["Email"];
-            var username = ConfigurationManager.AppSettings["Username"];
-            var password = ConfigurationManager.AppSettings["Password"];
-
             var pdfFolder = GetPdfFolderPath();
             var fileName = await _billPdfGenerator.GenerateAsync(bill.Id, pdfFolder);
             var filePath = Path.Combine(pdfFolder, fileName);
 
-            var result = await _billService.SendEmailAsync(bill, email, username, password, filePath);
+            var result = await _billService.SendEmailAsync(bill, filePath);
 
             return result.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(result.Errors.First());
         }
@@ -111,7 +107,7 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
 
             var billEntity = bill.GetBill();
@@ -126,7 +122,7 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
 
             var result =  await _billService.UpdateAsync(bill.GetBill(), bill.UtilitiesItems);
@@ -140,7 +136,7 @@ namespace AHM.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
 
             var result = await _billService.PayBillAsync(bill);

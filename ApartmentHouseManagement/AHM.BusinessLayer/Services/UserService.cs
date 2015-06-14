@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AHM.BusinessLayer.Interfaces;
 using AHM.Common;
@@ -10,10 +11,11 @@ namespace AHM.BusinessLayer.Services
 {
     public class UserService : BaseService, IUserService
     {
-         private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
 
-        public UserService(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public UserService(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -44,6 +46,11 @@ namespace AHM.BusinessLayer.Services
             return user;
         }
 
+        public async Task<bool> UsernameExistsAsync(string username)
+        {
+            return await _unitOfWork.UserRepository.AnyAsync(u => u.UserName == username);
+        }
+
         public async Task<IEnumerable<UserModel>> GetAllUsersAsync()
         {
             return await _unitOfWork.UserRepository.GetAllUsersAsync();
@@ -57,7 +64,7 @@ namespace AHM.BusinessLayer.Services
             var creationResult = await AddEntityAsync(user, "Failed to create user", async () =>
             {
                 _unitOfWork.UserRepository.Add(user);
-                _unitOfWork.GetRepository<UserRole>().Add(new UserRole {RoleId = roleId, UserId = user.Id});
+                _unitOfWork.GetRepository<UserRole>().Add(new UserRole { RoleId = roleId, UserId = user.Id });
                 await UnitOfWork.SaveAsync();
             });
 
@@ -67,6 +74,19 @@ namespace AHM.BusinessLayer.Services
         public async Task<ModifyDbStateResult> UpdateUserAsync(UserModel userModel)
         {
             var user = await UnitOfWork.UserRepository.GetByIdAsync(userModel.Id);
+
+            if (user.UserName != userModel.Username)
+            {
+                var usernameExists = await UsernameExistsAsync(userModel.Username);
+                if (usernameExists)
+                {
+                    return new ModifyDbStateResult
+                    {
+                        IsSuccessful = false,
+                        Errors = new List<string> { ValidationMessages.UsernameExists }
+                    };
+                }
+            }
 
             user.FirstName = userModel.FirstName;
             user.LastName = userModel.LastName;
@@ -79,14 +99,31 @@ namespace AHM.BusinessLayer.Services
             {
                 _unitOfWork.UserRepository.Update(user);
 
-                var userRole =
-                    await _unitOfWork.GetRepository<UserRole>().GetEntityAsync(ur => ur.UserId == userModel.Id);
-                if (userModel.RoleId != userRole.RoleId)
+                if (user.Roles.Any(ur => ur.RoleId != userModel.RoleId))
                 {
-                    userRole.RoleId = userModel.RoleId;
-                    _unitOfWork.GetRepository<UserRole>().Update(userRole);
+                    user.Roles.Clear();
+                    user.Roles.Add(new UserRole
+                    {
+                        UserId = userModel.Id,
+                        RoleId = userModel.RoleId
+                    });
                 }
-                
+
+                await UnitOfWork.SaveAsync();
+            });
+
+            return updateResult;
+        }
+
+        public async Task<ModifyDbStateResult> ChangeUserLockStateAsync(int userId, bool isLocked)
+        {
+            var user = await UnitOfWork.UserRepository.GetByIdAsync(userId);
+            user.LockoutEnabled = isLocked;
+
+            var updateResult = await UpdateEntityAsync(user, "Failed to update user", async () =>
+            {
+                _unitOfWork.UserRepository.Update(user);
+
                 await UnitOfWork.SaveAsync();
             });
 

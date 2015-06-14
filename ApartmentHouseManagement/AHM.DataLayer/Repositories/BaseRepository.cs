@@ -115,6 +115,11 @@ namespace AHM.DataLayer.Repositories
             return await query.AnyAsync();
         }
 
+        public void AutoDetectChanges(bool enable)
+        {
+            Context.Configuration.AutoDetectChangesEnabled = enable;
+        }
+
 
         protected IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
         {

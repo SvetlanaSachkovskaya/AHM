@@ -14,7 +14,7 @@
     <RootNamespace>AHM.UI</RootNamespace>
     <AssemblyName>AHM.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -51,52 +51,53 @@
     <Content Include="Content\Styles\social-buttons.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\App\app.js" />
-    <Content Include="Scripts\App\Controllers\Admin\buildingsController.js" />
-    <Content Include="Scripts\App\Controllers\Admin\editBuildingController.js" />
-    <Content Include="Scripts\App\Controllers\Admin\editUserController.js" />
-    <Content Include="Scripts\App\Controllers\Admin\usersController.js" />
-    <Content Include="Scripts\App\Controllers\BuildingInfo\apartmentsController.js" />
-    <Content Include="Scripts\App\Controllers\BuildingInfo\createOccupantController.js" />
-    <Content Include="Scripts\App\Controllers\BuildingInfo\editApartmentConroller.js" />
-    <Content Include="Scripts\App\Controllers\Instructions\createInstructionController.js" />
-    <Content Include="Scripts\App\Controllers\Instructions\editInstruction.js" />
-    <Content Include="Scripts\App\Controllers\Instructions\instructionsController.js" />
-    <Content Include="Scripts\App\Controllers\Journal\createEventController.js" />
-    <Content Include="Scripts\App\Controllers\Journal\journalController.js" />
-    <Content Include="Scripts\App\Controllers\Post\createPackageController.js" />
-    <Content Include="Scripts\App\Controllers\homeController.js" />
-    <Content Include="Scripts\App\Controllers\indexController.js" />
-    <Content Include="Scripts\App\Controllers\BuildingInfo\locationsController.js" />
-    <Content Include="Scripts\App\Controllers\loginController.js" />
-    <Content Include="Scripts\App\Controllers\BuildingInfo\occupantsController.js" />
-    <Content Include="Scripts\App\Controllers\Post\packagesBoardController.js" />
-    <Content Include="Scripts\App\Controllers\BuildingInfo\packageTypesController.js" />
-    <Content Include="Scripts\App\Controllers\Post\editPackageController.js" />
-    <Content Include="Scripts\App\Controllers\signupController.js" />
-    <Content Include="Scripts\App\Controllers\Utilities\billDetailsController.js" />
-    <Content Include="Scripts\App\Controllers\Utilities\billPdfViewerController.js" />
-    <Content Include="Scripts\App\Controllers\Utilities\billsBoardController.js" />
-    <Content Include="Scripts\App\Controllers\UtilitiesClause\editUtilitiesClauseController.js" />
-    <Content Include="Scripts\App\Controllers\Utilities\editBillController.js" />
-    <Content Include="Scripts\App\Controllers\UtilitiesClause\utilitiesClausesController.js" />
-    <Content Include="Scripts\App\Controllers\Utilities\payBillController.js" />
+    <Content Include="Scripts\App\Admin\buildingsController.js" />
+    <Content Include="Scripts\App\Admin\editBuildingController.js" />
+    <Content Include="Scripts\App\Admin\editUserController.js" />
+    <Content Include="Scripts\App\Admin\usersController.js" />
+    <Content Include="Scripts\App\BuildingInfo\apartmentsController.js" />
+    <Content Include="Scripts\App\BuildingInfo\editOccupantController.js" />
+    <Content Include="Scripts\App\BuildingInfo\editApartmentConroller.js" />
+    <Content Include="Scripts\App\dataPickerSettings.js" />
+    <Content Include="Scripts\App\Directives\tableGrayCheckbox.js" />
+    <Content Include="Scripts\App\Instructions\createInstructionController.js" />
+    <Content Include="Scripts\App\Instructions\editInstruction.js" />
+    <Content Include="Scripts\App\Instructions\instructionsController.js" />
+    <Content Include="Scripts\App\Journal\createEventController.js" />
+    <Content Include="Scripts\App\Journal\journalController.js" />
+    <Content Include="Scripts\App\Post\createPackageController.js" />
+    <Content Include="Scripts\App\indexController.js" />
+    <Content Include="Scripts\App\BuildingInfo\locationsController.js" />
+    <Content Include="Scripts\App\Authentication\loginController.js" />
+    <Content Include="Scripts\App\BuildingInfo\occupantsController.js" />
+    <Content Include="Scripts\App\Post\packagesBoardController.js" />
+    <Content Include="Scripts\App\BuildingInfo\packageTypesController.js" />
+    <Content Include="Scripts\App\Post\editPackageController.js" />
+    <Content Include="Scripts\App\Utilities\billDetailsController.js" />
+    <Content Include="Scripts\App\Utilities\billPdfViewerController.js" />
+    <Content Include="Scripts\App\Utilities\billsBoardController.js" />
+    <Content Include="Scripts\App\Utilities\editUtilitiesClauseController.js" />
+    <Content Include="Scripts\App\Utilities\editBillController.js" />
+    <Content Include="Scripts\App\Utilities\utilitiesClausesController.js" />
+    <Content Include="Scripts\App\Utilities\payBillController.js" />
     <Content Include="Scripts\App\Directives\accessDirective.js" />
     <Content Include="Scripts\App\Directives\addButtonDirective.js" />
     <Content Include="Scripts\App\Directives\datePickerDirective.js" />
     <Content Include="Scripts\App\Directives\deleteButtonDirective.js" />
     <Content Include="Scripts\App\Directives\floatNumber.js" />
     <Content Include="Scripts\App\Directives\integerNumber.js" />
-    <Content Include="Scripts\App\Services\adminService.js" />
-    <Content Include="Scripts\App\Services\apartmentService.js" />
-    <Content Include="Scripts\App\Services\authInterceptorService.js" />
-    <Content Include="Scripts\App\Services\authenticationService.js" />
-    <Content Include="Scripts\App\Services\buildingService.js" />
-    <Content Include="Scripts\App\Services\constants.js" />
-    <Content Include="Scripts\App\Services\httpModule.js" />
-    <Content Include="Scripts\App\Services\instructionsService.js" />
-    <Content Include="Scripts\App\Services\journalService.js" />
-    <Content Include="Scripts\App\Services\postService.js" />
-    <Content Include="Scripts\App\Services\utilitiesService.js" />
+    <Content Include="Scripts\App\Admin\adminService.js" />
+    <Content Include="Scripts\App\Authentication\authInterceptorService.js" />
+    <Content Include="Scripts\App\Authentication\authenticationService.js" />
+    <Content Include="Scripts\App\BuildingInfo\buildingService.js" />
+    <Content Include="Scripts\App\constants.js" />
+    <Content Include="Scripts\App\httpModule.js" />
+    <Content Include="Scripts\App\Instructions\instructionsService.js" />
+    <Content Include="Scripts\App\Journal\journalService.js" />
+    <Content Include="Scripts\App\Post\postService.js" />
+    <Content Include="Scripts\App\Utilities\UtilitiesItem.js" />
+    <Content Include="Scripts\App\Utilities\utilitiesService.js" />
+    <Content Include="Scripts\App\Utilities\utilitiesSettingsController.js" />
     <Content Include="Scripts\Libraries\angularjs\angular-animate.js" />
     <Content Include="Scripts\Libraries\angularjs\angular-animate.min.js" />
     <Content Include="Scripts\Libraries\angularjs\angular-aria.js" />
@@ -880,17 +881,19 @@
     <Content Include="Scripts\Libraries\bootstrap\ui-bootstrap-tpls-0.12.1.min.js" />
     <Content Include="Scripts\Libraries\jquery\jquery-1.9.1.js" />
     <Content Include="Scripts\Libraries\jquery\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\Libraries\loading-bar\loading-bar.js" />
-    <Content Include="Scripts\Libraries\loading-bar\loading-bar.min.js" />
     <Content Include="Scripts\Libraries\pdf\ng-pdfviewer.js" />
     <Content Include="Scripts\Libraries\pdf\pdf.js" />
     <Content Include="Scripts\Libraries\pdf\pdf.worker.js" />
+    <Content Include="Scripts\Libraries\spinner\angular-spinner.js" />
+    <Content Include="Scripts\Libraries\spinner\spin.min.js" />
+    <Content Include="Views\404.html" />
+    <Content Include="Views\accessDenied.html" />
     <Content Include="Views\Admin\buildings.html" />
     <Content Include="Views\Admin\editBuilding.html" />
     <Content Include="Views\Admin\editUser.html" />
     <Content Include="Views\Admin\users.html" />
     <Content Include="Views\BuildingInfo\apartments.html" />
-    <Content Include="Views\BuildingInfo\createOccupant.html" />
+    <Content Include="Views\BuildingInfo\editOccupant.html" />
     <Content Include="Views\BuildingInfo\editApartment.html" />
     <Content Include="Views\BuildingInfo\occupants.html" />
     <Content Include="Views\BuildingInfo\packageTypes.html" />
@@ -909,6 +912,7 @@
     <Content Include="Views\Authorization\signup.html" />
     <Content Include="Views\Templates\addButton.html" />
     <Content Include="Views\Templates\deleteButton.html" />
+    <Content Include="Views\Templates\tableGrayCheckbox.html" />
     <Content Include="Views\UtilitiesClause\editUtilitiesClause.html" />
     <Content Include="Views\UtilitiesClause\utilitiesClauses.html" />
     <Content Include="Views\Utilities\billDetails.html" />
@@ -916,6 +920,7 @@
     <Content Include="Views\Utilities\billsBoard.html" />
     <Content Include="Views\Utilities\editBill.html" />
     <Content Include="Views\Utilities\payBill.html" />
+    <Content Include="Views\Utilities\utilitiesSettings.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\Libraries\jquery\jquery-1.9.1.min.map" />
   </ItemGroup>
@@ -957,7 +962,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4559/</IISUrl>
+          <IISUrl>http://localhost/ahm</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

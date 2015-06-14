@@ -18,6 +18,8 @@ namespace AHM.Common.DomainModel
 
         public bool IsSubTenant { get; set; }
 
+        public bool IsActive { get; set; }
+
         public bool IsOwner { get; set; }
 
         public Apartment Apartment { get; set; }

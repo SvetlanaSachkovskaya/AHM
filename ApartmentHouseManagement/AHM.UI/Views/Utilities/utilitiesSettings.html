@@ -1,0 +1,17 @@
+﻿<form name="settingsForm" class="col-md-6 col-md-offset-3">
+    <p class="page-title">Settings</p>
+
+    <div data-ng-class="{ 'has-error' : settingsForm.lastDay.$invalid && settingsForm.lastDay.$dirty }" class="form-group">
+        <label>Last pay day:</label>
+        <input type="text" name="lastDay" data-ng-model="settings.lastPayUtilitiesDay" integer-number class="form-control" min="1" required />
+        <p ng-show="settingsForm.lastDay.$error.required && settingsForm.lastDay.$dirty" class="help-block">Last pay day is required</p>
+    </div>
+
+    <div data-ng-class="{ 'has-error' : settingsForm.finePercent.$invalid && settingsForm.finePercent.$dirty }" class="form-group">
+        <label>Fine percent:</label>
+        <input type="text" name="finePercent" data-ng-model="settings.finePercent" float-number class="form-control" required />
+        <p ng-show="settingsForm.finePercent.$error.required && settingsForm.finePercent.$dirty" class="help-block">Fine percent is required</p>
+    </div>
+
+    <add-button action="save()" text="Save" class="pull-right"></add-button>
+</form>

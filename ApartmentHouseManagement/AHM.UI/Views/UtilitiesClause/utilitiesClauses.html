@@ -22,11 +22,7 @@
                     {{ utilitiesClause.isLimited ? utilitiesClause.subsidizedTariff : '' }}
                 </td>
                 <td>
-                    <div class="table-gray-checkbox">
-                        <input type="checkbox" data-ng-model="utilitiesClause.isActive" onclick="return false" />
-                        <div></div>
-                    </div>
-
+                    <table-gray-checkbox checked="utilitiesClause.isActive"></table-gray-checkbox>
                 </td>
                 <td>
                     <button class="btn center-block" data-ng-click="edit(utilitiesClause.id)">Edit</button>

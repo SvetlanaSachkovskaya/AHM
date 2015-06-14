@@ -9,10 +9,10 @@
             
             <div class="col-md-4">
                 <p class="input-group">
-                    <input type="text" class="form-control" datepicker-mode="'month'" datepicker-options="dateOptions" datepicker-popup="MMMM yyyy" data-ng-model="selectedDate" is-open="opened"
-                           data-ng-change="refreshBoard()" required close-text="Close" readonly />
+                    <input type="text" class="form-control" datepicker-mode="'month'" datepicker-options="datePickerSettings.monthDateOptions" datepicker-popup="MMMM yyyy" 
+                           data-ng-model="selectedDate" is-open="datePickerSettings.opened" data-ng-change="refreshBoard()" required close-text="Close" readonly />
                     <span class="input-group-btn">
-                        <button type="button" data-ng-disabled="dateFilter == dateFilterTypes.all" data-ng-click="openDatePicker($event)" class="btn btn-default">
+                        <button type="button" data-ng-disabled="dateFilter == dateFilterTypes.all" data-ng-click="datePickerSettings.open($event)" class="btn btn-default">
                             <i class="glyphicon glyphicon-calendar"></i>
                         </button>
                     </span>

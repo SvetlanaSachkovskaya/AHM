@@ -18,6 +18,11 @@ namespace AHM.WebAPI.Models
         public int? BuildingId { get; set; }
 
 
+        public ShortUserModel()
+        {
+            
+        }
+
         public ShortUserModel(UserModel user)
         {
             Id = user.Id;

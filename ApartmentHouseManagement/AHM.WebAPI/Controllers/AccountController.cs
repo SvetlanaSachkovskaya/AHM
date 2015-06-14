@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AHM.BusinessLayer.Interfaces;
+using AHM.Common;
 using AHM.Common.DomainModel;
 using AHM.WebAPI.Attributes;
 using AHM.WebAPI.Models;
@@ -20,20 +21,26 @@ namespace AHM.WebAPI.Controllers
             _userService = userService;
         }
 
-
+        [HttpPost]
         [Authorization(Roles = new[] { Roles.Admin })]
         [Route("RegisterUser")]
         public async Task<IHttpActionResult> RegisterUser(RegisterUserModel registerUserModel)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
+            }
+
+            var usernameExists = await _userService.UsernameExistsAsync(registerUserModel.UserName);
+            if (usernameExists)
+            {
+                return BadRequest(ValidationMessages.UsernameExists);
             }
 
             var user = new User
             {
                 UserName = registerUserModel.UserName,
-                FirstName = registerUserModel.UserName,
+                FirstName = registerUserModel.FirstName,
                 LastName = registerUserModel.LastName,
                 Password = registerUserModel.Password,
                 BuildingId = registerUserModel.BuildingId
@@ -44,18 +51,54 @@ namespace AHM.WebAPI.Controllers
             return creationResult.IsSuccessful ? (IHttpActionResult)Ok(user) : BadRequest(creationResult.Errors.First());
         }
 
+        [HttpPost]
         [Authorization(Roles = new[] { Roles.Admin })]
         [Route("UpdateUser")]
         public async Task<IHttpActionResult> UpdateUser(UserModel userModel)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
             }
 
             var updateResult = await _userService.UpdateUserAsync(userModel);
 
             return updateResult.IsSuccessful ? (IHttpActionResult)Ok(userModel) : BadRequest(updateResult.Errors.First());
+        }
+
+        [HttpPost]
+        [Authorization(Roles = new[] { Roles.Admin })]
+        [Route("LockUser")]
+        public async Task<IHttpActionResult> LockUser(ShortUserModel user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
+            }
+
+            if (user.Id == AppUser.Id)
+            {
+                return BadRequest(ValidationMessages.LockHimself);
+            }
+
+            var updateResult = await _userService.ChangeUserLockStateAsync(user.Id, true);
+
+            return updateResult.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(updateResult.Errors.First());
+        }
+
+        [HttpPost]
+        [Authorization(Roles = new[] { Roles.Admin })]
+        [Route("UnlockUser")]
+        public async Task<IHttpActionResult> UnlockUser(ShortUserModel user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.SelectMany(m => m.Value.Errors).First().ErrorMessage);
+            }
+
+            var updateResult = await _userService.ChangeUserLockStateAsync(user.Id, false);
+
+            return updateResult.IsSuccessful ? (IHttpActionResult)Ok() : BadRequest(updateResult.Errors.First());
         }
 
         [Authorization(Roles = new[] { Roles.Admin })]

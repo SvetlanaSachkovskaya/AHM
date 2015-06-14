@@ -27,6 +27,7 @@ namespace AHM.DependencyInjection
             container.RegisterType<IBillPdfGenerator, BillPdfGenerator>();
             container.RegisterType<IInstructionsService, InstructionsService>();
             container.RegisterType<IJournalService, JournalService>();
+            container.RegisterType<IEmailSender, EmailSender>();
         }
 
         public static void ConfigureAuthentication(IAppBuilder app)

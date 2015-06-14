@@ -15,5 +15,7 @@ namespace AHM.BusinessLayer.Interfaces
         Task<ModifyDbStateResult> UpdateAsync(Apartment apartment, int ownerId);
 
         Task<ModifyDbStateResult> RemoveAsync(int id);
+
+        Task<bool> InUseAsync(int id);
     }
 }

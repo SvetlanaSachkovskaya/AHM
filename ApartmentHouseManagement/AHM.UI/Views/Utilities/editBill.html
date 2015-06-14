@@ -10,7 +10,7 @@
         <div ng-class="{ 'has-error' : billForm.apartment.$invalid && billForm.apartment.$dirty }" class="col-md-5">
             <label>Apartment</label>
             <select name="apartment" data-ng-model="bill.apartmentId" data-ng-options="apartment.id as apartment.name for apartment in apartments"
-                    class="form-control" required>
+                    data-ng-disabled="isEditMode" class="form-control" required>
                 <option value="">Select apartment</option>
             </select>
         </div>
@@ -18,11 +18,11 @@
         <div class="col-md-5">
             <label>Mounth</label>
             <p class="input-group">
-            <input type="text" class="form-control" datepicker-mode="'month'" datepicker-options="dateOptions" datepicker-popup="MMMM yyyy" ng-model="bill.date" is-open="opened"
-                   required close-text="Close" readonly />
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="openDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
+                <input type="text" class="form-control" datepicker-mode="'month'" datepicker-options="datePickerSettings.monthDateOptions" datepicker-popup="MMMM yyyy" ng-model="bill.date" is-open="datePickerSettings.opened"
+                       required close-text="Close" min-date="datePickerSettings.prevMonthMinDate" readonly />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" data-ng-disabled="isEditMode" data-ng-click="datePickerSettings.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
         </div>
     </div>
 
@@ -56,7 +56,7 @@
             </tr>
         </tfoot>
     </table>
-    
+
     <div class="pull-right">
         <add-button action="create()" text="Create" data-ng-hide="isEditMode"></add-button>
         <add-button action="update()" text="Save" data-ng-hide="!isEditMode"></add-button>

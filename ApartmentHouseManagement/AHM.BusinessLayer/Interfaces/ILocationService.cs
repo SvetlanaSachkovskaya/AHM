@@ -13,5 +13,7 @@ namespace AHM.BusinessLayer.Interfaces
         Task<ModifyDbStateResult> UpdateAsync(Location location);
 
         Task<ModifyDbStateResult> RemoveAsync(int id);
+
+        Task<bool> InUseAsync(int id);
     }
 }

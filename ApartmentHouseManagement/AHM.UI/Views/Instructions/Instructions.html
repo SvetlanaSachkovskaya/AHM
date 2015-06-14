@@ -2,10 +2,10 @@
     <div class="bottom-margin row filter-panel">
         <div class="col-md-6">
             <p class="input-group">
-                <input type="datetime" class="form-control" datepicker-popup="dd-MMMM-yyyy" data-ng-model="filterDate" data-ng-change="filter()" is-open="opened"
+                <input type="datetime" class="form-control" datepicker-popup="dd-MMMM-yyyy" data-ng-model="filterDate" data-ng-change="filter()" is-open="datePickerSettings.opened"
                        required close-text="Close" readonly />
                 <span class="input-group-btn">
-                    <button type="button" data-ng-click="openDatePicker($event)" class="btn btn-default">
+                    <button type="button" data-ng-click="datePickerSettings.open($event)" class="btn btn-default">
                         <i class="glyphicon glyphicon-calendar"></i>
                     </button>
                 </span>
@@ -31,7 +31,7 @@
                         closed: instruction.isClosed }"
                  class="row rounded-container">
 
-                <div data-ng-click="!instruction.isClosed ? edit(instruction.id) : false" class="col-md-8">
+                <div data-ng-click="!instruction.isClosed ? edit(instruction.id) : false">
                     <strong class="text-uppercase">{{ instruction.title }}</strong>
                     <br />
                     <br />

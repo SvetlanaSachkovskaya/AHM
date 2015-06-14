@@ -101,11 +101,32 @@ namespace AHM.BusinessLayer
             var subsidizedTotal = utilitiesItems.Sum(i => i.SubsidezedAmount);
             var totalByFullTariff = utilitiesItems.Sum(i => i.AmountByFullTariff);
 
-            var totals = new PdfPCell(new Phrase("Totals:", _middleTextBoldStyle)) { Colspan = 5 };
-            mainTable.AddCell(totals);
+            var sum = new PdfPCell(new Phrase("Sum:", _middleTextBoldStyle)) { Colspan = 5 };
+            mainTable.AddCell(sum);
             mainTable.AddCell(new PdfPCell(new Phrase(subsidizedTotal.ToString("N"), _smallTextBoldStyle)));
             mainTable.AddCell(new PdfPCell(new Phrase(totalByFullTariff.ToString("N"), _smallTextBoldStyle)));
             mainTable.AddCell(new PdfPCell(new Phrase((subsidizedTotal + totalByFullTariff).ToString("N"), _smallTextBoldStyle)));
+
+            var carryOver = new PdfPCell(new Phrase("Carry over:", _middleTextBoldStyle)) { Colspan = 5 };
+            mainTable.AddCell(carryOver);
+            mainTable.AddCell(new PdfPCell());
+            mainTable.AddCell(new PdfPCell());
+            mainTable.AddCell(new PdfPCell(new Phrase(bill.CarryOver.ToString("N"), _smallTextBoldStyle)));
+
+            var fine = new PdfPCell(new Phrase("Fine:", _middleTextBoldStyle)) { Colspan = 5 };
+            mainTable.AddCell(fine);
+            mainTable.AddCell(new PdfPCell());
+            mainTable.AddCell(new PdfPCell());
+            mainTable.AddCell(new PdfPCell(new Phrase(bill.Fine.ToString("N"), _smallTextBoldStyle)));
+
+            var totals = new PdfPCell(new Phrase("Totals:", _middleTextBoldStyle)) { Colspan = 5 };
+            mainTable.AddCell(totals);
+            mainTable.AddCell(new PdfPCell());
+            mainTable.AddCell(new PdfPCell());
+            mainTable.AddCell(
+                new PdfPCell(new Phrase(
+                    (subsidizedTotal + totalByFullTariff + bill.CarryOver + bill.Fine).ToString("N"),
+                    _smallTextBoldStyle)));
 
             pdfDocument.Add(headerTable);
             pdfDocument.Add(mainTable);

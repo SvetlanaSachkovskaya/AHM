@@ -2,7 +2,6 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using AHM.Common;
 using AHM.Common.DomainModel;
 using AHM.DataLayer.Interfaces;
 
@@ -63,6 +62,12 @@ namespace AHM.DataLayer.Repositories
                 }).ToListAsync();
 
             return users;
+        }
+
+        public async override Task<User> GetByIdAsync(int key)
+        {
+            var user = await GetQuery(u => u.Id == key, u => u.Roles).FirstOrDefaultAsync();
+            return user;
         }
     }
 }

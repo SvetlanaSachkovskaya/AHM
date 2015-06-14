@@ -17,6 +17,7 @@
                 <th>Apartment</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Active</th>
                 <th class="tools-width"></th>
             </tr>
         </thead>
@@ -32,6 +33,9 @@
                 {{ occupant.email }}
             </td>
             <td>
+                <table-gray-checkbox checked="occupant.isActive"></table-gray-checkbox>
+            </td>
+            <td>
                 <button class="btn" data-ng-click="edit(occupant)">Edit</button>
                 <delete-button action="removeOccupant(occupant)"></delete-button>
             </td>
@@ -39,7 +43,7 @@
         </tbody>
         <tfoot data-ng-hide="occupants.length > 0">
             <tr>
-                <td colspan="4" class="text-center">No items found</td>
+                <td colspan="5" class="text-center">No items found</td>
             </tr>
         </tfoot>
     </table>

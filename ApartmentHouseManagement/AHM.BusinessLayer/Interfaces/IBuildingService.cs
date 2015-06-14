@@ -15,5 +15,7 @@ namespace AHM.BusinessLayer.Interfaces
         Task<ModifyDbStateResult> UpdateAsync(Building building);
 
         Task<ModifyDbStateResult> RemoveAsync(int id);
+
+        Task<ModifyDbStateResult> UpdateUtilitiesSettingsAsync(int lastPayDay, double finePercent, int buidingId);
     }
 }

@@ -14,7 +14,8 @@
             <th>Name</th>
             <th>Username</th>
             <th>Role</th>
-            <th></th>
+            <th>Active</th>
+            <th class="tools-width"></th>
         </tr>
     </thead>
     <tbody>
@@ -29,13 +30,18 @@
                 {{ user.role }}
             </td>
             <td>
-                <button class="btn center-block" data-ng-click="edit(user.id)">Edit</button>
+                <table-gray-checkbox checked="!user.isLocked"></table-gray-checkbox>
+            </td>
+            <td>
+                <button class="btn" data-ng-click="edit(user.id)">Edit</button>
+                <button data-ng-hide="user.isLocked" class="btn btn-danger" data-ng-click="lock(user)">Lock</button>
+                <button data-ng-hide="!user.isLocked" class="btn btn-success" data-ng-click="unlock(user)">Unlock</button>
             </td>
         </tr>
     </tbody>
     <tfoot data-ng-hide="users.length > 0">
         <tr>
-            <td colspan="3" class="text-center">No items found</td>
+            <td colspan="5" class="text-center">No items found</td>
         </tr>
     </tfoot>
 </table>

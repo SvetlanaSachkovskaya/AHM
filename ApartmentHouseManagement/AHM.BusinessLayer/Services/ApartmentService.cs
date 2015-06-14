@@ -81,5 +81,14 @@ namespace AHM.BusinessLayer.Services
 
             return result;
         }
+
+        public async Task<bool> InUseAsync(int id)
+        {
+            var inUse = await UnitOfWork.GetRepository<Package>().AnyAsync(p => p.ApartmentId == id)
+                           || await UnitOfWork.GetRepository<Occupant>().AnyAsync(p => p.ApartmentId == id)
+                           || await UnitOfWork.GetRepository<Bill>().AnyAsync(p => p.ApartmentId == id);
+
+            return inUse;
+        }
     }
 }

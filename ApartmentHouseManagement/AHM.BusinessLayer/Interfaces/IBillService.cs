@@ -17,8 +17,7 @@ namespace AHM.BusinessLayer.Interfaces
 
         Task<ModifyDbStateResult> UpdateAsync(Bill bill, List<UtilitiesItem> utilitiesItems = null);
 
-        Task<ModifyDbStateResult> SendEmailAsync(Bill bill, string email, string username, string password,
-            string filePath);
+        Task<ModifyDbStateResult> SendEmailAsync(Bill bill, string filePath);
 
         Task<ModifyDbStateResult> PayBillAsync(Bill bill);
     }

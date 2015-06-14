@@ -16,8 +16,12 @@ namespace AHM.BusinessLayer.Interfaces
 
         Task<IEnumerable<UserModel>> GetAllUsersAsync();
 
+        Task<bool> UsernameExistsAsync(string username);
+
         Task<ModifyDbStateResult> AddUserAsync(User user, int roleId);
 
         Task<ModifyDbStateResult> UpdateUserAsync(UserModel userModel);
+
+        Task<ModifyDbStateResult> ChangeUserLockStateAsync(int userId, bool isLocked);
     }
 }

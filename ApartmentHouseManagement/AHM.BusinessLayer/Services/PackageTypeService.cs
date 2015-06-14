@@ -51,5 +51,11 @@ namespace AHM.BusinessLayer.Services
 
             return result;
         }
+
+        public async Task<bool> InUseAsync(int id)
+        {
+            var inUse = await UnitOfWork.GetRepository<Package>().AnyAsync(p => p.PackageTypeId == id);
+            return inUse;
+        }
     }
 }

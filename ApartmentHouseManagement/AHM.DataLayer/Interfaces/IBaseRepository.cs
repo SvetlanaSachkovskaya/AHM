@@ -28,5 +28,7 @@ namespace AHM.DataLayer.Interfaces
         void DeleteRange(IEnumerable<int> keys);
 
         Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter);
+
+        void AutoDetectChanges(bool enable);
     }
 }

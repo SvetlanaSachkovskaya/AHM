@@ -1,8 +1,6 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using AHM.BusinessLayer.Interfaces;
-using AHM.DependencyInjection;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.OAuth;
 
 namespace AHM.WebAPI.Providers
@@ -30,6 +28,12 @@ namespace AHM.WebAPI.Providers
             if (user == null)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
+            }
+
+            if (user.LockoutEnabled)
+            {
+                context.SetError("invalid_grant", "The user is locked.");
                 return;
             }
 

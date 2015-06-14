@@ -19,6 +19,7 @@
             <div class="btn-group">
                 <a data-ui-sref=".billsBoard" access="{{ roles.accountant }}" class="btn menu-btn" data-parent="#userMenu">Utilities</a>
                 <a data-ui-sref=".utilitiesClauses" access="{{ roles.accountant }}" class="btn menu-btn" data-parent="#userMenu">Clauses</a>
+                <a data-ui-sref=".utilitiesSettings" access="{{ roles.accountant }}" class="btn menu-btn" data-parent="#userMenu">Settings</a>
                 <a data-ui-sref=".packagesBoard" access="{{ roles.concierge }}" class="btn menu-btn" data-parent="#userMenu">Post</a>
                 <a data-ui-sref=".instructions" access="{{ roles.concierge + ',' +  roles.worker }}" class="btn menu-btn" data-parent="#userMenu">Instructions</a>
                 <a data-ui-sref=".journal" access="{{ roles.concierge + ',' +  roles.manager}}" class="btn menu-btn" data-parent="#userMenu">Journal</a>
@@ -46,17 +47,15 @@
                 <img data-ng-src="Content/images/plus.png" class="plus-image" />
             </div>
             <div class="col-md-11">
-                <a data-ui-sref=".editBill" access="{{ roles.accountant }}" class="btn">Bill</a>
+                <a data-ui-sref=".createBill" access="{{ roles.accountant }}" class="btn">Bill</a>
                 <a data-ui-sref=".createPackage" access="{{ roles.concierge }}" class="btn">Package</a>
                 <a data-ui-sref=".createInstruction" access="{{ roles.concierge + ',' +  roles.worker }}" class="btn">Instruction</a>
                 <a data-ui-sref=".createEvent" access="{{ roles.concierge }}" class="btn">Event</a>
-                <a data-ui-sref=".editUtilitiesClause" access="{{ roles.accountant }}" class="btn">Clause</a>
-                <a data-ui-sref=".editApartment" access="{{ roles.manager }}" class="btn">Apartment</a>
+                <a data-ui-sref=".createUtilitiesClause" access="{{ roles.accountant }}" class="btn">Clause</a>
+                <a data-ui-sref=".createApartment" access="{{ roles.manager }}" class="btn">Apartment</a>
                 <a data-ui-sref=".createOccupant" access="{{ roles.manager }}" class="btn">Occupant</a>
-                <a data-ui-sref=".editBuilding" access="{{ roles.admin }}" class="btn">Building</a>
-                <a data-ui-sref=".editUser" access="{{ roles.admin }}" class="btn">User</a>
-                <!--<a class="btn">Package Type</a>
-            <a class="btn">Location</a>-->
+                <a data-ui-sref=".createBuilding" access="{{ roles.admin }}" class="btn">Building</a>
+                <a data-ui-sref=".createUser" access="{{ roles.admin }}" class="btn">User</a>
             </div>
         </div>
         <div class="row">

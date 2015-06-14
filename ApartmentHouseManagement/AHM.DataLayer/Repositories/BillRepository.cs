@@ -40,7 +40,7 @@ namespace AHM.DataLayer.Repositories
 
         public void DeleteOldUtilitiesItems(IEnumerable<UtilitiesItem> newUtilitiesItems, int billId)
         {
-            var utilitiesItemsBeforeUpdate = Context.UtilitiesItems.Where(i => i.BillId == billId).ToList();
+            var utilitiesItemsBeforeUpdate = Context.UtilitiesItems.AsNoTracking().Where(i => i.BillId == billId).ToList();
             var removedUtilitiesItems =
                 utilitiesItemsBeforeUpdate.Where(i => newUtilitiesItems.FirstOrDefault(it => it.Id == i.Id) == null);
 
