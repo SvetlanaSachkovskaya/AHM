@@ -223,7 +223,7 @@ app.config(function ($stateProvider, $urlRouterProvider, roles, pages) {
 app.run(['$rootScope', '$state', 'authenticationService', 'roles', 'pages',
     function ($rootScope, $state, authenticationService, roles, pages) {
         $rootScope.$on('$stateChangeStart', function (event, to) {
-            if ((!authenticationService.authentication.isAuthenticated)) {
+            if ((!authenticationService.authentication.isAuthenticated) && to.name !== pages.login) {
                 $state.go(pages.login);
                 event.preventDefault();
                 return;
